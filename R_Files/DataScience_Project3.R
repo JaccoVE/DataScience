@@ -6,32 +6,54 @@ library(dplyr)
 library(lubridate)
 library(xml2)
 
-# Load data
-meta_data_main <- read.csv(file = "C:/Users/Duncan/Desktop/Studie/18-19 1A/Data Science/Project/R/utwente snelheden groot amsterdam  1 dag met metadata_snelheid_00001.csv", nrows = 10)
-data_main <- read.csv(file = "C:/Users/Duncan/Desktop/Studie/18-19 1A/Data Science/Project/R/utwente snelheden groot amsterdam _snelheid_00001.csv", nrows = 10)
+# Load meta data
+meta_data_main <- read.csv(file = "D:/DataScienceData/Data/NDW/utwente snelheden groot amsterdam 1 dag met metadata 20160916T105028 197/utwente snelheden groot amsterdam  1 dag met metadata_snelheid_00001.csv", nrows = 10000)
 
-# Select data
-data_select <- data_main %>%
+# Select required columns from meta data
+meta_data_main <- meta_data_main %>%
+  select(
+      "measurementSiteReference",
+      "measurementSiteVersion",
+      "index",
+      "computationMethod",
+      "measurementSiteName1",
+      "measurementSiteNumberOfLanes",
+      "measurementSide",
+      "specificLane",
+      "specificVehicleCharacteristics",
+      "startLocatieForDisplayLat",
+      "startLocatieForDisplayLong",
+      "specificLocation") %>%
+  arrange(
+      "measurementSiteReference",
+      "index") %>%
+  group_by(
+      "measurementSiteReference",
+      "index") %>%
+  distinct() %>%
+  ungroup() %>%
+
+# Load data
+data_main <- read.csv(file = "D:/DataScienceData/Data/NDW/utwente snelheden groot amsterdam/utwente snelheden groot amsterdam _snelheid_00001.csv", nrows = 10000)
+
+# Select required columns from data
+data_main <- data_main %>%
   select("measurementSiteReference",
          "index",
          "periodStart",
          "periodEnd",
+         "numberOfIncompleteInputs",
          "avgVehicleSpeed",
-         "publicationTime",
-         "generatedSiteName")
+         "generatedSiteName"
+  )
 
-# Find bridge not bombarded in WW2 a.k.a best bridges in the fucking Netherlands (heil hitler)
+# Join meta data and data
+data_main <- data_main %>%
+  full_join(meta_data_main, by = c("prod_name" = "name",
+                            "prod_category" = "category",
+                            "prod_subcategory" = "subcategory")) %>%
+  select( -prod_name, 
+          -prod_category, 
+          -prod_subcategory)
 
-# Read file names
-loc_files <- "C:\\Users\\Duncan\\Desktop\\Studie\\18-19 1A\\Data Science\\Project\\R\\20160601"
-list_files <- list.files(loc_files)
-
-# Open file
-loc_xml = paste(loc_files,"\\", list_files[3], sep = "", collapse = NULL)
-xml <- read_xml(loc_xml)
-xml_root <- xmlRoot(xml)
-print(xml_attr(xml, "exchange"))
-
-# Scan for elements
-# Save content elements
 
