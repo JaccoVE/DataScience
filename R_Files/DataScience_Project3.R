@@ -11,6 +11,8 @@ library(gtools)
 
 # --------------------------------------------------
 # Settings -----------------------------------------
+# Number of Threads to use when reading files from disk
+num_threads <- 2
 
 # Folder Locations
 f_main <- "/media/jacco/HDD/DataScienceData/Data/NDW/"
@@ -27,23 +29,23 @@ gc()
 
 # Load meta data intensity
 csv_intensity_meta <- data.table::fread(file = paste(f_main, f_intensity_meta, sep="", collapse=NULL),
-                                        nThread = getDTthreads())
+                                        nThread = num_threads)
 
 # Load meta data speed
 csv_speed_meta <- data.table::fread(file = paste(f_main, f_speed_meta, sep="", collapse=NULL),
-                                    nThread = getDTthreads())
+                                    nThread = num_threads)
 
 # --------------------------------------------------
 # Load data ----------------------------------------
 
 # Load data of one day intensity (nrows=8176606)
 csv_intensity <- data.table::fread(file = paste(f_main, f_intensity, "01.csv", sep="", collapse=NULL),
-                                   nThread = getDTthreads())#,
+                                   nThread = num_threads)#,
 #                                    nrows = dim(csv_intensity_meta)[1])
 
 # Load data of one day speed (nrows=7898604)
 csv_speed <- data.table::fread(file = paste(f_main, f_speed, "01.csv", sep="", collapse=NULL),
-                               nThread = getDTthreads())#,
+                               nThread = num_threads)#,
 #                                nrows = dim(csv_speed_meta)[1])
 
 # --------------------------------------------------
@@ -54,6 +56,8 @@ data_intensity_meta <- csv_intensity_meta %>%
   select(
     "measurementSiteReference",
     "index",
+    "numberOfInputValuesUsed",
+    "numberOfIncompleteInputs",
     "generatedSiteName",
     "periodStart",
     "periodEnd",
@@ -74,6 +78,8 @@ data_speed_meta <- csv_speed_meta %>%
   select(
     "measurementSiteReference",
     "index",
+    "numberOfInputValuesUsed",
+    "numberOfIncompleteInputs",
     "generatedSiteName",
     "periodStart",
     "periodEnd",
@@ -95,6 +101,8 @@ data_intensity <- csv_intensity %>%
   select(
     "measurementSiteReference",
     "index",
+    "numberOfInputValuesUsed",
+    "numberOfIncompleteInputs",
     "generatedSiteName",
     "periodStart",
     "periodEnd",
@@ -104,6 +112,8 @@ data_intensity <- csv_intensity %>%
   rename(
     meas_site_ref = "measurementSiteReference",
     ind = "index",
+    num_in_use = "numberOfInputValuesUsed",
+    num_in_in = "numberOfIncompleteInputs",
     gen_site_name = "generatedSiteName",
     per_start = "periodStart",
     per_end = "periodEnd",
@@ -120,6 +130,8 @@ data_speed <- csv_speed %>%
   select(
     "measurementSiteReference",
     "index",
+    "numberOfInputValuesUsed",
+    "numberOfIncompleteInputs",
     "generatedSiteName",
     "periodStart",
     "periodEnd",
@@ -129,6 +141,8 @@ data_speed <- csv_speed %>%
   rename(
     meas_site_ref = "measurementSiteReference",
     ind = "index",
+    num_in_use = "numberOfInputValuesUsed",
+    num_in_in = "numberOfIncompleteInputs",
     gen_site_name = "generatedSiteName",
     per_start = "periodStart",
     per_end = "periodEnd",
@@ -150,6 +164,8 @@ data_com_intensity <- data_intensity_meta %>%
     by = c(
       "measurementSiteReference" = "meas_site_ref",
       "index" = "ind",
+      "numberOfInputValuesUsed" = "num_in_use",
+      "numberOfIncompleteInputs" = "num_in_in",
       "generatedSiteName" = "gen_site_name",
       "periodStart" = "per_start",
       "periodEnd" = "per_end")) %>%
@@ -164,6 +180,8 @@ data_com_speed <- data_speed_meta %>%
     by = c(
       "measurementSiteReference" = "meas_site_ref",
       "index" = "ind",
+      "numberOfInputValuesUsed" = "num_in_use",
+      "numberOfIncompleteInputs" = "num_in_in",
       "generatedSiteName" = "gen_site_name",
       "periodStart" = "per_start",
       "periodEnd" = "per_end")) %>%
