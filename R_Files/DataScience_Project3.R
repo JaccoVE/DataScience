@@ -7,7 +7,7 @@ library(lubridate)
 library(xml2)
 library(data.table)
 library(gtools)
-library(parallel)
+#library(parallel)
 
 # --------------------------------------------------
 # Settings -----------------------------------------
@@ -24,50 +24,229 @@ f_speed <- "utwente snelheden groot amsterdam/utwente snelheden groot amsterdam 
 # --------------------------------------------------
 # Load meta data -----------------------------------
 
+# Collect garbage
+gc()
+
 # Load meta data intensity
-data_intensity_meta <- data.table::fread(file = paste(f_main, f_intensity_meta, sep="", collapse=NULL),
-                                    nThread = getDTthreads())
+csv_intensity_meta <- data.table::fread(file = paste(f_main, f_intensity_meta, sep="", collapse=NULL),
+                                        nTread = getDTthreads())
 
 # Load meta data travel time
-data_time_meta <- data.table::fread(file = paste(f_main, f_time_meta, sep="", collapse=NULL),
-                                          nThread = getDTthreads())
+csv_time_meta <- data.table::fread(file = paste(f_main, f_time_meta, sep="", collapse=NULL),
+                                   nTread = getDTthreads())
+
+# remove duplicated columns
+csv_time_meta <- csv_time_meta[,unique(names(csv_time_meta)),with=FALSE]
 
 # Load meta data speed
-data_speed_meta <- data.table::fread(file = paste(f_main, f_speed_meta, sep="", collapse=NULL),
-                                          nThread = getDTthreads())
+csv_speed_meta <- data.table::fread(file = paste(f_main, f_speed_meta, sep="", collapse=NULL),
+                                    nTread = getDTthreads())
 
 # --------------------------------------------------
 # Load data ----------------------------------------
 
 # Load data of one day intensity (nrows=8176606)
-data_intensity <- data.table::fread(file = paste(f_main, f_intensity, "01.csv", sep="", collapse=NULL),
-                               nThread = getDTthreads())
+csv_intensity <- data.table::fread(file = paste(f_main, f_intensity, "01.csv", sep="", collapse=NULL),
+                                   nTread = getDTthreads())#,
+#                                    nrows = dim(csv_intensity_meta)[1])
 
 # Load data of one day travel time (nrows=1207547)
-data_time <- data.table::fread(file = paste(f_main, f_time, "01.csv", sep="", collapse=NULL),
-                                     nThread = getDTthreads())
+csv_time <- data.table::fread(file = paste(f_main, f_time, "01.csv", sep="", collapse=NULL),
+                              nTread = getDTthreads())#,
+#                               nrows = dim(csv_time_meta)[1])
 
 # Load data of one day speed (nrows=7898604)
-data_speed <- data.table::fread(file = paste(f_main, f_speed, "01.csv", sep="", collapse=NULL),
-                                     nThread = getDTthreads())
+csv_speed <- data.table::fread(file = paste(f_main, f_speed, "01.csv", sep="", collapse=NULL),
+                               nTread = getDTthreads())#,
+#                                nrows = dim(csv_speed_meta)[1])
 
 # --------------------------------------------------
 # Select required data -----------------------------
 
-# Generate msiteUniqueInfo table
-msiteUniqueInfo <- data_intensity_meta %>%
+# Select meta data
+data_intensity_meta <- csv_intensity_meta %>%
   select(
     "measurementSiteReference",
+    "index",
     "generatedSiteName",
+    "periodStart",
+    "periodEnd",
     "startLocatieForDisplayLat",
     "startLocatieForDisplayLong",
     "specificLocation",
-    "alertCDirectionCoded") %>%
+    "alertCDirectionCoded",
+    "avgVehicleFlow",
+    "avgVehicleSpeed",
+    "avgTravelTime") %>%
   arrange(measurementSiteReference) %>%
   group_by(
     measurementSiteReference) %>%
   distinct() %>%
   ungroup()
+
+data_time_meta <- csv_time_meta %>%
+  select(
+    "measurementSiteReference",
+    "index",
+    "generatedSiteName",
+    "periodStart",
+    "periodEnd",
+    "startLocatieForDisplayLat",
+    "startLocatieForDisplayLong",
+    "specificLocation",
+    "alertCDirectionCoded",
+    "avgVehicleFlow",
+    "avgVehicleSpeed",
+    "avgTravelTime") %>%
+  arrange(measurementSiteReference) %>%
+  group_by(
+    measurementSiteReference) %>%
+  distinct() %>%
+  ungroup()
+
+data_speed_meta <- csv_speed_meta %>%
+  select(
+    "measurementSiteReference",
+    "index",
+    "generatedSiteName",
+    "periodStart",
+    "periodEnd",
+    "startLocatieForDisplayLat",
+    "startLocatieForDisplayLong",
+    "specificLocation",
+    "alertCDirectionCoded",
+    "avgVehicleFlow",
+    "avgVehicleSpeed",
+    "avgTravelTime") %>%
+  arrange(measurementSiteReference) %>%
+  group_by(
+    measurementSiteReference) %>%
+  distinct() %>%
+  ungroup()
+
+# Select data
+data_intensity <- csv_intensity %>%
+  select(
+    "measurementSiteReference",
+    "index",
+    "generatedSiteName",
+    "periodStart",
+    "periodEnd",
+    "avgVehicleFlow",
+    "avgVehicleSpeed",
+    "avgTravelTime") %>%
+  rename(
+    meas_site_ref = "measurementSiteReference",
+    ind = "index",
+    gen_site_name = "generatedSiteName",
+    per_start = "periodStart",
+    per_end = "periodEnd",
+    avg_flow = "avgVehicleFlow",
+    avg_speed = "avgVehicleSpeed",
+    avg_time = "avgTravelTime") %>%
+  arrange(meas_site_ref) %>%
+  group_by(
+    meas_site_ref) %>%
+  distinct() %>%
+  ungroup()
+
+data_time <- csv_time %>%
+  select(
+    "measurementSiteReference",
+    "index",
+    "generatedSiteName",
+    "periodStart",
+    "periodEnd",
+    "avgVehicleFlow",
+    "avgVehicleSpeed",
+    "avgTravelTime") %>%
+  rename(
+    meas_site_ref = "measurementSiteReference",
+    ind = "index",
+    gen_site_name = "generatedSiteName",
+    per_start = "periodStart",
+    per_end = "periodEnd",
+    avg_flow = "avgVehicleFlow",
+    avg_speed = "avgVehicleSpeed",
+    avg_time = "avgTravelTime") %>%
+  arrange(meas_site_ref) %>%
+  group_by(
+    meas_site_ref) %>%
+  distinct() %>%
+  ungroup()
+
+data_speed <- csv_speed %>%
+  select(
+    "measurementSiteReference",
+    "index",
+    "generatedSiteName",
+    "periodStart",
+    "periodEnd",
+    "avgVehicleFlow",
+    "avgVehicleSpeed",
+    "avgTravelTime") %>%
+  rename(
+    meas_site_ref = "measurementSiteReference",
+    ind = "index",
+    gen_site_name = "generatedSiteName",
+    per_start = "periodStart",
+    per_end = "periodEnd",
+    avg_flow = "avgVehicleFlow",
+    avg_speed = "avgVehicleSpeed",
+    avg_time = "avgTravelTime") %>%
+  arrange(meas_site_ref) %>%
+  group_by(
+    meas_site_ref) %>%
+  distinct() %>%
+  ungroup()
+
+# --------------------------------------------------
+# Combine data with meta data ----------------------
+
+data_com_intensity <- data_intensity_meta %>%
+  full_join(
+    data_intensity, 
+    by = c(
+      "measurementSiteReference" = "meas_site_ref",
+      "index" = "ind",
+      "generatedSiteName" = "gen_site_name",
+      "periodStart" = "per_start",
+      "periodEnd" = "per_end")) %>%
+  select( 
+    -avg_flow, 
+    -avg_speed, 
+    -avg_time)
+
+data_com_time <- data_time_meta %>%
+  full_join(
+    data_time, 
+    by = c(
+      "measurementSiteReference" = "meas_site_ref",
+      "index" = "ind",
+      "generatedSiteName" = "gen_site_name",
+      "periodStart" = "per_start",
+      "periodEnd" = "per_end")) %>%
+  select( 
+    -avg_flow, 
+    -avg_speed, 
+    -avg_time)
+
+data_com_speed <- data_speed_meta %>%
+  full_join(
+    data_speed, 
+    by = c(
+      "measurementSiteReference" = "meas_site_ref",
+      "index" = "ind",
+      "generatedSiteName" = "gen_site_name",
+      "periodStart" = "per_start",
+      "periodEnd" = "per_end")) %>%
+  select( 
+    -avg_flow, 
+    -avg_speed, 
+    -avg_time)
+
+# --------------------------------------------------
+# Other tables -------------------------------------
 
 # Generate index table
 indexUniqueInfo <- data_intensity_meta %>%
@@ -75,28 +254,11 @@ indexUniqueInfo <- data_intensity_meta %>%
          "specificLane",
          "specificVehicleCharacteristics") %>%
   arrange(
-        index) %>%
+    index) %>%
   group_by(
-        index) %>%
+    index) %>%
   distinct() %>%
   ungroup()
-
-# --------------------------------------------------
-# Combine data -------------------------------------
-
-# Join meta data and data
-data_main <- data_intensity %>%
-  full_join(data_speed, by = c("prod_name" = "name",
-                               "prod_category" = "category",
-                               "prod_subcategory" = "subcategory")) %>%
-  select( -prod_name, 
-          -prod_category, 
-          -prod_subcategory)
-
-
-
-
-
 
 
 # Tableau table for Duncan-chan witch coordinates
