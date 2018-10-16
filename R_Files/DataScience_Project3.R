@@ -12,10 +12,11 @@ library(gtools)
 # --------------------------------------------------
 # Settings -----------------------------------------
 # Number of Threads to use when reading files from disk
-num_threads <- 2
+num_threads <- 24
 
 # Folder Locations
-f_main <- "/media/jacco/HDD/DataScienceData/Data/NDW/"
+#f_main <- "/media/jacco/HDD/DataScienceData/Data/NDW/"
+f_main <- "/home/jacco/Documents/DataScienceData/Data/NDW/"
 f_intensity_meta <- "utwente intensiteiten groot amsterdam 1 dag met metadata (2) 20160916T104708 197/utwente intensiteiten groot amsterdam  1 dag met metadata (2)_intensiteit_00001.csv"
 f_intensity <- "utwente intensiteiten groot amsterdam/utwente intensiteiten groot amsterdam _intensiteit_000"
 f_speed_meta <- "utwente snelheden groot amsterdam 1 dag met metadata 20160916T105028 197/utwente snelheden groot amsterdam  1 dag met metadata_snelheid_00001.csv"
@@ -56,7 +57,7 @@ data_intensity_meta <- csv_intensity_meta %>%
   select(
     "measurementSiteReference",
     "index",
-    "numberOfInputValuesUsed",
+    "numberOfInputValuesused",
     "numberOfIncompleteInputs",
     "generatedSiteName",
     "periodStart",
@@ -66,8 +67,7 @@ data_intensity_meta <- csv_intensity_meta %>%
     "specificLocation",
     "alertCDirectionCoded",
     "avgVehicleFlow",
-    "avgVehicleSpeed",
-    "avgTravelTime") %>%
+    "avgVehicleSpeed") %>%
   arrange(measurementSiteReference) %>%
   group_by(
     measurementSiteReference) %>%
@@ -78,7 +78,7 @@ data_speed_meta <- csv_speed_meta %>%
   select(
     "measurementSiteReference",
     "index",
-    "numberOfInputValuesUsed",
+    "numberOfInputValuesused",
     "numberOfIncompleteInputs",
     "generatedSiteName",
     "periodStart",
@@ -88,8 +88,7 @@ data_speed_meta <- csv_speed_meta %>%
     "specificLocation",
     "alertCDirectionCoded",
     "avgVehicleFlow",
-    "avgVehicleSpeed",
-    "avgTravelTime") %>%
+    "avgVehicleSpeed") %>%
   arrange(measurementSiteReference) %>%
   group_by(
     measurementSiteReference) %>%
@@ -101,25 +100,23 @@ data_intensity <- csv_intensity %>%
   select(
     "measurementSiteReference",
     "index",
-    "numberOfInputValuesUsed",
+    "numberOfInputValuesused",
     "numberOfIncompleteInputs",
     "generatedSiteName",
     "periodStart",
     "periodEnd",
     "avgVehicleFlow",
-    "avgVehicleSpeed",
-    "avgTravelTime") %>%
+    "avgVehicleSpeed") %>%
   rename(
     meas_site_ref = "measurementSiteReference",
     ind = "index",
-    num_in_use = "numberOfInputValuesUsed",
+    num_in_use = "numberOfInputValuesused",
     num_in_in = "numberOfIncompleteInputs",
     gen_site_name = "generatedSiteName",
     per_start = "periodStart",
     per_end = "periodEnd",
     avg_flow = "avgVehicleFlow",
-    avg_speed = "avgVehicleSpeed",
-    avg_time = "avgTravelTime") %>%
+    avg_speed = "avgVehicleSpeed") %>%
   arrange(meas_site_ref) %>%
   group_by(
     meas_site_ref) %>%
@@ -130,25 +127,23 @@ data_speed <- csv_speed %>%
   select(
     "measurementSiteReference",
     "index",
-    "numberOfInputValuesUsed",
+    "numberOfInputValuesused",
     "numberOfIncompleteInputs",
     "generatedSiteName",
     "periodStart",
     "periodEnd",
     "avgVehicleFlow",
-    "avgVehicleSpeed",
-    "avgTravelTime") %>%
+    "avgVehicleSpeed") %>%
   rename(
     meas_site_ref = "measurementSiteReference",
     ind = "index",
-    num_in_use = "numberOfInputValuesUsed",
+    num_in_use = "numberOfInputValuesused",
     num_in_in = "numberOfIncompleteInputs",
     gen_site_name = "generatedSiteName",
     per_start = "periodStart",
     per_end = "periodEnd",
     avg_flow = "avgVehicleFlow",
-    avg_speed = "avgVehicleSpeed",
-    avg_time = "avgTravelTime") %>%
+    avg_speed = "avgVehicleSpeed") %>%
   arrange(meas_site_ref) %>%
   group_by(
     meas_site_ref) %>%
@@ -164,15 +159,14 @@ data_com_intensity <- data_intensity_meta %>%
     by = c(
       "measurementSiteReference" = "meas_site_ref",
       "index" = "ind",
-      "numberOfInputValuesUsed" = "num_in_use",
+      "numberOfInputValuesused" = "num_in_use",
       "numberOfIncompleteInputs" = "num_in_in",
       "generatedSiteName" = "gen_site_name",
       "periodStart" = "per_start",
       "periodEnd" = "per_end")) %>%
   select( 
-    -avg_flow, 
-    -avg_speed, 
-    -avg_time)
+    -avgVehicleFlow, 
+    -avgVehicleSpeed)
 
 data_com_speed <- data_speed_meta %>%
   full_join(
@@ -180,15 +174,22 @@ data_com_speed <- data_speed_meta %>%
     by = c(
       "measurementSiteReference" = "meas_site_ref",
       "index" = "ind",
-      "numberOfInputValuesUsed" = "num_in_use",
+      "numberOfInputValuesused" = "num_in_use",
       "numberOfIncompleteInputs" = "num_in_in",
       "generatedSiteName" = "gen_site_name",
       "periodStart" = "per_start",
       "periodEnd" = "per_end")) %>%
   select( 
-    -avg_flow, 
-    -avg_speed, 
-    -avg_time)
+    -avgVehicleFlow, 
+    -avgVehicleSpeed)
+
+# --------------------------------------------------
+# Remove unuseful rows ----------------------------- 
+
+# Remove all rows that contain NA's for flow or speed
+data_com_intensity <- data_com_intensity[!is.na(data_com_intensity$avg_flow),]
+data_com_speed <- data_com_speed[!is.na(data_com_speed$avg_speed),]
+
 
 # --------------------------------------------------
 # Other tables -------------------------------------
