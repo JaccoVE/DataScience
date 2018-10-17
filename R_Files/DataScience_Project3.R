@@ -21,6 +21,7 @@ f_intensity_meta <- "utwente intensiteiten groot amsterdam 1 dag met metadata (2
 f_intensity <- "utwente intensiteiten groot amsterdam/utwente intensiteiten groot amsterdam _intensiteit_000"
 f_speed_meta <- "utwente snelheden groot amsterdam 1 dag met metadata 20160916T105028 197/utwente snelheden groot amsterdam  1 dag met metadata_snelheid_00001.csv"
 f_speed <- "utwente snelheden groot amsterdam/utwente snelheden groot amsterdam _snelheid_000"
+f_output <- "/home/jacco/Documents/Git/DataScience/Tableau Input Files/"
 
 # --------------------------------------------------
 # Load meta data -----------------------------------
@@ -40,25 +41,53 @@ csv_speed_meta <- data.table::fread(file = paste(f_main, f_speed_meta, sep="", c
 # Load data ----------------------------------------
 
 # Load data of one day intensity (nrows=8176606)
-csv_intensity <- data.table::fread(file = paste(f_main, f_intensity, "02.csv", sep="", collapse=NULL),
-                                   nrows = 10000,
+csv_intensity <- data.table::fread(file = paste(f_main, f_intensity, "01.csv", sep="", collapse=NULL),
+#                                   nrows = 10000,
                                    nThread = num_threads)#,
 #                                    nrows = dim(csv_intensity_meta)[1])
 
 # Load data of one day speed (nrows=7898604)
-csv_speed <- data.table::fread(file = paste(f_main, f_speed, "02.csv", sep="", collapse=NULL),
-                               nrows = 10000,
+csv_speed <- data.table::fread(file = paste(f_main, f_speed, "01.csv", sep="", collapse=NULL),
+#                               nrows = 10000,
                                nThread = num_threads)#,
 #                                nrows = dim(csv_speed_meta)[1])
 
 # --------------------------------------------------
 # Select required data -----------------------------
 
+# Tableau table for Duncan-chan witch coordinates
+coordinates <- csv_intensity_meta %>%
+  select("startLocatieForDisplayLat",
+         "startLocatieForDisplayLong",
+         "ROADNUMBER") %>%
+  arrange(
+    startLocatieForDisplayLat) %>%
+  group_by(
+    startLocatieForDisplayLat) %>%
+  distinct() %>%
+  ungroup() %>%
+  mutate(
+    intensity_id = row_number())
+
+coordinates <- csv_speed_meta %>%
+  select("startLocatieForDisplayLat",
+         "startLocatieForDisplayLong",
+         "ROADNUMBER") %>%
+  arrange(
+    startLocatieForDisplayLat) %>%
+  group_by(
+    startLocatieForDisplayLat) %>%
+  distinct() %>%
+  ungroup() %>%
+  mutate(
+    speed_id = row_number())
+
+data.table::fwrite(coordinates, file = paste(f_output, "coordinates.csv", sep="", collapse=NULL))
+
 # Select meta data
 data_intensity_meta <- csv_intensity_meta %>%
   select(
     "measurementSiteReference",
-    "index",
     "generatedSiteName",
     "startLocatieForDisplayLat",
     "startLocatieForDisplayLong",
@@ -66,11 +95,9 @@ data_intensity_meta <- csv_intensity_meta %>%
     "alertCDirectionCoded",
     "ROADNUMBER") %>%
   arrange(
-    measurementSiteReference,
-    index) %>%
+    measurementSiteReference) %>%
   group_by(
-    measurementSiteReference,
-    index) %>%
+    measurementSiteReference) %>%
   distinct() %>%
   ungroup() %>%
   mutate(
@@ -79,7 +106,6 @@ data_intensity_meta <- csv_intensity_meta %>%
 data_speed_meta <- csv_speed_meta %>%
   select(
     "measurementSiteReference",
-    "index",
     "generatedSiteName",
     "startLocatieForDisplayLat",
     "startLocatieForDisplayLong",
@@ -87,11 +113,9 @@ data_speed_meta <- csv_speed_meta %>%
     "alertCDirectionCoded",
     "ROADNUMBER") %>%
   arrange(
-    measurementSiteReference,
-    index) %>%
+    measurementSiteReference) %>%
   group_by(
-    measurementSiteReference,
-    index) %>%
+    measurementSiteReference) %>%
   distinct() %>%
   ungroup() %>%
   mutate(
@@ -155,8 +179,7 @@ data_com_intensity <- data_intensity %>%
     by = c(
       "meas_site_ref" = "measurementSiteReference",
       "ind" = "index",
-      "gen_site_name" = "generatedSiteName"
-      )) %>%
+      "gen_site_name" = "generatedSiteName")) %>%
   select( 
     -meas_site_ref, 
     -ind,
@@ -164,11 +187,12 @@ data_com_intensity <- data_intensity %>%
     -startLocatieForDisplayLat,
     -startLocatieForDisplayLong,
     -specificLocation,
-    -alertCDirectionCoded)
+    -alertCDirectionCoded,
+    -ROADNUMBER)
 
-data_com_speed <- data_speed_meta %>%
+data_com_speed <- data_speed %>%
   full_join(
-    data_intensity_meta, 
+    data_speed_meta, 
     by = c(
       "meas_site_ref" = "measurementSiteReference",
       "ind" = "index",
@@ -176,19 +200,67 @@ data_com_speed <- data_speed_meta %>%
   select( 
     -meas_site_ref, 
     -ind,
-    -gen_site_name)
+    -gen_site_name,
+    -startLocatieForDisplayLat,
+    -startLocatieForDisplayLong,
+    -specificLocation,
+    -alertCDirectionCoded,
+    -ROADNUMBER)
 
 # --------------------------------------------------
-# Remove unuseful rows ----------------------------- 
+# Remove unuseful rows -----------------------------
+
+# Collect garbage
+gc()
 
 # Remove all rows that contain NA's for flow or speed
 data_com_intensity <- data_com_intensity[!is.na(data_com_intensity$avg_flow),]
 data_com_speed <- data_com_speed[!is.na(data_com_speed$avg_speed),]
 
-# Remove all rows that contain NA's for the coordinates
-data_com_intensity <- data_com_intensity[!is.na(data_com_intensity$startLocatieForDisplayLat),]
-data_com_speed <- data_com_speed[!is.na(data_com_speed$startLocatieForDisplayLat),]
+# Remove all rows that contain 0's for flow and do not have 0's for numberOfIncompleteInputs
+data_com_intensity <- data_com_intensity[!(
+  identical(data_com_intensity$avg_flow, as.numeric(0)) && 
+  identical(data_com_intensity$num_in_in, as.numberic(0))),]
 
+# Remove all rows that contain -1's for speed and do not have 0's for numberOfInputValuesUsed and numberOfIncompleteInputs
+data_com_speed <- data_com_speed[!(
+  identical(data_com_intensity$avg_speed, as.numeric(-1)) && 
+  identical(data_com_intensity$num_in_use, as.numberic(0)) &&
+  identical(data_com_intensity$num_in_in, as.numberic(0))),]
+
+# Collect garbage
+gc()
+
+# --------------------------------------------------
+# Remove unuseful columns --------------------------
+
+data_com_intensity <- data_com_intensity %>%
+  select( 
+    -num_in_use,
+    -num_in_in)
+
+data_com_speed <- data_com_speed %>%
+  select( 
+    -num_in_use,
+    -num_in_in)
+
+# --------------------------------------------------
+# Replace -1 and 0 by "no traffic" -----------------
+
+
+# --------------------------------------------------
+# Save to file -------------------------------------
+
+# Save to file
+data.table::fwrite(
+  data_com_intensity,
+  nThread = num_threads,
+  file = paste(f_output, "data_com_intensity.csv", sep="", collapse=NULL))
+
+data.table::fwrite(
+  data_com_speed, 
+  nThread = num_threads,
+  file = paste(f_output, "data_com_speed.csv", sep="", collapse=NULL))
 
 # --------------------------------------------------
 # Other tables -------------------------------------
@@ -206,15 +278,3 @@ indexUniqueInfo <- data_intensity_meta %>%
   ungroup()
 
 
-# Tableau table for Duncan-chan witch coordinates
-coordinates <- data_intensity_meta %>%
-  select("startLocatieForDisplayLat",
-         "startLocatieForDisplayLong") %>%
-  arrange(
-    startLocatieForDisplayLat) %>%
-  group_by(
-    startLocatieForDisplayLat) %>%
-  distinct() %>%
-  ungroup()
-
-data.table::fwrite(coordinates, file = "coordinates.csv")
