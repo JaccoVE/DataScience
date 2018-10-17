@@ -56,7 +56,7 @@ csv_speed <- data.table::fread(file = paste(f_main, f_speed, "01.csv", sep="", c
 # Select required data -----------------------------
 
 # Tableau table for Duncan-chan witch coordinates
-coordinates <- csv_intensity_meta %>%
+coordinates_intensity <- csv_intensity_meta %>%
   select("startLocatieForDisplayLat",
          "startLocatieForDisplayLong",
          "ROADNUMBER") %>%
@@ -67,9 +67,9 @@ coordinates <- csv_intensity_meta %>%
   distinct() %>%
   ungroup() %>%
   mutate(
-    intensity_id = row_number())
+    cor_id = row_number())
 
-coordinates <- csv_speed_meta %>%
+coordinates_speed <- csv_speed_meta %>%
   select("startLocatieForDisplayLat",
          "startLocatieForDisplayLong",
          "ROADNUMBER") %>%
@@ -80,9 +80,10 @@ coordinates <- csv_speed_meta %>%
   distinct() %>%
   ungroup() %>%
   mutate(
-    speed_id = row_number())
+    cor_id = row_number())
 
-data.table::fwrite(coordinates, file = paste(f_output, "coordinates.csv", sep="", collapse=NULL))
+data.table::fwrite(coordinates_intensity, file = paste(f_output, "coordinates_intensity.csv", sep="", collapse=NULL))
+data.table::fwrite(coordinates_speed, file = paste(f_output, "coordinates_speed.csv", sep="", collapse=NULL))
 
 # Select meta data
 data_intensity_meta <- csv_intensity_meta %>%
