@@ -11,8 +11,12 @@ library(gtools)
 
 # --------------------------------------------------
 # Settings -----------------------------------------
+
 # Number of Threads to use when reading files from disk
 num_threads <- 24
+
+# Seperated for csv save
+sep_symbol = ","
 
 # Folder Locations
 #f_main <- "/media/jacco/HDD/DataScienceData/Data/NDW/"
@@ -82,8 +86,15 @@ coordinates_speed <- csv_speed_meta %>%
   mutate(
     cor_id = row_number())
 
-data.table::fwrite(coordinates_intensity, file = paste(f_output, "coordinates_intensity.csv", sep="", collapse=NULL))
-data.table::fwrite(coordinates_speed, file = paste(f_output, "coordinates_speed.csv", sep="", collapse=NULL))
+data.table::fwrite(coordinates_intensity,
+                   nThread = num_threads,
+                   file = paste(f_output, "coordinates_intensity.csv", sep="", collapse=NULL),
+                   sep = sep_symbol)
+
+data.table::fwrite(coordinates_speed,
+                   nThread = num_threads,
+                   file = paste(f_output, "coordinates_speed.csv", sep="", collapse=NULL),
+                   sep = sep_symbol)
 
 # Select meta data
 data_intensity_meta <- csv_intensity_meta %>%
@@ -123,8 +134,15 @@ data_speed_meta <- csv_speed_meta %>%
     speed_id = row_number())
 
 # Save to file
-data.table::fwrite(data_intensity_meta, file = "data_intensity_meta.csv")
-data.table::fwrite(data_speed_meta, file = "data_speed_meta.csv")
+data.table::fwrite(data_intensity_meta,
+                   nThread = num_threads,
+                   file = paste(f_output, "data_intensity_meta.csv", sep="", collapse=NULL),
+                   sep = sep_symbol)
+
+data.table::fwrite(data_speed_meta,
+                   nThread = num_threads,
+                   file = paste(f_output, "data_speed_meta.csv", sep="", collapse=NULL),
+                   sep = sep_symbol)
 
 # Select data
 data_intensity <- csv_intensity %>%
@@ -256,12 +274,14 @@ data_com_speed <- data_com_speed %>%
 data.table::fwrite(
   data_com_intensity,
   nThread = num_threads,
-  file = paste(f_output, "data_com_intensity.csv", sep="", collapse=NULL))
+  file = paste(f_output, "data_com_intensity.csv", sep="", collapse=NULL),
+  sep = sep_symbol)
 
 data.table::fwrite(
   data_com_speed, 
   nThread = num_threads,
-  file = paste(f_output, "data_com_speed.csv", sep="", collapse=NULL))
+  file = paste(f_output, "data_com_speed.csv", sep="", collapse=NULL),
+  sep = sep_symbol)
 
 # --------------------------------------------------
 # Other tables -------------------------------------
