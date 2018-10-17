@@ -12,11 +12,14 @@ library(gtools)
 # --------------------------------------------------
 # Settings -----------------------------------------
 
-# Number of Threads to use when reading files from disk
+# Number of threads to use when reading files from disk
 num_threads <- 24
 
+# Number of rows to read from data csv file ("10000", "dim(csv_speed_meta)[1]" or "Inf")
+num_rows <- Inf
+
 # Seperated for csv save
-sep_symbol = ","
+sep_symbol <- ","
 
 # Folder Locations
 #f_main <- "/media/jacco/HDD/DataScienceData/Data/NDW/"
@@ -46,55 +49,64 @@ csv_speed_meta <- data.table::fread(file = paste(f_main, f_speed_meta, sep="", c
 
 # Load data of one day intensity (nrows=8176606)
 csv_intensity <- data.table::fread(file = paste(f_main, f_intensity, "01.csv", sep="", collapse=NULL),
-#                                   nrows = 10000,
-                                   nThread = num_threads)#,
-#                                    nrows = dim(csv_intensity_meta)[1])
+                                   nrows = num_rows,
+                                   nThread = num_threads)
 
 # Load data of one day speed (nrows=7898604)
 csv_speed <- data.table::fread(file = paste(f_main, f_speed, "01.csv", sep="", collapse=NULL),
-#                               nrows = 10000,
-                               nThread = num_threads)#,
-#                                nrows = dim(csv_speed_meta)[1])
+                               nrows = num_rows,
+                               nThread = num_threads)
 
 # --------------------------------------------------
-# Select required data -----------------------------
+# Create UniqueSites  -----------------------------
 
-# Tableau table for Duncan-chan witch coordinates
-coordinates_intensity <- csv_intensity_meta %>%
-  select("startLocatieForDisplayLat",
-         "startLocatieForDisplayLong",
-         "ROADNUMBER") %>%
+# Unique Sites (left and right still combined)
+data_intensity_unique <- csv_intensity_meta %>%
+  select(
+    "measurementSiteReference",
+    "generatedSiteName",
+    "startLocatieForDisplayLat",
+    "startLocatieForDisplayLong",
+    "alertCDirectionCoded",
+    "ROADNUMBER") %>%
   arrange(
-    startLocatieForDisplayLat) %>%
+    measurementSiteReference) %>%
   group_by(
-    startLocatieForDisplayLat) %>%
+    measurementSiteReference) %>%
   distinct() %>%
-  ungroup() %>%
-  mutate(
-    cor_id = row_number())
+  ungroup()
 
-coordinates_speed <- csv_speed_meta %>%
-  select("startLocatieForDisplayLat",
-         "startLocatieForDisplayLong",
-         "ROADNUMBER") %>%
-  arrange(
-    startLocatieForDisplayLat) %>%
-  group_by(
-    startLocatieForDisplayLat) %>%
-  distinct() %>%
-  ungroup() %>%
-  mutate(
-    cor_id = row_number())
+# Select only A1, A2, A4, A5, A8, A9 and A10
+data_intensity_unique <- data_intensity_unique[data_intensity_unique$ROADNUMBER %in% 
+                                                        c("A1", "A2", "A4", "A5", "A8", "A9", "A10"), ]
 
-data.table::fwrite(coordinates_intensity,
+# Create all positive and negative UniqueSites
+data_intensity_uniqueL <- data_intensity_unique[grep("positive", data_intensity_unique$alertCDirectionCoded), ]
+data_intensity_uniqueR <- data_intensity_unique[grep("negative", data_intensity_unique$alertCDirectionCoded), ]
+
+# Add trafficID's to positive and negative UniqueSites
+data_intensity_uniqueL <- data_intensity_uniqueL %>%
+  mutate(
+    trafficID = row_number())
+
+data_intensity_uniqueR <- data_intensity_uniqueR %>%
+  mutate(
+    trafficID = row_number())
+
+# Save to csv file
+data.table::fwrite(data_intensity_uniqueL,
                    nThread = num_threads,
-                   file = paste(f_output, "coordinates_intensity.csv", sep="", collapse=NULL),
+                   file = paste(f_output, "data_intensity_uniqueL.csv", sep="", collapse=NULL),
                    sep = sep_symbol)
 
-data.table::fwrite(coordinates_speed,
+data.table::fwrite(data_intensity_uniqueR,
                    nThread = num_threads,
-                   file = paste(f_output, "coordinates_speed.csv", sep="", collapse=NULL),
+                   file = paste(f_output, "data_intensity_uniqueR.csv", sep="", collapse=NULL),
                    sep = sep_symbol)
+
+# Remove tables that are no longer needed
+remove(data_intensity_unique)
+gc()
 
 # Select meta data
 data_intensity_meta <- csv_intensity_meta %>%
