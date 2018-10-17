@@ -1,523 +1,335 @@
-measurementSiteReference,generatedSiteName,startLocatieForDisplayLat,startLocatieForDisplayLong,alertCDirectionCoded,ROADNUMBER,trafficID
-GEO02_PNHTI542r,A9 naar Alkmaar na afrit 5 ri afrit 6 thv hmp 30.4,52.3062,4.83182,positive,A9,1
-GEO02_R_RWSTI4099,A1 naar Amersfoort na afrit 3 ri afrit 4 thv hmp 12.0,52.3276,5.0607,positive,A1,2
-GEO02_R_RWSTI4101,A1 naar Amersfoort na afrit 3 ri afrit 4 thv hmp 12.0,52.3276,5.06072,positive,A1,3
-GEO02_R_RWSTI4245,A10 naar Volendam na afrit 17 ri afrit 16 thv hmp 2.4,52.4165,4.91749,positive,A10,4
-GEO02_R_RWSTI4323,A9 naar Amstelveen na afrit 2 ri afrit 4 thv hmp 24.2,52.2881,4.91726,positive,A9,5
-GEO02_R_RWSTI4325,A9 naar Amstelveen na afrit 4 ri afrit 5 thv hmp 26.8,52.2964,4.88221,positive,A9,6
-GEO02_R_RWSTI4340,A10 naar Coenplein na afrit 7 ri afrit 6 thv hmp 21.3,52.3394,4.84195,positive,A10,7
-GEO02_R_RWSTI4346,A10 naar Coenplein na afrit 7 ri afrit 6 thv hmp 22.8,52.3529,4.84236,positive,A10,8
-GEO02_R_RWSTI4348,A10 naar Coenplein na afrit 5 ri afrit 4 thv hmp 25.4,52.3759,4.84319,positive,A10,9
-GEO02_R_RWSTI4350,A4 naar Amsterdam op knppnt De Nieuwe Meer thv hmp 0.9,52.338,4.83351,positive,A4,10
-GEO02_R_RWSTI4370,A2 naar Amsterdam op knppnt Holendrecht ri afrit 1 thv hmp 36.9,52.2825,4.95158,positive,A2,11
-GEO02_R_RWSTI4466,A2 naar Amsterdam op knppnt Amstel ri afrit Industriegebied Amstel Businesspark thv hmp 31.8,52.3224,4.91495,positive,A2,12
-GEO02_R_RWSTI4475,A10 naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 28.5,52.4029,4.85213,positive,A10,13
-GEO02_R_RWSTI4476,A10 naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 28.5,52.4025,4.85188,positive,A10,14
-GEO02_R_RWSTI4477,A10 naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 28.5,52.4025,4.85188,positive,A10,15
-GEO02_R_RWSTI4480,A2 naar Amsterdam op knppnt Amstel ri afrit Industriegebied Amstel Businesspark thv hmp 31.8,52.3222,4.9143,positive,A2,16
-RWS01_MONIBAS_0011hrr0040ra,A1 eastBound naar Amersfoort op knppnt Watergraafsmeer ri afrit 1 thv hmp 4.1,52.3472,4.95946,positive,A1,17
-RWS01_MONIBAS_0011hrr0045ra,A1 eastBound naar Amersfoort op knppnt Watergraafsmeer ri afrit 1 thv hmp 4.6,52.3502,4.9642,positive,A1,18
-RWS01_MONIBAS_0011hrr0051ra,A1 eastBound naar Amersfoort op knppnt Watergraafsmeer ri afrit 1 thv hmp 5.2,52.3478,4.97186,positive,A1,19
-RWS01_MONIBAS_0011hrr0053ra,A1 eastBound naar Amersfoort op knppnt Watergraafsmeer ri afrit 1 thv hmp 5.4,52.3467,4.97452,positive,A1,20
-RWS01_MONIBAS_0011hrr0060ra,A1 eastBound naar Amersfoort na afrit 1 ri afrit 2 thv hmp 6.0,52.3431,4.98128,positive,A1,21
-RWS01_MONIBAS_0011hrr0063ra,A1 eastBound naar Amersfoort na afrit 1 ri afrit 2 thv hmp 6.4,52.3406,4.98437,positive,A1,22
-RWS01_MONIBAS_0011hrr0068ra,A1 eastBound naar Amersfoort na afrit 2 ri knppnt Diemen thv hmp 6.9,52.3372,4.98975,positive,A1,23
-RWS01_MONIBAS_0011hrr0070ra,A1 eastBound naar Amersfoort na afrit 2 ri knppnt Diemen thv hmp 7.1,52.3361,4.99199,positive,A1,24
-RWS01_MONIBAS_0011hrr0070rb,A1 eastBound naar Amersfoort na afrit 2 ri knppnt Diemen thv hmp 7.1,52.3361,4.99199,positive,A1,25
-RWS01_MONIBAS_0011hrr0073ra,A1 eastBound naar Amersfoort na afrit 2 ri knppnt Diemen thv hmp 7.4,52.3346,4.99584,positive,A1,26
-RWS01_MONIBAS_0011hrr0076ra,A1 eastBound naar Amersfoort na afrit 2 ri knppnt Diemen thv hmp 7.7,52.3335,4.99982,positive,A1,27
-RWS01_MONIBAS_0011hrr0079ra,A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 8.0,52.3328,5.0036,positive,A1,28
-RWS01_MONIBAS_0011hrr0082ra,A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 8.2,52.3324,5.00719,positive,A1,29
-RWS01_MONIBAS_0011hrr0085ra,A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 8.5,52.3323,5.01135,positive,A1,30
-RWS01_MONIBAS_0011hrr0089ra,A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 8.9,52.3324,5.01736,positive,A1,31
-RWS01_MONIBAS_0011hrr0095ra,A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 9.6,52.3322,5.0267,positive,A1,32
-RWS01_MONIBAS_0011hrr0101ra,A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 10.1,52.332,5.0349,positive,A1,33
-RWS01_MONIBAS_0011hrr0107ra,A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 10.7,52.332,5.04346,positive,A1,34
-RWS01_MONIBAS_0011hrr0112ra,A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 11.2,52.3309,5.05069,positive,A1,35
-RWS01_MONIBAS_0011hrr0116ra,A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 11.6,52.3293,5.05577,positive,A1,36
-RWS01_MONIBAS_0011hrr0119ra,A1 eastBound naar Amersfoort na afrit 3 ri afrit 4 thv hmp 12.0,52.3277,5.06069,positive,A1,37
-RWS01_MONIBAS_0011hrr0124ra,A1 eastBound naar Amersfoort na afrit 4 ri knppnt Muiderberg thv hmp 12.4,52.3257,5.06705,positive,A1,38
-RWS01_MONIBAS_0011hrr0126ra,A1 eastBound naar Amersfoort na afrit 4 ri knppnt Muiderberg thv hmp 12.6,52.3251,5.06911,positive,A1,39
-RWS01_MONIBAS_0011hrr0129ra,A1 eastBound naar Amersfoort na afrit 4 ri knppnt Muiderberg thv hmp 12.9,52.324,5.07308,positive,A1,40
-RWS01_MONIBAS_0011hrr0132ra,A1 eastBound naar Amersfoort na afrit 4 ri knppnt Muiderberg thv hmp 13.2,52.3229,5.07707,positive,A1,41
-RWS01_MONIBAS_0011hrr0135ra,A1 eastBound naar Amersfoort na afrit 4 ri knppnt Muiderberg thv hmp 13.5,52.3216,5.08163,positive,A1,42
-RWS01_MONIBAS_0011hrr0140ra,A1 eastBound naar Amersfoort na afrit 4 ri knppnt Muiderberg thv hmp 14.0,52.3199,5.08778,positive,A1,43
-RWS01_MONIBAS_0021hrl0313ra,A2 northBound naar Amsterdam op knppnt Amstel ri afrit Industriegebied Amstel Businesspark thv hmp 31.4,52.3261,4.91372,positive,A2,44
-RWS01_MONIBAS_0021hrl0319ra,A2 northBound naar Amsterdam na afrit 1 ri knppnt Amstel thv hmp 31.9,52.3215,4.91507,positive,A2,45
-RWS01_MONIBAS_0021hrl0322ra,A2 northBound naar Amsterdam na afrit 1 ri knppnt Amstel thv hmp 32.2,52.3187,4.91699,positive,A2,46
-RWS01_MONIBAS_0021hrl0325ra,A2 northBound naar Amsterdam na afrit 1 ri knppnt Amstel thv hmp 32.6,52.3163,4.9194,positive,A2,47
-RWS01_MONIBAS_0021hrl0328ra,A2 northBound naar Amsterdam na afrit 1 ri knppnt Amstel thv hmp 32.8,52.3144,4.92142,positive,A2,48
-RWS01_MONIBAS_0021hrl0333ra,A2 northBound naar Amsterdam na afrit 1 ri knppnt Amstel thv hmp 33.3,52.3107,4.92547,positive,A2,49
-RWS01_MONIBAS_0021hrl0335ra,A2 northBound naar Amsterdam na afrit 1 ri knppnt Amstel thv hmp 33.6,52.3087,4.92756,positive,A2,50
-RWS01_MONIBAS_0021hrl0335rb,A2 northBound naar Amsterdam na afrit 1 ri knppnt Amstel thv hmp 33.5,52.3089,4.92728,positive,A2,51
-RWS01_MONIBAS_0021hrl0339ra,A2 northBound naar Amsterdam op knppnt Holendrecht ri afrit 1 thv hmp 34.0,52.3058,4.9306,positive,A2,52
-RWS01_MONIBAS_0021hrl0344ra,A2 northBound naar Amsterdam op knppnt Holendrecht ri afrit 1 thv hmp 34.4,52.3023,4.9341,positive,A2,53
-RWS01_MONIBAS_0021hrl0348ra,A2 northBound naar Amsterdam op knppnt Holendrecht ri afrit 1 thv hmp 34.8,52.2992,4.93698,positive,A2,54
-RWS01_MONIBAS_0021hrl0352ra,A2 northBound naar Amsterdam op knppnt Holendrecht ri afrit 1 thv hmp 35.3,52.2956,4.94007,positive,A2,55
-RWS01_MONIBAS_0021hrl0360ra,A2 northBound naar Amsterdam op knppnt Holendrecht ri afrit 1 thv hmp 36.0,52.2897,4.94523,positive,A2,56
-RWS01_MONIBAS_0021hrl0363ra,A2 northBound naar Amsterdam op knppnt Holendrecht ri afrit 1 thv hmp 36.3,52.2872,4.94739,positive,A2,57
-RWS01_MONIBAS_0021hrl0363rb,A2 northBound naar Amsterdam op knppnt Holendrecht ri afrit 1 thv hmp 36.3,52.2872,4.94739,positive,A2,58
-RWS01_MONIBAS_0021hrl0365ra,A2 northBound naar Amsterdam op knppnt Holendrecht ri afrit 1 thv hmp 36.5,52.2857,4.94866,positive,A2,59
-RWS01_MONIBAS_0021hrl0368ra,A2 northBound naar Amsterdam op knppnt Holendrecht ri afrit 1 thv hmp 36.9,52.2825,4.95129,positive,A2,60
-RWS01_MONIBAS_0021hrl0368rb,A2 northBound naar Amsterdam op knppnt Holendrecht ri afrit 1 thv hmp 36.9,52.2826,4.95123,positive,A2,61
-RWS01_MONIBAS_0021hrl0373ra,A2 northBound naar Amsterdam na afrit 3 ri afrit 2 thv hmp 37.3,52.2792,4.95392,positive,A2,62
-RWS01_MONIBAS_0021hrl0379ra,A2 northBound naar Amsterdam na afrit 3 ri afrit 2 thv hmp 37.9,52.2742,4.95768,positive,A2,63
-RWS01_MONIBAS_0021hrl0385ra,A2 northBound naar Amsterdam na afrit 3 ri afrit 2 thv hmp 38.5,52.2692,4.96036,positive,A2,64
-RWS01_MONIBAS_0021hrl0391ra,A2 northBound naar Amsterdam na afrit 3 ri afrit 2 thv hmp 39.1,52.2641,4.96326,positive,A2,65
-RWS01_MONIBAS_0021hrl0397ra,A2 northBound naar Amsterdam na afrit 4 ri afrit 3 thv hmp 39.7,52.259,4.96597,positive,A2,66
-RWS01_MONIBAS_0041hrl0004ra,A4 northBound naar Amsterdam op knppnt De Nieuwe Meer thv hmp 0.5,52.3377,4.83897,positive,A4,67
-RWS01_MONIBAS_0041hrl0007ra,A4 northBound naar Amsterdam op knppnt De Nieuwe Meer thv hmp 0.8,52.3382,4.83486,positive,A4,68
-RWS01_MONIBAS_0041hrl0011ra,A4 northBound naar Amsterdam na afrit 1 ri knppnt De Nieuwe Meer thv hmp 1.2,52.3382,4.82938,positive,A4,69
-RWS01_MONIBAS_0041hrl0011rb,A4 northBound naar Amsterdam na afrit 1 ri knppnt De Nieuwe Meer thv hmp 1.2,52.3382,4.82938,positive,A4,70
-RWS01_MONIBAS_0041hrl0015ra,A4 northBound naar Amsterdam na afrit 1 ri knppnt De Nieuwe Meer thv hmp 1.6,52.3383,4.82358,positive,A4,71
-RWS01_MONIBAS_0041hrl0015rb,A4 northBound naar Amsterdam na afrit 1 ri knppnt De Nieuwe Meer thv hmp 1.6,52.3383,4.82358,positive,A4,72
-RWS01_MONIBAS_0041hrl0020ra,A4 northBound naar Amsterdam na afrit 1 ri knppnt De Nieuwe Meer thv hmp 2.0,52.3383,4.817,positive,A4,73
-RWS01_MONIBAS_0041hrl0024ra,A4 northBound naar Amsterdam na afrit 1 ri knppnt De Nieuwe Meer thv hmp 2.4,52.3372,4.81101,positive,A4,74
-RWS01_MONIBAS_0041hrl0027ra,A4 northBound naar Amsterdam op knppnt Badhoevedorp ri afrit 1 thv hmp 2.8,52.3352,4.80713,positive,A4,75
-RWS01_MONIBAS_0041hrl0030ra,A4 northBound naar Amsterdam op knppnt Badhoevedorp ri afrit 1 thv hmp 3.1,52.3335,4.80434,positive,A4,76
-RWS01_MONIBAS_0041hrl0036ra,A4 northBound naar Amsterdam op knppnt Badhoevedorp ri afrit 1 thv hmp 3.6,52.3298,4.79805,positive,A4,77
-RWS01_MONIBAS_0041hrl0040ra,A4 northBound naar Amsterdam op knppnt Badhoevedorp ri afrit 1 thv hmp 4.0,52.3279,4.79366,positive,A4,78
-RWS01_MONIBAS_0041hrl0044ra,A4 northBound naar Amsterdam op knppnt Badhoevedorp ri afrit 1 thv hmp 4.4,52.3264,4.78804,positive,A4,79
-RWS01_MONIBAS_0041hrl0052ra,A4 northBound naar Amsterdam na afrit 2 ri knppnt Badhoevedorp thv hmp 5.2,52.3249,4.7768,positive,A4,80
-RWS01_MONIBAS_0041hrl0052rb,A4 northBound naar Amsterdam na afrit 2 ri knppnt Badhoevedorp thv hmp 5.2,52.3249,4.7768,positive,A4,81
-RWS01_MONIBAS_0041hrl0055ra,A4 northBound naar Amsterdam na afrit 2 ri knppnt Badhoevedorp thv hmp 5.5,52.3243,4.77201,positive,A4,82
-RWS01_MONIBAS_0041hrl0055rb,A4 northBound naar Amsterdam na afrit 2 ri knppnt Badhoevedorp thv hmp 5.5,52.3244,4.77271,positive,A4,83
-RWS01_MONIBAS_0041hrl0059ra,A4 northBound naar Amsterdam na afrit 2 ri knppnt Badhoevedorp thv hmp 5.9,52.3235,4.76659,positive,A4,84
-RWS01_MONIBAS_0041hrl0059rb,A4 northBound naar Amsterdam na afrit 2 ri knppnt Badhoevedorp thv hmp 5.9,52.3236,4.76701,positive,A4,85
-RWS01_MONIBAS_0041hrl0063ra,A4 northBound naar Amsterdam na afrit 2 ri knppnt Badhoevedorp thv hmp 6.3,52.3222,4.76165,positive,A4,86
-RWS01_MONIBAS_0041hrl0065ra,A4 northBound naar Amsterdam na afrit 2 ri knppnt Badhoevedorp thv hmp 6.6,52.3206,4.75823,positive,A4,87
-RWS01_MONIBAS_0041hrl0069ra,A4 northBound naar Amsterdam na afrit 2 ri knppnt Badhoevedorp thv hmp 6.9,52.3185,4.75519,positive,A4,88
-RWS01_MONIBAS_0041hrl0070ra,A4 northBound naar Amsterdam na afrit 2 ri knppnt Badhoevedorp thv hmp 7.1,52.3172,4.75379,positive,A4,89
-RWS01_MONIBAS_0041hrl0072ra,A4 northBound naar Amsterdam na afrit 2 ri knppnt Badhoevedorp thv hmp 7.2,52.316,4.75277,positive,A4,90
-RWS01_MONIBAS_0041hrl0073ra,A4 northBound naar Amsterdam na afrit 2 ri knppnt Badhoevedorp thv hmp 7.4,52.3148,4.75193,positive,A4,91
-RWS01_MONIBAS_0041hrl0075ra,A4 northBound naar Amsterdam na afrit 2 ri knppnt Badhoevedorp thv hmp 7.5,52.3135,4.75109,positive,A4,92
-RWS01_MONIBAS_0041hrl0076ra,A4 northBound naar Amsterdam na afrit 2 ri knppnt Badhoevedorp thv hmp 7.7,52.3121,4.75021,positive,A4,93
-RWS01_MONIBAS_0041hrl0081ra,A4 northBound naar Amsterdam na afrit 2 ri knppnt Badhoevedorp thv hmp 8.1,52.3083,4.74806,positive,A4,94
-RWS01_MONIBAS_0041hrl0086ra,A4 northBound naar Amsterdam op knppnt De Hoek ri afrit 2 thv hmp 8.6,52.3041,4.7454,positive,A4,95
-RWS01_MONIBAS_0041hrl0089ra,A4 northBound naar Amsterdam op knppnt De Hoek ri afrit 2 thv hmp 9.0,52.3014,4.74368,positive,A4,96
-RWS01_MONIBAS_0041hrl0093ra,A4 northBound naar Amsterdam op knppnt De Hoek ri afrit 2 thv hmp 9.3,52.2986,4.74153,positive,A4,97
-RWS01_MONIBAS_0041hrl0093rb,A4 northBound naar Amsterdam op knppnt De Hoek ri afrit 2 thv hmp 9.4,52.2982,4.7411,positive,A4,98
-RWS01_MONIBAS_0041hrl0096ra,A4 northBound naar Amsterdam op knppnt De Hoek ri afrit 2 thv hmp 9.7,52.2961,4.73837,positive,A4,99
-RWS01_MONIBAS_0041hrl0097ra,A4 northBound naar Amsterdam op knppnt De Hoek ri afrit 2 thv hmp 9.7,52.2958,4.73793,positive,A4,100
-RWS01_MONIBAS_0041hrl0100ra,A4 northBound naar Amsterdam op knppnt De Hoek ri afrit 2 thv hmp 10.0,52.2936,4.73467,positive,A4,101
-RWS01_MONIBAS_0041hrl0103ra,A4 northBound naar Amsterdam op knppnt De Hoek ri afrit 2 thv hmp 10.3,52.2916,4.73189,positive,A4,102
-RWS01_MONIBAS_0041hrl0106ra,A4 northBound naar Amsterdam op knppnt De Hoek ri afrit 2 thv hmp 10.6,52.2897,4.72917,positive,A4,103
-RWS01_MONIBAS_0041hrl0107ra,A4 northBound naar Amsterdam op knppnt De Hoek ri afrit 2 thv hmp 10.8,52.2886,4.72749,positive,A4,104
-RWS01_MONIBAS_0041hrl0107rb,A4 northBound naar Amsterdam op knppnt De Hoek ri afrit 2 thv hmp 10.8,52.2886,4.72749,positive,A4,105
-RWS01_MONIBAS_0041hrl0112ra,A4 northBound naar Amsterdam na afrit 3 ri knppnt De Hoek thv hmp 11.2,52.2854,4.72291,positive,A4,106
-RWS01_MONIBAS_0041hrl0116ra,A4 northBound naar Amsterdam na afrit 3 ri knppnt De Hoek thv hmp 11.6,52.2828,4.71926,positive,A4,107
-RWS01_MONIBAS_0041hrl0121ra,A4 northBound naar Amsterdam na afrit 3a ri afrit 3 thv hmp 12.1,52.2793,4.7142,positive,A4,108
-RWS01_MONIBAS_0041hrl0127ra,A4 northBound naar Amsterdam na afrit 3a ri afrit 3 thv hmp 12.7,52.2753,4.70843,positive,A4,109
-RWS01_MONIBAS_0041hrl0132ra,A4 northBound naar Amsterdam na afrit 3a ri afrit 3 thv hmp 13.2,52.2719,4.70356,positive,A4,110
-RWS01_MONIBAS_0041hrl0137ra,A4 northBound naar Amsterdam na afrit 4 ri afrit 3a thv hmp 13.7,52.2685,4.69876,positive,A4,111
-RWS01_MONIBAS_0041hrl0137rb,A4 northBound naar Amsterdam na afrit 4 ri afrit 3a thv hmp 13.7,52.2685,4.69881,positive,A4,112
-RWS01_MONIBAS_0041hrl0143ra,A4 northBound naar Amsterdam na afrit 4 ri afrit 3a thv hmp 14.4,52.2643,4.69276,positive,A4,113
-RWS01_MONIBAS_0041hrl0147ra,A4 northBound naar Amsterdam na afrit 4 ri afrit 3a thv hmp 14.8,52.2615,4.6886,positive,A4,114
-RWS01_MONIBAS_0041hrl0151ra,A4 northBound naar Amsterdam na afrit 4 ri afrit 3a thv hmp 15.2,52.2589,4.6849,positive,A4,115
-RWS01_MONIBAS_0051hrr0010ra,A5 northBound naar Amsterdam op knppnt De Hoek ri afrit 3 thv hmp 1.1,52.2927,4.73206,positive,A5,116
-RWS01_MONIBAS_0051hrr0014ra,A5 northBound naar Amsterdam op knppnt De Hoek ri afrit 3 thv hmp 1.4,52.2956,4.73129,positive,A5,117
-RWS01_MONIBAS_0051hrr0016ra,A5 northBound naar Amsterdam op knppnt De Hoek ri afrit 3 thv hmp 1.7,52.2982,4.7313,positive,A5,118
-RWS01_MONIBAS_0051hrr0019ra,A5 northBound naar Amsterdam op knppnt De Hoek ri afrit 3 thv hmp 1.9,52.3001,4.73147,positive,A5,119
-RWS01_MONIBAS_0051hrr0021ra,A5 northBound naar Amsterdam op knppnt De Hoek ri afrit 3 thv hmp 2.2,52.3026,4.73169,positive,A5,120
-RWS01_MONIBAS_0051hrr0024ra,A5 northBound naar Amsterdam op knppnt De Hoek ri afrit 3 thv hmp 2.4,52.3046,4.73188,positive,A5,121
-RWS01_MONIBAS_0051hrr0026ra,A5 northBound naar Amsterdam op knppnt De Hoek ri afrit 3 thv hmp 2.7,52.3068,4.73209,positive,A5,122
-RWS01_MONIBAS_0051hrr0030ra,A5 northBound naar Amsterdam op knppnt De Hoek ri afrit 3 thv hmp 3.0,52.31,4.73237,positive,A5,123
-RWS01_MONIBAS_0051hrr0033ra,A5 northBound naar Amsterdam op knppnt De Hoek ri afrit 3 thv hmp 3.4,52.3134,4.73269,positive,A5,124
-RWS01_MONIBAS_0051hrr0037ra,A5 northBound naar Amsterdam op knppnt De Hoek ri afrit 3 thv hmp 3.7,52.3162,4.73293,positive,A5,125
-RWS01_MONIBAS_0051hrr0039ra,A5 northBound naar Amsterdam op knppnt De Hoek ri afrit 3 thv hmp 4.0,52.3187,4.73317,positive,A5,126
-RWS01_MONIBAS_0051hrr0044ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Raasdorp thv hmp 4.4,52.3227,4.73355,positive,A5,127
-RWS01_MONIBAS_0051hrr0047ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Raasdorp thv hmp 4.7,52.3252,4.73377,positive,A5,128
-RWS01_MONIBAS_0051hrr0050ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Raasdorp thv hmp 5.0,52.328,4.73403,positive,A5,129
-RWS01_MONIBAS_0051hrr0056ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Raasdorp thv hmp 5.7,52.334,4.73458,positive,A5,130
-RWS01_MONIBAS_0051hrr0060ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Raasdorp thv hmp 6.0,52.3368,4.73482,positive,A5,131
-RWS01_MONIBAS_0051hrr0062ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Raasdorp thv hmp 6.3,52.3394,4.73504,positive,A5,132
-RWS01_MONIBAS_0051hrr0066ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Raasdorp thv hmp 6.6,52.3421,4.73531,positive,A5,133
-RWS01_MONIBAS_0051hrr0069ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Raasdorp thv hmp 7.0,52.3455,4.73564,positive,A5,134
-RWS01_MONIBAS_0051hrr0074ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Raasdorp thv hmp 7.4,52.3495,4.7363,positive,A5,135
-RWS01_MONIBAS_0051hrr0077ra,A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 7.7,52.3519,4.73709,positive,A5,136
-RWS01_MONIBAS_0051hrr0081ra,A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 8.2,52.3559,4.73933,positive,A5,137
-RWS01_MONIBAS_0051hrr0086ra,A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 8.7,52.3597,4.74274,positive,A5,138
-RWS01_MONIBAS_0051hrr0092ra,A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 9.3,52.364,4.74844,positive,A5,139
-RWS01_MONIBAS_0051hrr0096ra,A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 9.7,52.3663,4.75247,positive,A5,140
-RWS01_MONIBAS_0051hrr0096rb,A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 9.7,52.3663,4.75247,positive,A5,141
-RWS01_MONIBAS_0051hrr0099ra,A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 10.0,52.368,4.75642,positive,A5,142
-RWS01_MONIBAS_0051hrr0105ra,A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 10.6,52.3715,4.76299,positive,A5,143
-RWS01_MONIBAS_0051hrr0110ra,A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 11.1,52.3754,4.76659,positive,A5,144
-RWS01_MONIBAS_0051hrr0116ra,A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 11.6,52.3802,4.76789,positive,A5,145
-RWS01_MONIBAS_0051hrr0121ra,A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 12.2,52.385,4.76795,positive,A5,146
-RWS01_MONIBAS_0051hrr0127ra,A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 12.7,52.3895,4.77055,positive,A5,147
-RWS01_MONIBAS_0051hrr0129ra,A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 13.0,52.3913,4.77319,positive,A5,148
-RWS01_MONIBAS_0051hrr0134ra,A5 northBound naar Amsterdam na afrit 2 ri afrit 3 thv hmp 13.5,52.3932,4.77973,positive,A5,149
-RWS01_MONIBAS_0051hrr0137ra,A5 northBound naar Amsterdam na afrit 2 ri afrit 3 thv hmp 13.7,52.3933,4.78376,positive,A5,150
-RWS01_MONIBAS_0051hrr0140ra,A5 northBound naar Amsterdam na afrit 2 ri afrit 3 thv hmp 14.1,52.3933,4.7886,positive,A5,151
-RWS01_MONIBAS_0051hrr0143ra,A5 northBound naar Amsterdam na afrit 2 ri afrit 3 thv hmp 14.4,52.3933,4.79333,positive,A5,152
-RWS01_MONIBAS_0051hrr0147ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 14.8,52.3934,4.7988,positive,A5,153
-RWS01_MONIBAS_0051hrr0152ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 15.3,52.393,4.80604,positive,A5,154
-RWS01_MONIBAS_0051hrr0157ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 15.7,52.3921,4.81263,positive,A5,155
-RWS01_MONIBAS_0051hrr0162ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 16.3,52.3918,4.82017,positive,A5,156
-RWS01_MONIBAS_0051hrr0167ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 16.8,52.3918,4.82785,positive,A5,157
-RWS01_MONIBAS_0051hrr0173ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 17.3,52.3922,4.83595,positive,A5,158
-RWS01_MONIBAS_0051hrr0178ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 17.9,52.395,4.84208,positive,A5,159
-RWS01_MONIBAS_0051hrr0185ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 18.6,52.3997,4.84813,positive,A5,160
-RWS01_MONIBAS_0051hrr0187ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 18.8,52.4013,4.85004,positive,A5,161
-RWS01_MONIBAS_0081hrl0006ra,A8 eastBound naar Amsterdam op knppnt Coenplein thv hmp 0.7,52.4242,4.88239,positive,A8,162
-RWS01_MONIBAS_0081hrl0013ra,A8 eastBound naar Amsterdam op knppnt Coenplein thv hmp 1.4,52.426,4.87429,positive,A8,163
-RWS01_MONIBAS_0081hrl0021ra,A8 eastBound naar Amsterdam na afrit 1 ri knppnt Coenplein thv hmp 2.1,52.4316,4.86802,positive,A8,164
-RWS01_MONIBAS_0081hrl0021rb,A8 eastBound naar Amsterdam na afrit 1 ri knppnt Coenplein thv hmp 2.1,52.4316,4.86802,positive,A8,165
-RWS01_MONIBAS_0081hrl0025ra,A8 eastBound naar Amsterdam na afrit 1 ri knppnt Coenplein thv hmp 2.5,52.4345,4.86481,positive,A8,166
-RWS01_MONIBAS_0081hrl0029ra,A8 eastBound naar Amsterdam na afrit 1 ri knppnt Coenplein thv hmp 2.9,52.4372,4.86183,positive,A8,167
-RWS01_MONIBAS_0081hrl0032ra,A8 eastBound naar Amsterdam op knppnt Zaandam ri afrit 1 thv hmp 3.3,52.4399,4.85888,positive,A8,168
-RWS01_MONIBAS_0081hrl0036ra,A8 eastBound naar Amsterdam op knppnt Zaandam ri afrit 1 thv hmp 3.7,52.4428,4.85561,positive,A8,169
-RWS01_MONIBAS_0081hrl0042ra,A8 eastBound naar Amsterdam op knppnt Zaandam ri afrit 1 thv hmp 4.3,52.4473,4.85054,positive,A8,170
-RWS01_MONIBAS_0081hrl0046ra,A8 eastBound naar Amsterdam op knppnt Zaandam ri afrit 1 thv hmp 4.7,52.4505,4.84706,positive,A8,171
-RWS01_MONIBAS_0091hrr0059ra,A9 northBound naar Amstelveen op knppnt Diemen ri afrit 1 thv hmp 6.0,52.3244,5.0047,positive,A9,172
-RWS01_MONIBAS_0091hrr0065ra,A9 northBound naar Amstelveen op knppnt Diemen ri afrit 1 thv hmp 6.5,52.3201,5.00083,positive,A9,173
-RWS01_MONIBAS_0091hrr0068ra,A9 northBound naar Amstelveen op knppnt Diemen ri afrit 1 thv hmp 6.8,52.3181,4.99759,positive,A9,174
-RWS01_MONIBAS_0091hrr0071ra,A9 northBound naar Amstelveen op knppnt Diemen ri afrit 1 thv hmp 7.2,52.3161,4.99376,positive,A9,175
-RWS01_MONIBAS_0091hrr0075ra,A9 northBound naar Amstelveen na afrit 1 ri afrit 2 thv hmp 7.6,52.3141,4.98891,positive,A9,176
-RWS01_MONIBAS_0091hrr0080ra,A9 northBound naar Amstelveen na afrit 1 ri afrit 2 thv hmp 8.0,52.312,4.98298,positive,A9,177
-RWS01_MONIBAS_0091hrr0084ra,A9 northBound naar Amstelveen na afrit 2 ri afrit 3 thv hmp 8.4,52.3103,4.97789,positive,A9,178
-RWS01_MONIBAS_0091hrr0089ra,A9 northBound naar Amstelveen na afrit 2 ri afrit 3 thv hmp 9.0,52.3079,4.97089,positive,A9,179
-RWS01_MONIBAS_0091hrr0103ra,A9 northBound naar Amstelveen na afrit 2 ri afrit 3 thv hmp 10.4,52.3019,4.95333,positive,A9,180
-RWS01_MONIBAS_0091hrr0110ra,A9 northBound naar Amstelveen na afrit 3 ri knppnt Holendrecht thv hmp 11.1,52.2988,4.94374,positive,A9,181
-RWS01_MONIBAS_0091hrr0112ra,A9 northBound naar Amstelveen na afrit 3 ri knppnt Holendrecht thv hmp 11.3,52.299,4.94093,positive,A9,182
-RWS01_MONIBAS_0091hrr0117ra,A9 northBound naar Amstelveen op knppnt Holendrecht ri afrit 2 thv hmp 11.8,52.2974,4.93587,positive,A9,183
-RWS01_MONIBAS_0091hrr0230ra,A9 northBound naar Amstelveen na afrit 2 ri afrit 4 thv hmp 23.0,52.2863,4.93412,positive,A9,184
-RWS01_MONIBAS_0091hrr0235ra,A9 northBound naar Amstelveen na afrit 2 ri afrit 4 thv hmp 23.6,52.2869,4.92617,positive,A9,185
-RWS01_MONIBAS_0091hrr0241ra,A9 northBound naar Amstelveen na afrit 2 ri afrit 4 thv hmp 24.1,52.288,4.918,positive,A9,186
-RWS01_MONIBAS_0091hrr0247ra,A9 northBound naar Amstelveen na afrit 2 ri afrit 4 thv hmp 24.8,52.2896,4.90932,positive,A9,187
-RWS01_MONIBAS_0091hrr0253ra,A9 northBound naar Amstelveen na afrit 2 ri afrit 4 thv hmp 25.4,52.2917,4.9011,positive,A9,188
-RWS01_MONIBAS_0091hrr0259ra,A9 northBound naar Amstelveen na afrit 2 ri afrit 4 thv hmp 26.0,52.2942,4.89325,positive,A9,189
-RWS01_MONIBAS_0091hrr0262ra,A9 northBound naar Amstelveen na afrit 4 ri afrit 5 thv hmp 26.3,52.2953,4.88862,positive,A9,190
-RWS01_MONIBAS_0091hrr0267ra,A9 northBound naar Amstelveen na afrit 4 ri afrit 5 thv hmp 26.7,52.2963,4.88237,positive,A9,191
-RWS01_MONIBAS_0091hrr0272ra,A9 northBound naar Amstelveen na afrit 4 ri afrit 5 thv hmp 27.3,52.2974,4.87478,positive,A9,192
-RWS01_MONIBAS_0091hrr0278ra,A9 northBound naar Amstelveen na afrit 4 ri afrit 5 thv hmp 27.8,52.299,4.86688,positive,A9,193
-RWS01_MONIBAS_0091hrr0282ra,A9 northBound naar Amstelveen na afrit 4 ri afrit 5 thv hmp 28.3,52.3004,4.86127,positive,A9,194
-RWS01_MONIBAS_0091hrr0287ra,A9 northBound naar Alkmaar na afrit 5 ri afrit 6 thv hmp 28.7,52.3018,4.85514,positive,A9,195
-RWS01_MONIBAS_0091hrr0293ra,A9 northBound naar Alkmaar na afrit 5 ri afrit 6 thv hmp 29.3,52.3043,4.84664,positive,A9,196
-RWS01_MONIBAS_0091hrr0297ra,A9 northBound naar Alkmaar na afrit 5 ri afrit 6 thv hmp 29.7,52.3049,4.84155,positive,A9,197
-RWS01_MONIBAS_0091hrr0302ra,A9 northBound naar Alkmaar na afrit 5 ri afrit 6 thv hmp 30.3,52.3063,4.83313,positive,A9,198
-RWS01_MONIBAS_0091hrr0308ra,A9 northBound naar Alkmaar na afrit 5 ri afrit 6 thv hmp 30.9,52.3083,4.82517,positive,A9,199
-RWS01_MONIBAS_0091hrr0313ra,A9 northBound naar Alkmaar na afrit 5 ri afrit 6 thv hmp 31.4,52.3106,4.81942,positive,A9,200
-RWS01_MONIBAS_0091hrr0318ra,A9 northBound naar Alkmaar na afrit 5 ri afrit 6 thv hmp 31.8,52.3138,4.81433,positive,A9,201
-RWS01_MONIBAS_0091hrr0322ra,A9 northBound naar Alkmaar na afrit 6 ri knppnt Badhoevedorp thv hmp 32.2,52.3165,4.81107,positive,A9,202
-RWS01_MONIBAS_0091hrr0326ra,A9 northBound naar Alkmaar na afrit 6 ri knppnt Badhoevedorp thv hmp 32.7,52.3198,4.80811,positive,A9,203
-RWS01_MONIBAS_0091hrr0328ra,A9 northBound naar Alkmaar na afrit 6 ri knppnt Badhoevedorp thv hmp 32.8,52.3213,4.80671,positive,A9,204
-RWS01_MONIBAS_0091hrr0328rb,A9 northBound naar Alkmaar na afrit 6 ri knppnt Badhoevedorp thv hmp 32.8,52.3213,4.80671,positive,A9,205
-RWS01_MONIBAS_0091hrr0330ra,A9 northBound naar Alkmaar na afrit 6 ri knppnt Badhoevedorp thv hmp 33.1,52.3231,4.80478,positive,A9,206
-RWS01_MONIBAS_0091hrr0330rb,A9 northBound naar Alkmaar na afrit 6 ri knppnt Badhoevedorp thv hmp 33.1,52.3231,4.80478,positive,A9,207
-RWS01_MONIBAS_0091hrr0339ra,A9 northBound naar Alkmaar op knppnt Badhoevedorp ri afrit 7 thv hmp 33.9,52.3284,4.79573,positive,A9,208
-RWS01_MONIBAS_0091hrr0344ra,A9 northBound naar Alkmaar op knppnt Badhoevedorp ri afrit 7 thv hmp 34.4,52.3312,4.79048,positive,A9,209
-RWS01_MONIBAS_0091hrr0350ra,A9 northBound naar Alkmaar op knppnt Badhoevedorp ri afrit 7 thv hmp 35.0,52.3349,4.78361,positive,A9,210
-RWS01_MONIBAS_0091hrr0353ra,A9 northBound naar Alkmaar op knppnt Badhoevedorp ri afrit 7 thv hmp 35.4,52.3368,4.77985,positive,A9,211
-RWS01_MONIBAS_0091hrr0356ra,A9 northBound naar Alkmaar op knppnt Badhoevedorp ri afrit 7 thv hmp 35.6,52.3385,4.77675,positive,A9,212
-RWS01_MONIBAS_0091hrr0362ra,A9 northBound naar Alkmaar op knppnt Badhoevedorp ri afrit 7 thv hmp 36.2,52.3415,4.77002,positive,A9,213
-RWS01_MONIBAS_0091hrr0367ra,A9 northBound naar Alkmaar na afrit 7 ri knppnt Raasdorp thv hmp 36.7,52.3443,4.76418,positive,A9,214
-RWS01_MONIBAS_0091hrr0373ra,A9 northBound naar Alkmaar na afrit 7 ri knppnt Raasdorp thv hmp 37.4,52.3479,4.75694,positive,A9,215
-RWS01_MONIBAS_0091hrr0377ra,A9 northBound naar Alkmaar na afrit 7 ri knppnt Raasdorp thv hmp 37.7,52.3501,4.75277,positive,A9,216
-RWS01_MONIBAS_0091hrr0381ra,A9 northBound naar Alkmaar op knppnt Raasdorp ri afrit Haarlem-Zuid thv hmp 38.1,52.3523,4.74868,positive,A9,217
-RWS01_MONIBAS_0091hrr0384ra,A9 northBound naar Alkmaar op knppnt Raasdorp ri afrit Haarlem-Zuid thv hmp 38.5,52.3545,4.74463,positive,A9,218
-RWS01_MONIBAS_0091hrr0388ra,A9 northBound naar Alkmaar op knppnt Raasdorp ri afrit Haarlem-Zuid thv hmp 38.8,52.3565,4.74094,positive,A9,219
-RWS01_MONIBAS_0091hrr0391ra,A9 northBound naar Alkmaar op knppnt Raasdorp ri afrit Haarlem-Zuid thv hmp 39.1,52.3584,4.7374,positive,A9,220
-RWS01_MONIBAS_0091hrr0394ra,A9 northBound naar Alkmaar op knppnt Raasdorp ri afrit Haarlem-Zuid thv hmp 39.4,52.3601,4.7342,positive,A9,221
-RWS01_MONIBAS_0091hrr0396ra,A9 northBound naar Alkmaar op knppnt Raasdorp ri afrit Haarlem-Zuid thv hmp 39.6,52.3615,4.7316,positive,A9,222
-RWS01_MONIBAS_0091hrr0399ra,A9 northBound naar Alkmaar op knppnt Raasdorp ri afrit Haarlem-Zuid thv hmp 39.9,52.363,4.7288,positive,A9,223
-RWS01_MONIBAS_0091hrr0401ra,A9 northBound naar Alkmaar op knppnt Raasdorp ri afrit Haarlem-Zuid thv hmp 40.2,52.3645,4.72598,positive,A9,224
-RWS01_MONIBAS_0091hrr0405ra,A9 northBound naar Alkmaar op knppnt Raasdorp ri afrit Haarlem-Zuid thv hmp 40.5,52.3667,4.72193,positive,A9,225
-RWS01_MONIBAS_0091hrr0408ra,A9 northBound naar Alkmaar op knppnt Raasdorp ri afrit Haarlem-Zuid thv hmp 40.9,52.3689,4.71791,positive,A9,226
-RWS01_MONIBAS_0091hrr0411ra,A9 northBound naar Alkmaar na afrit N205/A205 ri knppnt Rottepolderplein thv hmp 41.2,52.3704,4.71504,positive,A9,227
-RWS01_MONIBAS_0091hrr0414ra,A9 northBound naar Alkmaar na afrit N205/A205 ri knppnt Rottepolderplein thv hmp 41.4,52.3719,4.71232,positive,A9,228
-RWS01_MONIBAS_0091hrr0418ra,A9 northBound naar Alkmaar na afrit N205/A205 ri knppnt Rottepolderplein thv hmp 41.8,52.3749,4.70908,positive,A9,229
-RWS01_MONIBAS_0091hrr0421ra,A9 northBound naar Alkmaar na afrit N205/A205 ri knppnt Rottepolderplein thv hmp 42.1,52.3778,4.70863,positive,A9,230
-RWS01_MONIBAS_0091hrr0423ra,A9 northBound naar Alkmaar na afrit N205/A205 ri knppnt Rottepolderplein thv hmp 42.3,52.3795,4.70834,positive,A9,231
-RWS01_MONIBAS_0091hrr0427ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 42.8,52.3835,4.70771,positive,A9,232
-RWS01_MONIBAS_0091hrr0433ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 43.3,52.3883,4.70693,positive,A9,233
-RWS01_MONIBAS_0091hrr0437ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 43.7,52.3921,4.70636,positive,A9,234
-RWS01_MONIBAS_0091hrr0439ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 43.9,52.3936,4.70608,positive,A9,235
-RWS01_MONIBAS_0091hrr0443ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 44.3,52.3975,4.70543,positive,A9,236
-RWS01_MONIBAS_0091hrr0448ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 44.8,52.4021,4.70468,positive,A9,237
-RWS01_MONIBAS_0091hrr0453ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 45.3,52.406,4.7032,positive,A9,238
-RWS01_MONIBAS_0091hrr0456ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 45.6,52.4086,4.70184,positive,A9,239
-RWS01_MONIBAS_0091hrr0458ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 45.9,52.4111,4.70049,positive,A9,240
-RWS01_MONIBAS_0091hrr0462ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 46.2,52.4137,4.69911,positive,A9,241
-RWS01_MONIBAS_0091hrr0467ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 46.7,52.4178,4.69617,positive,A9,242
-RWS01_MONIBAS_0091hrr0469ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 46.9,52.4193,4.69454,positive,A9,243
-RWS01_MONIBAS_0091hrr0473ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 47.3,52.4221,4.69039,positive,A9,244
-RWS01_MONIBAS_0091hrr0476ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 47.6,52.4239,4.68716,positive,A9,245
-RWS01_MONIBAS_0091hrr0478ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 47.9,52.4256,4.68419,positive,A9,246
-RWS01_MONIBAS_0091hrr0481ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 48.2,52.4278,4.6814,positive,A9,247
-RWS01_MONIBAS_0091hrr0484ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 48.5,52.43,4.67896,positive,A9,248
-RWS01_MONIBAS_0091hrr0488ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 48.9,52.4329,4.67596,positive,A9,249
-RWS01_MONIBAS_0091hrr0493ra,A9 northBound naar Alkmaar op knppnt Velsen ri afrit 8 thv hmp 49.3,52.436,4.67263,positive,A9,250
-RWS01_MONIBAS_0091hrr0493rb,A9 northBound naar Alkmaar op knppnt Velsen ri afrit 8 thv hmp 49.3,52.436,4.67263,positive,A9,251
-RWS01_MONIBAS_0091hrr0496ra,A9 northBound naar Alkmaar op knppnt Velsen ri afrit 8 thv hmp 49.7,52.4388,4.67001,positive,A9,252
-RWS01_MONIBAS_0091hrr0500ra,A9 northBound naar Alkmaar op knppnt Velsen ri afrit 8 thv hmp 50.1,52.4422,4.66797,positive,A9,253
-RWS01_MONIBAS_0091hrr0504ra,A9 northBound naar Alkmaar op knppnt Velsen ri afrit 8 thv hmp 50.4,52.4453,4.66709,positive,A9,254
-RWS01_MONIBAS_0091hrr0507ra,A9 northBound naar Alkmaar op knppnt Velsen ri afrit 8 thv hmp 50.8,52.4484,4.66718,positive,A9,255
-RWS01_MONIBAS_0091hrr0509ra,A9 northBound naar Alkmaar op knppnt Velsen ri afrit 8 thv hmp 50.9,52.4498,4.66746,positive,A9,256
-RWS01_MONIBAS_0091hrr0512ra,A9 northBound naar Alkmaar op knppnt Velsen ri afrit 8 thv hmp 51.2,52.4524,4.66845,positive,A9,257
-RWS01_MONIBAS_0101hrr0019ra,A10 clockwise naar Volendam na afrit 17 ri afrit 16 thv hmp 1.9,52.4187,4.91172,positive,A10,258
-RWS01_MONIBAS_0101hrr0025ra,A10 clockwise naar Volendam na afrit 17 ri afrit 16 thv hmp 2.5,52.4159,4.91924,positive,A10,259
-RWS01_MONIBAS_0101hrr0032ra,A10 clockwise naar Volendam na afrit 17 ri afrit 16 thv hmp 3.2,52.4122,4.92699,positive,A10,260
-RWS01_MONIBAS_0101hrr0037ra,A10 clockwise naar Volendam na afrit 16 ri afrit 15 thv hmp 3.7,52.4094,4.93263,positive,A10,261
-RWS01_MONIBAS_0101hrr0042ra,A10 clockwise naar Volendam na afrit 16 ri afrit 15 thv hmp 4.2,52.4073,4.93909,positive,A10,262
-RWS01_MONIBAS_0101hrr0045ra,A10 clockwise naar Volendam na afrit 16 ri afrit 15 thv hmp 4.5,52.4061,4.94349,positive,A10,263
-RWS01_MONIBAS_0101hrr0051ra,A10 clockwise naar Volendam na afrit 16 ri afrit 15 thv hmp 5.2,52.403,4.95113,positive,A10,264
-RWS01_MONIBAS_0101hrr0057ra,A10 clockwise naar Volendam na afrit 16 ri afrit 15 thv hmp 5.8,52.3993,4.9576,positive,A10,265
-RWS01_MONIBAS_0101hrr0063ra,A10 clockwise naar Volendam na afrit 16 ri afrit 15 thv hmp 6.4,52.3948,4.96259,positive,A10,266
-RWS01_MONIBAS_0101hrr0067ra,A10 clockwise naar Watergraafsmeer na afrit 15 ri afrit 14 thv hmp 6.8,52.3914,4.96546,positive,A10,267
-RWS01_MONIBAS_0101hrr0069ra,A10 clockwise naar Watergraafsmeer na afrit 15 ri afrit 14 thv hmp 7.0,52.3901,4.96667,positive,A10,268
-RWS01_MONIBAS_0101hrr0072ra,A10 clockwise naar Watergraafsmeer na afrit 15 ri afrit 14 thv hmp 7.2,52.3881,4.96835,positive,A10,269
-RWS01_MONIBAS_0101hrr0074ra,A10 clockwise naar Watergraafsmeer na afrit 15 ri afrit 14 thv hmp 7.5,52.3861,4.96999,positive,A10,270
-RWS01_MONIBAS_0101hrr0078ra,A10 clockwise naar Watergraafsmeer na afrit 15 ri afrit 14 thv hmp 7.8,52.3833,4.97188,positive,A10,271
-RWS01_MONIBAS_0101hrr0080ra,A10 clockwise naar Watergraafsmeer na afrit 15 ri afrit 14 thv hmp 8.0,52.3813,4.97276,positive,A10,272
-RWS01_MONIBAS_0101hrr0085ra,A10 clockwise naar Watergraafsmeer na afrit 15 ri afrit 14 thv hmp 8.5,52.3771,4.9739,positive,A10,273
-RWS01_MONIBAS_0101hrr0086ra,A10 clockwise naar Watergraafsmeer na afrit 15 ri afrit 14 thv hmp 8.6,52.3762,4.974,positive,A10,274
-RWS01_MONIBAS_0101hrr0087ra,A10 clockwise naar Watergraafsmeer na afrit 15 ri afrit 14 thv hmp 8.8,52.3748,4.97405,positive,A10,275
-RWS01_MONIBAS_0101hrr0088ra,A10 clockwise naar Watergraafsmeer na afrit 15 ri afrit 14 thv hmp 8.9,52.3736,4.97401,positive,A10,276
-RWS01_MONIBAS_0101hrr0090ra,A10 clockwise naar Watergraafsmeer na afrit 15 ri afrit 14 thv hmp 9.0,52.3724,4.97385,positive,A10,277
-RWS01_MONIBAS_0101hrr0092ra,A10 clockwise naar Watergraafsmeer na afrit 15 ri afrit 14 thv hmp 9.2,52.3708,4.97343,positive,A10,278
-RWS01_MONIBAS_0101hrr0093ra,A10 clockwise naar Watergraafsmeer na afrit 15 ri afrit 14 thv hmp 9.4,52.3693,4.97292,positive,A10,279
-RWS01_MONIBAS_0101hrr0097ra,A10 clockwise naar Watergraafsmeer na afrit 14 ri knppnt Watergraafsmeer thv hmp 9.8,52.3658,4.97122,positive,A10,280
-RWS01_MONIBAS_0101hrr0103ra,A10 clockwise naar Watergraafsmeer na afrit 14 ri knppnt Watergraafsmeer thv hmp 10.3,52.3614,4.9688,positive,A10,281
-RWS01_MONIBAS_0101hrr0109ra,A10 clockwise naar Watergraafsmeer na afrit 14 ri knppnt Watergraafsmeer thv hmp 10.9,52.3563,4.96592,positive,A10,282
-RWS01_MONIBAS_0101hrr0110ra,A10 clockwise naar Watergraafsmeer na afrit 14 ri knppnt Watergraafsmeer thv hmp 11.0,52.3551,4.96522,positive,A10,283
-RWS01_MONIBAS_0101hrr0113ra,A10 clockwise naar Watergraafsmeer op knppnt Watergraafsmeer ri afrit 13 thv hmp 11.3,52.353,4.96395,positive,A10,284
-RWS01_MONIBAS_0101hrr0118ra,A10 clockwise naar Watergraafsmeer op knppnt Watergraafsmeer ri afrit 13 thv hmp 11.8,52.349,4.96068,positive,A10,285
-RWS01_MONIBAS_0101hrr0123ra,A10 clockwise naar Watergraafsmeer op knppnt Watergraafsmeer ri afrit 13 thv hmp 12.3,52.345,4.95667,positive,A10,286
-RWS01_MONIBAS_0101hrr0127ra,A10 clockwise naar De Nieuwe Meer na afrit 13 ri afrit 12 thv hmp 12.8,52.3413,4.95321,positive,A10,287
-RWS01_MONIBAS_0101hrr0129ra,A10 clockwise naar De Nieuwe Meer na afrit 13 ri afrit 12 thv hmp 13.0,52.34,4.95128,positive,A10,288
-RWS01_MONIBAS_0101hrr0133ra,A10 clockwise naar De Nieuwe Meer na afrit 13 ri afrit 12 thv hmp 13.4,52.3382,4.94629,positive,A10,289
-RWS01_MONIBAS_0101hrr0135ra,A10 clockwise naar De Nieuwe Meer na afrit 13 ri afrit 12 thv hmp 13.6,52.3376,4.94362,positive,A10,290
-RWS01_MONIBAS_0101hrr0138ra,A10 clockwise naar De Nieuwe Meer na afrit 12 ri afrit 11 thv hmp 13.9,52.3364,4.93974,positive,A10,291
-RWS01_MONIBAS_0101hrr0141ra,A10 clockwise naar De Nieuwe Meer na afrit 12 ri afrit 11 thv hmp 14.2,52.3349,4.93579,positive,A10,292
-RWS01_MONIBAS_0101hrr0144ra,A10 clockwise naar De Nieuwe Meer na afrit 12 ri afrit 11 thv hmp 14.4,52.3339,4.93292,positive,A10,293
-RWS01_MONIBAS_0101hrr0147ra,A10 clockwise naar De Nieuwe Meer na afrit 11 ri afrit 10 thv hmp 14.8,52.3323,4.92828,positive,A10,294
-RWS01_MONIBAS_0101hrr0149ra,A10 clockwise naar De Nieuwe Meer na afrit 11 ri afrit 10 thv hmp 15.0,52.3314,4.92567,positive,A10,295
-RWS01_MONIBAS_0101hrr0153ra,A10 clockwise naar De Nieuwe Meer op knppnt Amstel ri afrit 9 thv hmp 15.3,52.3299,4.92138,positive,A10,296
-RWS01_MONIBAS_0101hrr0153rb,A10 clockwise naar De Nieuwe Meer op knppnt Amstel ri afrit 9 thv hmp 15.3,52.3299,4.92138,positive,A10,297
-RWS01_MONIBAS_0101hrr0157ra,A10 clockwise naar De Nieuwe Meer op knppnt Amstel ri afrit 9 thv hmp 15.8,52.3285,4.91551,positive,A10,298
-RWS01_MONIBAS_0101hrr0163ra,A10 clockwise naar De Nieuwe Meer op knppnt Amstel ri afrit 9 thv hmp 16.3,52.3295,4.90731,positive,A10,299
-RWS01_MONIBAS_0101hrr0169ra,A10 clockwise naar De Nieuwe Meer op knppnt Amstel ri afrit 9 thv hmp 16.9,52.3323,4.90058,positive,A10,300
-RWS01_MONIBAS_0101hrr0171ra,A10 clockwise naar De Nieuwe Meer op knppnt Amstel ri afrit 9 thv hmp 17.2,52.3339,4.8976,positive,A10,301
-RWS01_MONIBAS_0101hrr0175ra,A10 clockwise naar De Nieuwe Meer na afrit 9 ri afrit 8 thv hmp 17.6,52.3362,4.89329,positive,A10,302
-RWS01_MONIBAS_0101hrr0180ra,A10 clockwise naar De Nieuwe Meer na afrit 9 ri afrit 8 thv hmp 18.0,52.3387,4.88811,positive,A10,303
-RWS01_MONIBAS_0101hrr0185ra,A10 clockwise naar De Nieuwe Meer na afrit 9 ri afrit 8 thv hmp 18.5,52.3397,4.88084,positive,A10,304
-RWS01_MONIBAS_0101hrr0189ra,A10 clockwise naar De Nieuwe Meer na afrit 9 ri afrit 8 thv hmp 19.0,52.3395,4.87426,positive,A10,305
-RWS01_MONIBAS_0101hrr0194ra,A10 clockwise naar De Nieuwe Meer na afrit 8 ri knppnt De Nieuwe Meer thv hmp 19.4,52.3392,4.86728,positive,A10,306
-RWS01_MONIBAS_0101hrr0197ra,A10 clockwise naar De Nieuwe Meer na afrit 8 ri knppnt De Nieuwe Meer thv hmp 19.8,52.3389,4.8621,positive,A10,307
-RWS01_MONIBAS_0101hrr0203ra,A10 clockwise naar De Nieuwe Meer op knppnt De Nieuwe Meer ri afrit 7 thv hmp 20.3,52.3385,4.85447,positive,A10,308
-RWS01_MONIBAS_0101hrr0205ra,A10 clockwise naar De Nieuwe Meer op knppnt De Nieuwe Meer ri afrit 7 thv hmp 20.6,52.3383,4.85033,positive,A10,309
-RWS01_MONIBAS_0101hrr0209ra,A10 clockwise naar De Nieuwe Meer na afrit 8 ri knppnt De Nieuwe Meer thv hmp 21.0,52.3381,4.84459,positive,A10,310
-RWS01_MONIBAS_0101hrr0215ra,A10 clockwise naar Coenplein na afrit 7 ri afrit 6 thv hmp 21.5,52.3417,4.84148,positive,A10,311
-RWS01_MONIBAS_0101hrr0219ra,A10 clockwise naar Coenplein na afrit 7 ri afrit 6 thv hmp 22.0,52.3455,4.84111,positive,A10,312
-RWS01_MONIBAS_0101hrr0225ra,A10 clockwise naar Coenplein na afrit 7 ri afrit 6 thv hmp 22.6,52.3508,4.84251,positive,A10,313
-RWS01_MONIBAS_0101hrr0229ra,A10 clockwise naar Coenplein na afrit 6 ri afrit 5 thv hmp 22.9,52.354,4.84272,positive,A10,314
-RWS01_MONIBAS_0101hrr0233ra,A10 clockwise naar Coenplein na afrit 6 ri afrit 5 thv hmp 23.4,52.358,4.8426,positive,A10,315
-RWS01_MONIBAS_0101hrr0239ra,A10 clockwise naar Coenplein na afrit 6 ri afrit 5 thv hmp 23.9,52.3629,4.84248,positive,A10,316
-RWS01_MONIBAS_0101hrr0244ra,A10 clockwise naar Coenplein na afrit 5 ri afrit 4 thv hmp 24.4,52.3678,4.84232,positive,A10,317
-RWS01_MONIBAS_0101hrr0244rb,A10 clockwise naar Coenplein na afrit 5 ri afrit 4 thv hmp 24.4,52.3678,4.84232,positive,A10,318
-RWS01_MONIBAS_0101hrr0249ra,A10 clockwise naar Coenplein na afrit 5 ri afrit 4 thv hmp 24.9,52.3719,4.84221,positive,A10,319
-RWS01_MONIBAS_0101hrr0253ra,A10 clockwise naar Coenplein na afrit 4 ri afrit 3 thv hmp 25.4,52.3759,4.84333,positive,A10,320
-RWS01_MONIBAS_0101hrr0258ra,A10 clockwise naar Coenplein na afrit 4 ri afrit 3 thv hmp 25.8,52.3799,4.84484,positive,A10,321
-RWS01_MONIBAS_0101hrr0261ra,A10 clockwise naar Coenplein na afrit 3 ri afrit 2 thv hmp 26.2,52.3832,4.84478,positive,A10,322
-RWS01_MONIBAS_0101hrr0264ra,A10 clockwise naar Coenplein na afrit 3 ri afrit 2 thv hmp 26.5,52.3857,4.84465,positive,A10,323
-RWS01_MONIBAS_0101hrr0267ra,A10 clockwise naar Coenplein na afrit 3 ri afrit 2 thv hmp 26.7,52.3881,4.84451,positive,A10,324
-RWS01_MONIBAS_0101hrr0271ra,A10 clockwise naar Coenplein na afrit 2 ri knppnt Westrandweg thv hmp 27.2,52.3923,4.84431,positive,A10,325
-RWS01_MONIBAS_0101hrr0276ra,A10 clockwise naar Coenplein na afrit 2 ri knppnt Westrandweg thv hmp 27.6,52.3959,4.84504,positive,A10,326
-RWS01_MONIBAS_0101hrr0279ra,A10 clockwise naar Coenplein op knppnt Westrandweg ri afrit 1 thv hmp 27.9,52.3983,4.84685,positive,A10,327
-RWS01_MONIBAS_0101hrr0281ra,A10 clockwise naar Coenplein op knppnt Westrandweg ri afrit 1 thv hmp 28.1,52.3998,4.84869,positive,A10,328
-RWS01_MONIBAS_0101hrr0285ra,A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 28.6,52.4029,4.85225,positive,A10,329
-RWS01_MONIBAS_0101hrr0287ra,A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 28.7,52.4044,4.8539,positive,A10,330
-RWS01_MONIBAS_0101hrr0290ra,A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 29.1,52.4069,4.85694,positive,A10,331
-RWS01_MONIBAS_0101hrr0294ra,A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 29.5,52.4097,4.86032,positive,A10,332
-RWS01_MONIBAS_0101hrr0297ra,A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 29.7,52.4114,4.86205,positive,A10,333
-RWS01_MONIBAS_0101hrr0298ra,A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 29.9,52.4126,4.86321,positive,A10,334
-RWS01_MONIBAS_0101hrr0299ra,A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 30.0,52.4134,4.86393,positive,A10,335
-RWS01_MONIBAS_0101hrr0300ra,A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 30.0,52.414,4.86452,positive,A10,336
-RWS01_MONIBAS_0101hrr0301ra,A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 30.1,52.4146,4.86508,positive,A10,337
-RWS01_MONIBAS_0101hrr0302ra,A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 30.2,52.4154,4.86587,positive,A10,338
-RWS01_MONIBAS_0101hrr0303ra,A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 30.3,52.4162,4.86661,positive,A10,339
-RWS01_MONIBAS_0101hrr0305ra,A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 30.5,52.4179,4.86826,positive,A10,340
-RWS01_MONIBAS_0101hrr0308ra,A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 30.9,52.4201,4.87079,positive,A10,341
-RWS01_MONIBAS_0101hrr0308rb,A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 30.9,52.4201,4.87079,positive,A10,342
-RWS01_MONIBAS_0101hrr0312ra,A10 clockwise naar Coenplein op knppnt Coenplein ri afrit 18 thv hmp 31.2,52.4217,4.87482,positive,A10,343
-RWS01_MONIBAS_0101hrr0317ra,A10 clockwise naar Volendam na afrit 18 ri afrit 17 thv hmp 31.8,52.4243,4.88199,positive,A10,344
-RWS01_MONIBAS_0101hrr0323ra,A10 clockwise naar Volendam na afrit 18 ri afrit 17 thv hmp 32.4,52.425,4.89042,positive,A10,345
-RWS01_MONIBAS_0101hrr0330ra,A10 clockwise naar Volendam na afrit 18 ri afrit 17 thv hmp 31.3,52.4237,4.89955,positive,A10,346
-RWS01_MONICA_00D00100A055D0070007,"A1 eastBound naar Amersfoort op knppnt Watergraafsmeer ri afrit 1 thv hmp 4.1, rstr 1",52.3472,4.95946,positive,A1,347
-RWS01_MONICA_00D00100A055D007000B,"A1 eastBound naar Amersfoort op knppnt Watergraafsmeer ri afrit 1 thv hmp 4.1, rstr 2",52.3472,4.95946,positive,A1,348
-RWS01_MONICA_00D00100A055D007000F,"A1 eastBound naar Amersfoort op knppnt Watergraafsmeer ri afrit 1 thv hmp 4.1, rstr 3",52.3472,4.95946,positive,A1,349
-RWS01_MONICA_00D00100F000D0070007,"A1 eastBound naar Amersfoort na afrit 1 ri afrit 2 thv hmp 6.0, rstr 1",52.3431,4.98128,positive,A1,350
-RWS01_MONICA_00D00100F000D007000B,"A1 eastBound naar Amersfoort na afrit 1 ri afrit 2 thv hmp 6.0, rstr 2",52.3431,4.98128,positive,A1,351
-RWS01_MONICA_00D00100F000D007000F,"A1 eastBound naar Amersfoort na afrit 1 ri afrit 2 thv hmp 6.0, rstr 3",52.3431,4.98128,positive,A1,352
-RWS01_MONICA_00D00100F000D0070013,"A1 eastBound naar Amersfoort na afrit 1 ri afrit 2 thv hmp 6.0, rstr 4",52.3431,4.98128,positive,A1,353
-RWS01_MONICA_00D00100FC32D0070007,"A1 eastBound naar Amersfoort na afrit 1 ri afrit 2 thv hmp 6.4, rstr 1",52.3406,4.98437,positive,A1,354
-RWS01_MONICA_00D00100FC32D007000B,"A1 eastBound naar Amersfoort na afrit 1 ri afrit 2 thv hmp 6.4, rstr 2",52.3406,4.98437,positive,A1,355
-RWS01_MONICA_00D00100FC32D007000F,"A1 eastBound naar Amersfoort na afrit 1 ri afrit 2 thv hmp 6.4, rstr 3",52.3406,4.98437,positive,A1,356
-RWS01_MONICA_00D00100FC32D0070013,"A1 eastBound naar Amersfoort na afrit 1 ri afrit 2 thv hmp 6.4, rstr 4",52.3406,4.98437,positive,A1,357
-RWS01_MONICA_00D001011050D0070007,"A1 eastBound naar Amersfoort na afrit 2 ri knppnt Diemen thv hmp 6.9, rstr 1",52.3372,4.98975,positive,A1,358
-RWS01_MONICA_00D001011050D007000B,"A1 eastBound naar Amersfoort na afrit 2 ri knppnt Diemen thv hmp 6.9, rstr 2",52.3372,4.98975,positive,A1,359
-RWS01_MONICA_00D001011050D007000F,"A1 eastBound naar Amersfoort na afrit 2 ri knppnt Diemen thv hmp 6.9, rstr 3",52.3372,4.98975,positive,A1,360
-RWS01_MONICA_00D001011050D0070013,"A1 eastBound naar Amersfoort na afrit 2 ri knppnt Diemen thv hmp 6.9, rstr 4",52.3372,4.98975,positive,A1,361
-RWS01_MONICA_00D00101184BD0070007,"A1 eastBound naar Amersfoort na afrit 2 ri knppnt Diemen thv hmp 7.1, rstr 1",52.3361,4.99199,positive,A1,362
-RWS01_MONICA_00D00101304BD0070007,"A1 eastBound naar Amersfoort na afrit 2 ri knppnt Diemen thv hmp 7.7, rstr 1",52.3335,4.99982,positive,A1,363
-RWS01_MONICA_00D00101304BD007000B,"A1 eastBound naar Amersfoort na afrit 2 ri knppnt Diemen thv hmp 7.7, rstr 2",52.3335,4.99982,positive,A1,364
-RWS01_MONICA_00D00101304BD007000F,"A1 eastBound naar Amersfoort na afrit 2 ri knppnt Diemen thv hmp 7.7, rstr 3",52.3335,4.99982,positive,A1,365
-RWS01_MONICA_00D00101304BD0070013,"A1 eastBound naar Amersfoort na afrit 2 ri knppnt Diemen thv hmp 7.7, rstr 4",52.3335,4.99982,positive,A1,366
-RWS01_MONICA_00D00101304BD0070307,"A1 eastBound naar Amersfoort na afrit 2 ri knppnt Diemen thv hmp 7.7, rstr 1",52.3335,4.99982,positive,A1,367
-RWS01_MONICA_00D00101304BD007030B,"A1 eastBound naar Amersfoort na afrit 2 ri knppnt Diemen thv hmp 7.7, rstr 2",52.3335,4.99982,positive,A1,368
-RWS01_MONICA_00D001013C32D0070007,"A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 8.0, rstr 1",52.3328,5.0036,positive,A1,369
-RWS01_MONICA_00D001013C32D007000B,"A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 8.0, rstr 2",52.3328,5.0036,positive,A1,370
-RWS01_MONICA_00D001013C32D007000F,"A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 8.0, rstr 3",52.3328,5.0036,positive,A1,371
-RWS01_MONICA_00D001013C32D0070013,"A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 8.0, rstr 4",52.3328,5.0036,positive,A1,372
-RWS01_MONICA_00D001014805D0070007,"A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 8.2, rstr 1",52.3324,5.00719,positive,A1,373
-RWS01_MONICA_00D001014805D007000B,"A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 8.2, rstr 2",52.3324,5.00719,positive,A1,374
-RWS01_MONICA_00D001014805D007000F,"A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 8.2, rstr 3",52.3324,5.00719,positive,A1,375
-RWS01_MONICA_00D001019416D0070007,"A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 10.1, rstr 1",52.332,5.0349,positive,A1,376
-RWS01_MONICA_00D001019416D007000B,"A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 10.1, rstr 2",52.332,5.0349,positive,A1,377
-RWS01_MONICA_00D001019416D007000F,"A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 10.1, rstr 3",52.332,5.0349,positive,A1,378
-RWS01_MONICA_00D001019416D0070013,"A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 10.1, rstr 4",52.332,5.0349,positive,A1,379
-RWS01_MONICA_00D00101C00ED0070007,"A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 11.2, rstr 1",52.3309,5.05069,positive,A1,380
-RWS01_MONICA_00D00101C00ED007000B,"A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 11.2, rstr 2",52.3309,5.05069,positive,A1,381
-RWS01_MONICA_00D00101C00ED007000F,"A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 11.2, rstr 3",52.3309,5.05069,positive,A1,382
-RWS01_MONICA_00D00101D000D0070007,"A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 11.6, rstr 1",52.3293,5.05577,positive,A1,383
-RWS01_MONICA_00D00101D000D007000B,"A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 11.6, rstr 2",52.3293,5.05577,positive,A1,384
-RWS01_MONICA_00D00101D000D007000F,"A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 11.6, rstr 3",52.3293,5.05577,positive,A1,385
-RWS01_MONICA_00D00101DC5AD0070007,"A1 eastBound naar Amersfoort na afrit 3 ri afrit 4 thv hmp 12.0, rstr 1",52.3277,5.06069,positive,A1,386
-RWS01_MONICA_00D00101DC5AD007000B,"A1 eastBound naar Amersfoort na afrit 3 ri afrit 4 thv hmp 12.0, rstr 2",52.3277,5.06069,positive,A1,387
-RWS01_MONICA_00D00101DC5AD007000F,"A1 eastBound naar Amersfoort na afrit 3 ri afrit 4 thv hmp 12.0, rstr 3",52.3277,5.06069,positive,A1,388
-RWS01_MONICA_00D00101F823D0070007,"A1 eastBound naar Amersfoort na afrit 4 ri knppnt Muiderberg thv hmp 12.6, rstr 1",52.3251,5.06911,positive,A1,389
-RWS01_MONICA_00D00101F823D007000B,"A1 eastBound naar Amersfoort na afrit 4 ri knppnt Muiderberg thv hmp 12.6, rstr 2",52.3251,5.06911,positive,A1,390
-RWS01_MONICA_00D00101F823D007000F,"A1 eastBound naar Amersfoort na afrit 4 ri knppnt Muiderberg thv hmp 12.6, rstr 3",52.3251,5.06911,positive,A1,391
-RWS01_MONICA_00D00102101ED0070007,"A1 eastBound naar Amersfoort na afrit 4 ri knppnt Muiderberg thv hmp 13.2, rstr 1",52.3229,5.07707,positive,A1,392
-RWS01_MONICA_00D00102101ED007000B,"A1 eastBound naar Amersfoort na afrit 4 ri knppnt Muiderberg thv hmp 13.2, rstr 2",52.3229,5.07707,positive,A1,393
-RWS01_MONICA_00D00102101ED007000F,"A1 eastBound naar Amersfoort na afrit 4 ri knppnt Muiderberg thv hmp 13.2, rstr 3",52.3229,5.07707,positive,A1,394
-RWS01_MONICA_00D001021C0AD0070007,"A1 eastBound naar Amersfoort na afrit 4 ri knppnt Muiderberg thv hmp 13.5, rstr 1",52.3219,5.08078,positive,A1,395
-RWS01_MONICA_00D001021C0AD007000B,"A1 eastBound naar Amersfoort na afrit 4 ri knppnt Muiderberg thv hmp 13.5, rstr 2",52.3219,5.08078,positive,A1,396
-RWS01_MONICA_00D001021C0AD007000F,"A1 eastBound naar Amersfoort na afrit 4 ri knppnt Muiderberg thv hmp 13.5, rstr 3",52.3219,5.08078,positive,A1,397
-RWS01_MONICA_00D001021C0AD0070013,"A1 eastBound naar Amersfoort na afrit 4 ri knppnt Muiderberg thv hmp 13.5, rstr 4",52.3219,5.08078,positive,A1,398
-RWS01_MONICA_00D001023028D0070007,"A1 eastBound naar Amersfoort na afrit 4 ri knppnt Muiderberg thv hmp 14.0, rstr 1",52.3199,5.08778,positive,A1,399
-RWS01_MONICA_00D001023028D007000B,"A1 eastBound naar Amersfoort na afrit 4 ri knppnt Muiderberg thv hmp 14.0, rstr 2",52.3199,5.08778,positive,A1,400
-RWS01_MONICA_00D001023028D0070307,"A1 eastBound naar Amersfoort na afrit 4 ri knppnt Muiderberg thv hmp 14.0, rstr 1",52.3199,5.08778,positive,A1,401
-RWS01_MONICA_00D001023028D007030B,"A1 eastBound naar Amersfoort na afrit 4 ri knppnt Muiderberg thv hmp 14.0, rstr 2",52.3199,5.08778,positive,A1,402
-RWS01_MONICA_00D00205B400D0050005,"A2 northBound naar Amsterdam op knppnt Holendrecht ri afrit 1 thv hmp 36.5, rstr 1",52.2857,4.94866,positive,A2,403
-RWS01_MONICA_00D00205B400D0050009,"A2 northBound naar Amsterdam op knppnt Holendrecht ri afrit 1 thv hmp 36.5, rstr 2",52.2857,4.94866,positive,A2,404
-RWS01_MONICA_00D00205B400D005000D,"A2 northBound naar Amsterdam op knppnt Holendrecht ri afrit 1 thv hmp 36.5, rstr 3",52.2857,4.94866,positive,A2,405
-RWS01_MONICA_00D00205D404D0050005,"A2 northBound naar Amsterdam na afrit 3 ri afrit 2 thv hmp 37.3, rstr 1",52.2792,4.95392,positive,A2,406
-RWS01_MONICA_00D00205D404D0050009,"A2 northBound naar Amsterdam na afrit 3 ri afrit 2 thv hmp 37.3, rstr 2",52.2792,4.95392,positive,A2,407
-RWS01_MONICA_00D00205D404D005000D,"A2 northBound naar Amsterdam na afrit 3 ri afrit 2 thv hmp 37.3, rstr 3",52.2792,4.95392,positive,A2,408
-RWS01_MONICA_00D00205D404D0050011,"A2 northBound naar Amsterdam na afrit 3 ri afrit 2 thv hmp 37.3, rstr 4",52.2792,4.95392,positive,A2,409
-RWS01_MONICA_00D00206040AD0050005,"A2 northBound naar Amsterdam na afrit 3 ri afrit 2 thv hmp 38.5, rstr 1",52.2692,4.96036,positive,A2,410
-RWS01_MONICA_00D00206040AD0050009,"A2 northBound naar Amsterdam na afrit 3 ri afrit 2 thv hmp 38.5, rstr 2",52.2692,4.96036,positive,A2,411
-RWS01_MONICA_00D00206040AD005000D,"A2 northBound naar Amsterdam na afrit 3 ri afrit 2 thv hmp 38.5, rstr 3",52.2692,4.96036,positive,A2,412
-RWS01_MONICA_00D00206040AD0050011,"A2 northBound naar Amsterdam na afrit 3 ri afrit 2 thv hmp 38.5, rstr 4",52.2692,4.96036,positive,A2,413
-RWS01_MONICA_00D00206040AD0050305,"A2 northBound naar Amsterdam na afrit 3 ri afrit 2 thv hmp 38.5, rstr 1",52.2692,4.96036,positive,A2,414
-RWS01_MONICA_00D00206040AD0050309,"A2 northBound naar Amsterdam na afrit 3 ri afrit 2 thv hmp 38.5, rstr 2",52.2692,4.96036,positive,A2,415
-RWS01_MONICA_00D002061C0CD0050005,"A2 northBound naar Amsterdam na afrit 3 ri afrit 2 thv hmp 39.1, rstr 1",52.2641,4.96326,positive,A2,416
-RWS01_MONICA_00D002061C0CD0050009,"A2 northBound naar Amsterdam na afrit 3 ri afrit 2 thv hmp 39.1, rstr 2",52.2641,4.96326,positive,A2,417
-RWS01_MONICA_00D002061C0CD005000D,"A2 northBound naar Amsterdam na afrit 3 ri afrit 2 thv hmp 39.1, rstr 3",52.2641,4.96326,positive,A2,418
-RWS01_MONICA_00D002061C0CD0050011,"A2 northBound naar Amsterdam na afrit 3 ri afrit 2 thv hmp 39.1, rstr 4",52.2641,4.96326,positive,A2,419
-RWS01_MONICA_00D002061C0CD0050015,"A2 northBound naar Amsterdam na afrit 3 ri afrit 2 thv hmp 39.1, rstr 5",52.2641,4.96326,positive,A2,420
-RWS01_MONICA_00D005008454D0070007,"A5 northBound naar Amsterdam op knppnt De Hoek ri afrit 3 thv hmp 3.4, rstr 1",52.3134,4.73269,positive,A5,421
-RWS01_MONICA_00D005008454D007000B,"A5 northBound naar Amsterdam op knppnt De Hoek ri afrit 3 thv hmp 3.4, rstr 2",52.3134,4.73269,positive,A5,422
-RWS01_MONICA_00D005014446D0070007,"A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 8.2, rstr 1",52.3559,4.73933,positive,A5,423
-RWS01_MONICA_00D005014446D007000B,"A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 8.2, rstr 2",52.3559,4.73933,positive,A5,424
-RWS01_MONICA_00D00501583DD0070007,"A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 8.7, rstr 1",52.3597,4.74274,positive,A5,425
-RWS01_MONICA_00D00501583DD007000B,"A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 8.7, rstr 2",52.3597,4.74274,positive,A5,426
-RWS01_MONICA_00D005017053D0070007,"A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 9.3, rstr 1",52.364,4.74844,positive,A5,427
-RWS01_MONICA_00D005017053D007000B,"A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 9.3, rstr 2",52.364,4.74844,positive,A5,428
-RWS01_MONICA_00D005018037D0070007,"A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 9.7, rstr 1",52.3663,4.75247,positive,A5,429
-RWS01_MONICA_00D005018037D007000B,"A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 9.7, rstr 2",52.3663,4.75247,positive,A5,430
-RWS01_MONICA_00D005018C55D0070007,"A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 10.0, rstr 1",52.368,4.75642,positive,A5,431
-RWS01_MONICA_00D005018C55D007000B,"A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 10.0, rstr 2",52.368,4.75642,positive,A5,432
-RWS01_MONICA_00D00501A450D0070007,"A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 10.6, rstr 1",52.3715,4.76299,positive,A5,433
-RWS01_MONICA_00D00501A450D007000B,"A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 10.6, rstr 2",52.3715,4.76299,positive,A5,434
-RWS01_MONICA_00D00501B851D0070007,"A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 11.1, rstr 1",52.3754,4.76659,positive,A5,435
-RWS01_MONICA_00D00501B851D007000B,"A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 11.1, rstr 2",52.3754,4.76659,positive,A5,436
-RWS01_MONICA_00D00501D015D0070007,"A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 11.6, rstr 1",52.3802,4.76789,positive,A5,437
-RWS01_MONICA_00D00501D015D007000B,"A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 11.6, rstr 2",52.3802,4.76789,positive,A5,438
-RWS01_MONICA_00D00501E43DD0070007,"A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 12.2, rstr 1",52.385,4.76795,positive,A5,439
-RWS01_MONICA_00D00501E43DD007000B,"A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 12.2, rstr 2",52.385,4.76795,positive,A5,440
-RWS01_MONICA_00D00501FC01D0070007,"A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 12.7, rstr 1",52.3895,4.77055,positive,A5,441
-RWS01_MONICA_00D00501FC01D007000B,"A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 12.7, rstr 2",52.3895,4.77055,positive,A5,442
-RWS01_MONICA_00D005020442D0070007,"A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 13.0, rstr 1",52.3913,4.77319,positive,A5,443
-RWS01_MONICA_00D005020442D007000B,"A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 13.0, rstr 2",52.3913,4.77319,positive,A5,444
-RWS01_MONICA_00D005021841D0070007,"A5 northBound naar Amsterdam na afrit 2 ri afrit 3 thv hmp 13.5, rstr 1",52.3932,4.77973,positive,A5,445
-RWS01_MONICA_00D005021841D007000B,"A5 northBound naar Amsterdam na afrit 2 ri afrit 3 thv hmp 13.5, rstr 2",52.3932,4.77973,positive,A5,446
-RWS01_MONICA_00D005022429D0070007,"A5 northBound naar Amsterdam na afrit 2 ri afrit 3 thv hmp 13.7, rstr 1",52.3933,4.78376,positive,A5,447
-RWS01_MONICA_00D005022429D007000B,"A5 northBound naar Amsterdam na afrit 2 ri afrit 3 thv hmp 13.7, rstr 2",52.3933,4.78376,positive,A5,448
-RWS01_MONICA_00D005023047D0070007,"A5 northBound naar Amsterdam na afrit 2 ri afrit 3 thv hmp 14.1, rstr 1",52.3933,4.7886,positive,A5,449
-RWS01_MONICA_00D005023047D007000B,"A5 northBound naar Amsterdam na afrit 2 ri afrit 3 thv hmp 14.1, rstr 2",52.3933,4.7886,positive,A5,450
-RWS01_MONICA_00D005023047D0070307,"A5 northBound naar Amsterdam na afrit 2 ri afrit 3 thv hmp 14.1, rstr 1",52.3933,4.7886,positive,A5,451
-RWS01_MONICA_00D005023C5ED0070007,"A5 northBound naar Amsterdam na afrit 2 ri afrit 3 thv hmp 14.4, rstr 1",52.3933,4.79333,positive,A5,452
-RWS01_MONICA_00D005023C5ED007000B,"A5 northBound naar Amsterdam na afrit 2 ri afrit 3 thv hmp 14.4, rstr 2",52.3933,4.79333,positive,A5,453
-RWS01_MONICA_00D005023C5ED0070307,"A5 northBound naar Amsterdam na afrit 2 ri afrit 3 thv hmp 14.4, rstr 1",52.3933,4.79333,positive,A5,454
-RWS01_MONICA_00D005024C43D0070007,"A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 14.8, rstr 1",52.3934,4.7988,positive,A5,455
-RWS01_MONICA_00D005024C43D007000B,"A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 14.8, rstr 2",52.3934,4.7988,positive,A5,456
-RWS01_MONICA_00D005026041D0070007,"A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 15.3, rstr 1",52.393,4.80604,positive,A5,457
-RWS01_MONICA_00D005026041D007000B,"A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 15.3, rstr 2",52.393,4.80604,positive,A5,458
-RWS01_MONICA_00D00502741ED0070007,"A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 15.7, rstr 1",52.3921,4.81263,positive,A5,459
-RWS01_MONICA_00D00502741ED007000B,"A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 15.7, rstr 2",52.3921,4.81263,positive,A5,460
-RWS01_MONICA_00D005028832D0070007,"A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 16.3, rstr 1",52.3918,4.82017,positive,A5,461
-RWS01_MONICA_00D005028832D007000B,"A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 16.3, rstr 2",52.3918,4.82017,positive,A5,462
-RWS01_MONICA_00D005029C4ED0070007,"A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 16.8, rstr 1",52.3918,4.82785,positive,A5,463
-RWS01_MONICA_00D005029C4ED007000B,"A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 16.8, rstr 2",52.3918,4.82785,positive,A5,464
-RWS01_MONICA_00D00502B427D0070007,"A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 17.3, rstr 1",52.3922,4.83595,positive,A5,465
-RWS01_MONICA_00D00502B427D007000B,"A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 17.3, rstr 2",52.3922,4.83595,positive,A5,466
-RWS01_MONICA_00D00502C849D0070007,"A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 17.9, rstr 1",52.395,4.84208,positive,A5,467
-RWS01_MONICA_00D00502C849D007000B,"A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 17.9, rstr 2",52.395,4.84208,positive,A5,468
-RWS01_MONICA_00D009057815D0070007,"A9 northBound naar Alkmaar op knppnt Badhoevedorp ri afrit 7 thv hmp 35.0, rstr 1",52.3349,4.78361,positive,A9,469
-RWS01_MONICA_00D009057815D007000B,"A9 northBound naar Alkmaar op knppnt Badhoevedorp ri afrit 7 thv hmp 35.0, rstr 2",52.3349,4.78361,positive,A9,470
-RWS01_MONICA_00D009057815D0070187,"A9 northBound naar Alkmaar op knppnt Badhoevedorp ri afrit 7 thv hmp 35.0, Vluchtstr",52.3349,4.78361,positive,A9,471
-RWS01_MONICA_00D00905A800D0070007,"A9 northBound naar Alkmaar op knppnt Badhoevedorp ri afrit 7 thv hmp 36.2, rstr 1",52.3415,4.77002,positive,A9,472
-RWS01_MONICA_00D00905A800D007000B,"A9 northBound naar Alkmaar op knppnt Badhoevedorp ri afrit 7 thv hmp 36.2, rstr 2",52.3415,4.77002,positive,A9,473
-RWS01_MONICA_00D00905A800D0070187,"A9 northBound naar Alkmaar op knppnt Badhoevedorp ri afrit 7 thv hmp 36.2, Vluchtstr",52.3415,4.77002,positive,A9,474
-RWS01_MONICA_00D00905D432D0070007,"A9 northBound naar Alkmaar na afrit 7 ri knppnt Raasdorp thv hmp 37.4, rstr 1",52.3479,4.75694,positive,A9,475
-RWS01_MONICA_00D00905D432D007000B,"A9 northBound naar Alkmaar na afrit 7 ri knppnt Raasdorp thv hmp 37.4, rstr 2",52.3479,4.75694,positive,A9,476
-RWS01_MONICA_00D00905D432D0070187,"A9 northBound naar Alkmaar na afrit 7 ri knppnt Raasdorp thv hmp 37.4, Vluchtstr",52.3479,4.75694,positive,A9,477
-RWS01_MONICA_00D00905F400D0070007,"A9 northBound naar Alkmaar op knppnt Raasdorp ri afrit Haarlem-Zuid thv hmp 38.1, rstr 1",52.3523,4.74868,positive,A9,478
-RWS01_MONICA_00D00905F400D007000B,"A9 northBound naar Alkmaar op knppnt Raasdorp ri afrit Haarlem-Zuid thv hmp 38.1, rstr 2",52.3523,4.74868,positive,A9,479
-RWS01_MONICA_00D00905F400D007000F,"A9 northBound naar Alkmaar op knppnt Raasdorp ri afrit Haarlem-Zuid thv hmp 38.1, rstr 3",52.3523,4.74868,positive,A9,480
-RWS01_MONICA_00D00906880AD0070007,"A9 northBound naar Alkmaar na afrit N205/A205 ri knppnt Rottepolderplein thv hmp 41.8, rstr 1",52.3749,4.70908,positive,A9,481
-RWS01_MONICA_00D00906880AD007000B,"A9 northBound naar Alkmaar na afrit N205/A205 ri knppnt Rottepolderplein thv hmp 41.8, rstr 2",52.3749,4.70908,positive,A9,482
-RWS01_MONICA_00D00906880AD0070187,"A9 northBound naar Alkmaar na afrit N205/A205 ri knppnt Rottepolderplein thv hmp 41.8, Vluchtstr",52.3749,4.70908,positive,A9,483
-RWS01_MONICA_00D00906AC50D0070007,"A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 42.8, rstr 1",52.3835,4.70771,positive,A9,484
-RWS01_MONICA_00D00906AC50D007000B,"A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 42.8, rstr 2",52.3835,4.70771,positive,A9,485
-RWS01_MONICA_00D00906AC50D0070187,"A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 42.8, Vluchtstr",52.3835,4.70771,positive,A9,486
-RWS01_MONICA_00D00906DC0AD0070007,"A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 43.9, rstr 1",52.3936,4.70608,positive,A9,487
-RWS01_MONICA_00D00906DC0AD007000B,"A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 43.9, rstr 2",52.3936,4.70608,positive,A9,488
-RWS01_MONICA_00D00906DC0AD0070187,"A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 43.9, Vluchtstr",52.3936,4.70608,positive,A9,489
-RWS01_MONICA_00D009075400D0070007,"A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 46.9, rstr 1",52.4193,4.69454,positive,A9,490
-RWS01_MONICA_00D009075400D007000B,"A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 46.9, rstr 2",52.4193,4.69454,positive,A9,491
-RWS01_MONICA_00D009075400D0070187,"A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 46.9, Vluchtstr",52.4193,4.69454,positive,A9,492
-RWS01_MONICA_00D009076415D0070007,"A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 47.3, rstr 1",52.4221,4.69039,positive,A9,493
-RWS01_MONICA_00D009076415D007000B,"A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 47.3, rstr 2",52.4221,4.69039,positive,A9,494
-RWS01_MONICA_00D009076415D0070187,"A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 47.3, Vluchtstr",52.4221,4.69039,positive,A9,495
-RWS01_MONICA_00D00907A04ED0070007,"A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 48.9, rstr 1",52.4329,4.67596,positive,A9,496
-RWS01_MONICA_00D00907A04ED007000B,"A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 48.9, rstr 2",52.4329,4.67596,positive,A9,497
-RWS01_MONICA_00D00907A04ED0070187,"A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 48.9, Vluchtstr",52.4329,4.67596,positive,A9,498
-RWS01_MONICA_00D00A02045AD0070007,"A10 clockwise naar De Nieuwe Meer na afrit 13 ri afrit 12 thv hmp 13.0, rstr 1",52.34,4.95128,positive,A10,499
-RWS01_MONICA_00D00A02045AD007000B,"A10 clockwise naar De Nieuwe Meer na afrit 13 ri afrit 12 thv hmp 13.0, rstr 2",52.34,4.95128,positive,A10,500
-RWS01_MONICA_00D00A02045AD007000F,"A10 clockwise naar De Nieuwe Meer na afrit 13 ri afrit 12 thv hmp 13.0, rstr 3",52.34,4.95128,positive,A10,501
-RWS01_MONICA_00D00A02045AD0070307,"A10 clockwise naar De Nieuwe Meer na afrit 13 ri afrit 12 thv hmp 13.0, rstr 1",52.34,4.95128,positive,A10,502
-RWS01_MONICA_00D00A022850D0070007,"A10 clockwise naar De Nieuwe Meer na afrit 12 ri afrit 11 thv hmp 13.9, rstr 1",52.3364,4.93974,positive,A10,503
-RWS01_MONICA_00D00A022850D007000B,"A10 clockwise naar De Nieuwe Meer na afrit 12 ri afrit 11 thv hmp 13.9, rstr 2",52.3364,4.93974,positive,A10,504
-RWS01_MONICA_00D00A022850D007000F,"A10 clockwise naar De Nieuwe Meer na afrit 12 ri afrit 11 thv hmp 13.9, rstr 3",52.3364,4.93974,positive,A10,505
-RWS01_MONICA_00D00A022850D0070013,"A10 clockwise naar De Nieuwe Meer na afrit 12 ri afrit 11 thv hmp 13.9, rstr 4",52.3364,4.93974,positive,A10,506
-RWS01_MONICA_00D00A024C55D0070007,"A10 clockwise naar De Nieuwe Meer na afrit 11 ri afrit 10 thv hmp 14.8, rstr 1",52.3323,4.92828,positive,A10,507
-RWS01_MONICA_00D00A024C55D007000B,"A10 clockwise naar De Nieuwe Meer na afrit 11 ri afrit 10 thv hmp 14.8, rstr 2",52.3323,4.92828,positive,A10,508
-RWS01_MONICA_00D00A024C55D007000F,"A10 clockwise naar De Nieuwe Meer na afrit 11 ri afrit 10 thv hmp 14.8, rstr 3",52.3323,4.92828,positive,A10,509
-RWS01_MONICA_00D00A024C55D0070013,"A10 clockwise naar De Nieuwe Meer na afrit 11 ri afrit 10 thv hmp 14.8, rstr 4",52.3323,4.92828,positive,A10,510
-RWS01_MONICA_00D00A026416D0070007,"A10 clockwise naar De Nieuwe Meer op knppnt Amstel ri afrit 9 thv hmp 15.3, rstr 1",52.3299,4.92138,positive,A10,511
-RWS01_MONICA_00D00A026416D007000B,"A10 clockwise naar De Nieuwe Meer op knppnt Amstel ri afrit 9 thv hmp 15.3, rstr 2",52.3299,4.92138,positive,A10,512
-RWS01_MONICA_00D00A026416D007000F,"A10 clockwise naar De Nieuwe Meer op knppnt Amstel ri afrit 9 thv hmp 15.3, rstr 3",52.3299,4.92138,positive,A10,513
-RWS01_MONICA_00D00A026416D0070013,"A10 clockwise naar De Nieuwe Meer op knppnt Amstel ri afrit 9 thv hmp 15.3, rstr 4",52.3299,4.92138,positive,A10,514
-RWS01_MONICA_00D00A026416D0070307,"A10 clockwise naar De Nieuwe Meer op knppnt Amstel ri afrit 9 thv hmp 15.3, rstr 1",52.3299,4.92138,positive,A10,515
-RWS01_MONICA_00D00A026416D007030B,"A10 clockwise naar De Nieuwe Meer op knppnt Amstel ri afrit 9 thv hmp 15.3, rstr 2",52.3299,4.92138,positive,A10,516
-RWS01_MONICA_10D00205D050D0050005,"A2 northBound naar Amsterdam na afrit 3 ri afrit 2 thv hmp 37.3, rstr 1",52.2794,4.95376,positive,A2,517
-RWS01_MONICA_10D00205D050D0050009,"A2 northBound naar Amsterdam na afrit 3 ri afrit 2 thv hmp 37.3, rstr 2",52.2794,4.95376,positive,A2,518
-RWS01_MONICA_10D00205D050D005000D,"A2 northBound naar Amsterdam na afrit 3 ri afrit 2 thv hmp 37.3, rstr 3",52.2794,4.95376,positive,A2,519
-RWS01_MONICA_10D00205D050D0050011,"A2 northBound naar Amsterdam na afrit 3 ri afrit 2 thv hmp 37.3, rstr 4",52.2794,4.95376,positive,A2,520
-RWS01_MONICA_10D00A04783708200187,"A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 28.7, Vluchtstr",52.4036,4.85335,positive,A10,521
-RWS01_MONICA_10D00A04783708200307,"A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 28.7, rstr 1",52.4036,4.85335,positive,A10,522
+measurementSiteReference,generatedSiteName,startLocatieForDisplayLat,startLocatieForDisplayLong,alertCDirectionCoded,ROADNUMBER,LocationTableNumber,LocationTableVersion,specificLocation,offsetDistance,LOC_TYPE,LOC_DES,trafficID
+GEO02_PNHTI542r,A9 naar Alkmaar na afrit 5 ri afrit 6 thv hmp 30.4,52.3062,4.83182,positive,A9,5.11,A,10573,2072,P1.3,Afrit,1
+GEO02_R_RWSTI4099,A1 naar Amersfoort na afrit 3 ri afrit 4 thv hmp 12.0,52.3276,5.0607,positive,A1,5.11,A,7009,180,P1.3,Afrit,2
+GEO02_R_RWSTI4101,A1 naar Amersfoort na afrit 3 ri afrit 4 thv hmp 12.0,52.3276,5.06072,positive,A1,5.11,A,7009,191,P1.3,Afrit,3
+GEO02_R_RWSTI4245,A10 naar Volendam na afrit 17 ri afrit 16 thv hmp 2.4,52.4165,4.91749,positive,A10,5.11,A,7180,800,P1.3,Afrit,4
+GEO02_R_RWSTI4323,A9 naar Amstelveen na afrit 2 ri afrit 4 thv hmp 24.2,52.2881,4.91726,positive,A9,5.11,A,21698,1300,P1.3,Afrit,5
+GEO02_R_RWSTI4325,A9 naar Amstelveen na afrit 4 ri afrit 5 thv hmp 26.8,52.2964,4.88221,positive,A9,5.11,A,10572,550,P1.3,Afrit,6
+GEO02_R_RWSTI4340,A10 naar Coenplein na afrit 7 ri afrit 6 thv hmp 21.3,52.3394,4.84195,positive,A10,5.11,A,7204,100,P1.3,Afrit,7
+GEO02_R_RWSTI4346,A10 naar Coenplein na afrit 7 ri afrit 6 thv hmp 22.8,52.3529,4.84236,positive,A10,5.11,A,7204,1600,P1.3,Afrit,8
+GEO02_R_RWSTI4348,A10 naar Coenplein na afrit 5 ri afrit 4 thv hmp 25.4,52.3759,4.84319,positive,A10,5.11,A,7206,1000,P1.3,Afrit,9
+GEO02_R_RWSTI4350,A4 naar Amsterdam op knppnt De Nieuwe Meer thv hmp 0.9,52.338,4.83351,positive,A4,5.11,A,9237,100,P1.2,Knooppunt (triangle),10
+GEO02_R_RWSTI4370,A2 naar Amsterdam op knppnt Holendrecht ri afrit 1 thv hmp 36.9,52.2825,4.95158,positive,A2,5.11,A,8006,300,P1.1,Knooppunt,11
+GEO02_R_RWSTI4466,A2 naar Amsterdam op knppnt Amstel ri afrit Industriegebied Amstel Businesspark thv hmp 31.8,52.3224,4.91495,positive,A2,5.11,A,8012,10,P1.1,Knooppunt,12
+GEO02_R_RWSTI4475,A10 naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 28.5,52.4029,4.85213,positive,A10,5.11,A,7210,240,P1.3,Afrit,13
+GEO02_R_RWSTI4476,A10 naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 28.5,52.4025,4.85188,positive,A10,5.11,A,7210,200,P1.3,Afrit,14
+GEO02_R_RWSTI4480,A2 naar Amsterdam op knppnt Amstel ri afrit Industriegebied Amstel Businesspark thv hmp 31.8,52.3222,4.9143,positive,A2,5.11,A,8012,0,P1.1,Knooppunt,15
+RWS01_MONIBAS_0011hrr0040ra,A1 eastBound naar Amersfoort op knppnt Watergraafsmeer ri afrit 1 thv hmp 4.1,52.3472,4.95946,positive,A1,5.11,A,7000,85,P1.2,Knooppunt (triangle),16
+RWS01_MONIBAS_0011hrr0045ra,A1 eastBound naar Amersfoort op knppnt Watergraafsmeer ri afrit 1 thv hmp 4.6,52.3502,4.9642,positive,A1,5.11,A,7000,565,P1.2,Knooppunt (triangle),17
+RWS01_MONIBAS_0011hrr0051ra,A1 eastBound naar Amersfoort op knppnt Watergraafsmeer ri afrit 1 thv hmp 5.2,52.3478,4.97186,positive,A1,5.11,A,7000,1160,P1.2,Knooppunt (triangle),18
+RWS01_MONIBAS_0011hrr0053ra,A1 eastBound naar Amersfoort op knppnt Watergraafsmeer ri afrit 1 thv hmp 5.4,52.3467,4.97452,positive,A1,5.11,A,7000,1380,P1.2,Knooppunt (triangle),19
+RWS01_MONIBAS_0011hrr0060ra,A1 eastBound naar Amersfoort na afrit 1 ri afrit 2 thv hmp 6.0,52.3431,4.98128,positive,A1,5.11,A,7003,600,P1.3,Afrit,20
+RWS01_MONIBAS_0011hrr0063ra,A1 eastBound naar Amersfoort na afrit 1 ri afrit 2 thv hmp 6.4,52.3406,4.98437,positive,A1,5.11,A,7003,950,P1.3,Afrit,21
+RWS01_MONIBAS_0011hrr0068ra,A1 eastBound naar Amersfoort na afrit 2 ri knppnt Diemen thv hmp 6.9,52.3372,4.98975,positive,A1,5.11,A,7004,380,P1.3,Afrit,22
+RWS01_MONIBAS_0011hrr0070ra,A1 eastBound naar Amersfoort na afrit 2 ri knppnt Diemen thv hmp 7.1,52.3361,4.99199,positive,A1,5.11,A,7004,575,P1.3,Afrit,23
+RWS01_MONIBAS_0011hrr0073ra,A1 eastBound naar Amersfoort na afrit 2 ri knppnt Diemen thv hmp 7.4,52.3346,4.99584,positive,A1,5.11,A,7004,880,P1.3,Afrit,24
+RWS01_MONIBAS_0011hrr0076ra,A1 eastBound naar Amersfoort na afrit 2 ri knppnt Diemen thv hmp 7.7,52.3335,4.99982,positive,A1,5.11,A,7004,1175,P1.3,Afrit,25
+RWS01_MONIBAS_0011hrr0079ra,A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 8.0,52.3328,5.0036,positive,A1,5.11,A,7006,250,P1.2,Knooppunt (triangle),26
+RWS01_MONIBAS_0011hrr0082ra,A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 8.2,52.3324,5.00719,positive,A1,5.11,A,7006,505,P1.2,Knooppunt (triangle),27
+RWS01_MONIBAS_0011hrr0085ra,A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 8.5,52.3323,5.01135,positive,A1,5.11,A,7006,828,P1.2,Knooppunt (triangle),28
+RWS01_MONIBAS_0011hrr0089ra,A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 8.9,52.3324,5.01736,positive,A1,5.11,A,7008,348,P3.2,Brug,29
+RWS01_MONIBAS_0011hrr0095ra,A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 9.6,52.3322,5.0267,positive,A1,5.11,A,7008,971,P3.2,Brug,30
+RWS01_MONIBAS_0011hrr0101ra,A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 10.1,52.332,5.0349,positive,A1,5.11,A,7008,1522,P3.2,Brug,31
+RWS01_MONIBAS_0011hrr0107ra,A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 10.7,52.332,5.04346,positive,A1,5.11,A,7008,2104,P3.2,Brug,32
+RWS01_MONIBAS_0011hrr0112ra,A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 11.2,52.3309,5.05069,positive,A1,5.11,A,7008,2614,P3.2,Brug,33
+RWS01_MONIBAS_0011hrr0116ra,A1 eastBound naar Amersfoort op knppnt Diemen ri afrit 3 thv hmp 11.6,52.3293,5.05577,positive,A1,5.11,A,7008,3000,P3.2,Brug,34
+RWS01_MONIBAS_0011hrr0119ra,A1 eastBound naar Amersfoort na afrit 3 ri afrit 4 thv hmp 12.0,52.3277,5.06069,positive,A1,5.11,A,7009,190,P1.3,Afrit,35
+RWS01_MONIBAS_0011hrr0124ra,A1 eastBound naar Amersfoort na afrit 4 ri knppnt Muiderberg thv hmp 12.4,52.3257,5.06705,positive,A1,5.11,A,7011,80,P1.3,Afrit,36
+RWS01_MONIBAS_0011hrr0126ra,A1 eastBound naar Amersfoort na afrit 4 ri knppnt Muiderberg thv hmp 12.6,52.3251,5.06911,positive,A1,5.11,A,7011,235,P1.3,Afrit,37
+RWS01_MONIBAS_0011hrr0129ra,A1 eastBound naar Amersfoort na afrit 4 ri knppnt Muiderberg thv hmp 12.9,52.324,5.07308,positive,A1,5.11,A,7011,530,P1.3,Afrit,38
+RWS01_MONIBAS_0011hrr0132ra,A1 eastBound naar Amersfoort na afrit 4 ri knppnt Muiderberg thv hmp 13.2,52.3229,5.07707,positive,A1,5.11,A,7011,830,P1.3,Afrit,39
+RWS01_MONIBAS_0011hrr0135ra,A1 eastBound naar Amersfoort na afrit 4 ri knppnt Muiderberg thv hmp 13.5,52.3216,5.08163,positive,A1,5.11,A,7011,1175,P1.3,Afrit,40
+RWS01_MONIBAS_0011hrr0140ra,A1 eastBound naar Amersfoort na afrit 4 ri knppnt Muiderberg thv hmp 14.0,52.3199,5.08778,positive,A1,5.11,A,7011,1640,P1.3,Afrit,41
+RWS01_MONIBAS_0021hrl0313ra,A2 northBound naar Amsterdam op knppnt Amstel ri afrit Industriegebied Amstel Businesspark thv hmp 31.4,52.3261,4.91372,positive,A2,5.11,A,8012,425,P1.1,Knooppunt,42
+RWS01_MONIBAS_0021hrl0319ra,A2 northBound naar Amsterdam na afrit 1 ri knppnt Amstel thv hmp 31.9,52.3215,4.91507,positive,A2,5.11,A,8009,1700,P1.3,Afrit,43
+RWS01_MONIBAS_0021hrl0322ra,A2 northBound naar Amsterdam na afrit 1 ri knppnt Amstel thv hmp 32.2,52.3187,4.91699,positive,A2,5.11,A,8009,1360,P1.3,Afrit,44
+RWS01_MONIBAS_0021hrl0325ra,A2 northBound naar Amsterdam na afrit 1 ri knppnt Amstel thv hmp 32.6,52.3163,4.9194,positive,A2,5.11,A,8009,1050,P1.3,Afrit,45
+RWS01_MONIBAS_0021hrl0328ra,A2 northBound naar Amsterdam na afrit 1 ri knppnt Amstel thv hmp 32.8,52.3144,4.92142,positive,A2,5.11,A,8009,800,P1.3,Afrit,46
+RWS01_MONIBAS_0021hrl0333ra,A2 northBound naar Amsterdam na afrit 1 ri knppnt Amstel thv hmp 33.3,52.3107,4.92547,positive,A2,5.11,A,8009,300,P1.3,Afrit,47
+RWS01_MONIBAS_0021hrl0335ra,A2 northBound naar Amsterdam na afrit 1 ri knppnt Amstel thv hmp 33.6,52.3087,4.92756,positive,A2,5.11,A,8009,35,P1.3,Afrit,48
+RWS01_MONIBAS_0021hrl0335rb,A2 northBound naar Amsterdam na afrit 1 ri knppnt Amstel thv hmp 33.5,52.3089,4.92728,positive,A2,5.11,A,8009,70,P1.3,Afrit,49
+RWS01_MONIBAS_0021hrl0339ra,A2 northBound naar Amsterdam op knppnt Holendrecht ri afrit 1 thv hmp 34.0,52.3058,4.9306,positive,A2,5.11,A,8006,3250,P1.1,Knooppunt,50
+RWS01_MONIBAS_0021hrl0344ra,A2 northBound naar Amsterdam op knppnt Holendrecht ri afrit 1 thv hmp 34.4,52.3023,4.9341,positive,A2,5.11,A,8006,2800,P1.1,Knooppunt,51
+RWS01_MONIBAS_0021hrl0348ra,A2 northBound naar Amsterdam op knppnt Holendrecht ri afrit 1 thv hmp 34.8,52.2992,4.93698,positive,A2,5.11,A,8006,2400,P1.1,Knooppunt,52
+RWS01_MONIBAS_0021hrl0352ra,A2 northBound naar Amsterdam op knppnt Holendrecht ri afrit 1 thv hmp 35.3,52.2956,4.94007,positive,A2,5.11,A,8006,1950,P1.1,Knooppunt,53
+RWS01_MONIBAS_0021hrl0360ra,A2 northBound naar Amsterdam op knppnt Holendrecht ri afrit 1 thv hmp 36.0,52.2897,4.94523,positive,A2,5.11,A,8006,1200,P1.1,Knooppunt,54
+RWS01_MONIBAS_0021hrl0363ra,A2 northBound naar Amsterdam op knppnt Holendrecht ri afrit 1 thv hmp 36.3,52.2872,4.94739,positive,A2,5.11,A,8006,890,P1.1,Knooppunt,55
+RWS01_MONIBAS_0021hrl0365ra,A2 northBound naar Amsterdam op knppnt Holendrecht ri afrit 1 thv hmp 36.5,52.2857,4.94866,positive,A2,5.11,A,8006,700,P1.1,Knooppunt,56
+RWS01_MONIBAS_0021hrl0368ra,A2 northBound naar Amsterdam op knppnt Holendrecht ri afrit 1 thv hmp 36.9,52.2825,4.95129,positive,A2,5.11,A,8006,302,P1.1,Knooppunt,57
+RWS01_MONIBAS_0021hrl0368rb,A2 northBound naar Amsterdam op knppnt Holendrecht ri afrit 1 thv hmp 36.9,52.2826,4.95123,positive,A2,5.11,A,8006,312,P1.1,Knooppunt,58
+RWS01_MONIBAS_0021hrl0373ra,A2 northBound naar Amsterdam na afrit 3 ri afrit 2 thv hmp 37.3,52.2792,4.95392,positive,A2,5.11,A,8003,2196,P1.3,Afrit,59
+RWS01_MONIBAS_0021hrl0379ra,A2 northBound naar Amsterdam na afrit 3 ri afrit 2 thv hmp 37.9,52.2742,4.95768,positive,A2,5.11,A,8003,1588,P1.3,Afrit,60
+RWS01_MONIBAS_0021hrl0385ra,A2 northBound naar Amsterdam na afrit 3 ri afrit 2 thv hmp 38.5,52.2692,4.96036,positive,A2,5.11,A,8003,990,P1.3,Afrit,61
+RWS01_MONIBAS_0021hrl0391ra,A2 northBound naar Amsterdam na afrit 3 ri afrit 2 thv hmp 39.1,52.2641,4.96326,positive,A2,5.11,A,8003,388,P1.3,Afrit,62
+RWS01_MONIBAS_0021hrl0397ra,A2 northBound naar Amsterdam na afrit 4 ri afrit 3 thv hmp 39.7,52.259,4.96597,positive,A2,5.11,A,8002,4190,P1.3,Afrit,63
+RWS01_MONIBAS_0041hrl0004ra,A4 northBound naar Amsterdam op knppnt De Nieuwe Meer thv hmp 0.5,52.3377,4.83897,positive,A4,5.11,A,9237,512,P1.2,Knooppunt (triangle),64
+RWS01_MONIBAS_0041hrl0007ra,A4 northBound naar Amsterdam op knppnt De Nieuwe Meer thv hmp 0.8,52.3382,4.83486,positive,A4,5.11,A,9237,220,P1.2,Knooppunt (triangle),65
+RWS01_MONIBAS_0041hrl0011ra,A4 northBound naar Amsterdam na afrit 1 ri knppnt De Nieuwe Meer thv hmp 1.2,52.3382,4.82938,positive,A4,5.11,A,9234,1544,P1.3,Afrit,66
+RWS01_MONIBAS_0041hrl0015ra,A4 northBound naar Amsterdam na afrit 1 ri knppnt De Nieuwe Meer thv hmp 1.6,52.3383,4.82358,positive,A4,5.11,A,9234,1150,P1.3,Afrit,67
+RWS01_MONIBAS_0041hrl0020ra,A4 northBound naar Amsterdam na afrit 1 ri knppnt De Nieuwe Meer thv hmp 2.0,52.3383,4.817,positive,A4,5.11,A,9234,699,P1.3,Afrit,68
+RWS01_MONIBAS_0041hrl0024ra,A4 northBound naar Amsterdam na afrit 1 ri knppnt De Nieuwe Meer thv hmp 2.4,52.3372,4.81101,positive,A4,5.11,A,9234,259,P1.3,Afrit,69
+RWS01_MONIBAS_0041hrl0027ra,A4 northBound naar Amsterdam op knppnt Badhoevedorp ri afrit 1 thv hmp 2.8,52.3352,4.80713,positive,A4,5.11,A,9231,2214,P1.1,Knooppunt,70
+RWS01_MONIBAS_0041hrl0030ra,A4 northBound naar Amsterdam op knppnt Badhoevedorp ri afrit 1 thv hmp 3.1,52.3335,4.80434,positive,A4,5.11,A,9231,1944,P1.1,Knooppunt,71
+RWS01_MONIBAS_0041hrl0036ra,A4 northBound naar Amsterdam op knppnt Badhoevedorp ri afrit 1 thv hmp 3.6,52.3298,4.79805,positive,A4,5.11,A,9231,1355,P1.1,Knooppunt,72
+RWS01_MONIBAS_0041hrl0040ra,A4 northBound naar Amsterdam op knppnt Badhoevedorp ri afrit 1 thv hmp 4.0,52.3279,4.79366,positive,A4,5.11,A,9231,990,P1.1,Knooppunt,73
+RWS01_MONIBAS_0041hrl0044ra,A4 northBound naar Amsterdam op knppnt Badhoevedorp ri afrit 1 thv hmp 4.4,52.3264,4.78804,positive,A4,5.11,A,9231,570,P1.1,Knooppunt,74
+RWS01_MONIBAS_0041hrl0052ra,A4 northBound naar Amsterdam na afrit 2 ri knppnt Badhoevedorp thv hmp 5.2,52.3249,4.7768,positive,A4,5.11,A,9228,2185,P3.1,Tunnel,75
+RWS01_MONIBAS_0041hrl0055ra,A4 northBound naar Amsterdam na afrit 2 ri knppnt Badhoevedorp thv hmp 5.5,52.3243,4.77201,positive,A4,5.11,A,9228,1851,P3.1,Tunnel,76
+RWS01_MONIBAS_0041hrl0055rb,A4 northBound naar Amsterdam na afrit 2 ri knppnt Badhoevedorp thv hmp 5.5,52.3244,4.77271,positive,A4,5.11,A,9228,1900,P3.1,Tunnel,77
+RWS01_MONIBAS_0041hrl0059ra,A4 northBound naar Amsterdam na afrit 2 ri knppnt Badhoevedorp thv hmp 5.9,52.3235,4.76659,positive,A4,5.11,A,9228,1470,P3.1,Tunnel,78
+RWS01_MONIBAS_0041hrl0059rb,A4 northBound naar Amsterdam na afrit 2 ri knppnt Badhoevedorp thv hmp 5.9,52.3236,4.76701,positive,A4,5.11,A,9228,1500,P3.1,Tunnel,79
+RWS01_MONIBAS_0041hrl0063ra,A4 northBound naar Amsterdam na afrit 2 ri knppnt Badhoevedorp thv hmp 6.3,52.3222,4.76165,positive,A4,5.11,A,9228,1100,P3.1,Tunnel,80
+RWS01_MONIBAS_0041hrl0065ra,A4 northBound naar Amsterdam na afrit 2 ri knppnt Badhoevedorp thv hmp 6.6,52.3206,4.75823,positive,A4,5.11,A,9228,808,P3.1,Tunnel,81
+RWS01_MONIBAS_0041hrl0069ra,A4 northBound naar Amsterdam na afrit 2 ri knppnt Badhoevedorp thv hmp 6.9,52.3185,4.75519,positive,A4,5.11,A,9228,498,P3.1,Tunnel,82
+RWS01_MONIBAS_0041hrl0070ra,A4 northBound naar Amsterdam na afrit 2 ri knppnt Badhoevedorp thv hmp 7.1,52.3172,4.75379,positive,A4,5.11,A,9228,328,P3.1,Tunnel,83
+RWS01_MONIBAS_0041hrl0072ra,A4 northBound naar Amsterdam na afrit 2 ri knppnt Badhoevedorp thv hmp 7.2,52.316,4.75277,positive,A4,5.11,A,9228,180,P3.1,Tunnel,84
+RWS01_MONIBAS_0041hrl0073ra,A4 northBound naar Amsterdam na afrit 2 ri knppnt Badhoevedorp thv hmp 7.4,52.3148,4.75193,positive,A4,5.11,A,9228,31,P3.1,Tunnel,85
+RWS01_MONIBAS_0041hrl0075ra,A4 northBound naar Amsterdam na afrit 2 ri knppnt Badhoevedorp thv hmp 7.5,52.3135,4.75109,positive,A4,5.11,A,9227,974,P1.3,Afrit,86
+RWS01_MONIBAS_0041hrl0076ra,A4 northBound naar Amsterdam na afrit 2 ri knppnt Badhoevedorp thv hmp 7.7,52.3121,4.75021,positive,A4,5.11,A,9227,805,P1.3,Afrit,87
+RWS01_MONIBAS_0041hrl0081ra,A4 northBound naar Amsterdam na afrit 2 ri knppnt Badhoevedorp thv hmp 8.1,52.3083,4.74806,positive,A4,5.11,A,9227,360,P1.3,Afrit,88
+RWS01_MONIBAS_0041hrl0086ra,A4 northBound naar Amsterdam op knppnt De Hoek ri afrit 2 thv hmp 8.6,52.3041,4.7454,positive,A4,5.11,A,9226,165,P3.47,Viaduct,89
+RWS01_MONIBAS_0041hrl0089ra,A4 northBound naar Amsterdam op knppnt De Hoek ri afrit 2 thv hmp 9.0,52.3014,4.74368,positive,A4,5.11,A,9240,1938,P1.2,Knooppunt (triangle),90
+RWS01_MONIBAS_0041hrl0093ra,A4 northBound naar Amsterdam op knppnt De Hoek ri afrit 2 thv hmp 9.3,52.2986,4.74153,positive,A4,5.11,A,9240,1600,P1.2,Knooppunt (triangle),91
+RWS01_MONIBAS_0041hrl0093rb,A4 northBound naar Amsterdam op knppnt De Hoek ri afrit 2 thv hmp 9.4,52.2982,4.7411,positive,A4,5.11,A,9240,1545,P1.2,Knooppunt (triangle),92
+RWS01_MONIBAS_0041hrl0096ra,A4 northBound naar Amsterdam op knppnt De Hoek ri afrit 2 thv hmp 9.7,52.2961,4.73837,positive,A4,5.11,A,9240,1247,P1.2,Knooppunt (triangle),93
+RWS01_MONIBAS_0041hrl0097ra,A4 northBound naar Amsterdam op knppnt De Hoek ri afrit 2 thv hmp 9.7,52.2958,4.73793,positive,A4,5.11,A,9240,1200,P1.2,Knooppunt (triangle),94
+RWS01_MONIBAS_0041hrl0100ra,A4 northBound naar Amsterdam op knppnt De Hoek ri afrit 2 thv hmp 10.0,52.2936,4.73467,positive,A4,5.11,A,9240,870,P1.2,Knooppunt (triangle),95
+RWS01_MONIBAS_0041hrl0103ra,A4 northBound naar Amsterdam op knppnt De Hoek ri afrit 2 thv hmp 10.3,52.2916,4.73189,positive,A4,5.11,A,9240,582,P1.2,Knooppunt (triangle),96
+RWS01_MONIBAS_0041hrl0106ra,A4 northBound naar Amsterdam op knppnt De Hoek ri afrit 2 thv hmp 10.6,52.2897,4.72917,positive,A4,5.11,A,9240,300,P1.2,Knooppunt (triangle),97
+RWS01_MONIBAS_0041hrl0107ra,A4 northBound naar Amsterdam op knppnt De Hoek ri afrit 2 thv hmp 10.8,52.2886,4.72749,positive,A4,5.11,A,9240,125,P1.2,Knooppunt (triangle),98
+RWS01_MONIBAS_0041hrl0112ra,A4 northBound naar Amsterdam na afrit 3 ri knppnt De Hoek thv hmp 11.2,52.2854,4.72291,positive,A4,5.11,A,9225,855,P1.3,Afrit,99
+RWS01_MONIBAS_0041hrl0116ra,A4 northBound naar Amsterdam na afrit 3 ri knppnt De Hoek thv hmp 11.6,52.2828,4.71926,positive,A4,5.11,A,9225,478,P1.3,Afrit,100
+RWS01_MONIBAS_0041hrl0121ra,A4 northBound naar Amsterdam na afrit 3a ri afrit 3 thv hmp 12.1,52.2793,4.7142,positive,A4,5.11,A,21980,1156,P1.3,Afrit,101
+RWS01_MONIBAS_0041hrl0127ra,A4 northBound naar Amsterdam na afrit 3a ri afrit 3 thv hmp 12.7,52.2753,4.70843,positive,A4,5.11,A,21980,560,P1.3,Afrit,102
+RWS01_MONIBAS_0041hrl0132ra,A4 northBound naar Amsterdam na afrit 3a ri afrit 3 thv hmp 13.2,52.2719,4.70356,positive,A4,5.11,A,21980,56,P1.3,Afrit,103
+RWS01_MONIBAS_0041hrl0137ra,A4 northBound naar Amsterdam na afrit 4 ri afrit 3a thv hmp 13.7,52.2685,4.69876,positive,A4,5.11,A,9220,3459,P1.3,Afrit,104
+RWS01_MONIBAS_0041hrl0137rb,A4 northBound naar Amsterdam na afrit 4 ri afrit 3a thv hmp 13.7,52.2685,4.69881,positive,A4,5.11,A,9220,3465,P1.3,Afrit,105
+RWS01_MONIBAS_0041hrl0143ra,A4 northBound naar Amsterdam na afrit 4 ri afrit 3a thv hmp 14.4,52.2643,4.69276,positive,A4,5.11,A,9220,2836,P1.3,Afrit,106
+RWS01_MONIBAS_0041hrl0147ra,A4 northBound naar Amsterdam na afrit 4 ri afrit 3a thv hmp 14.8,52.2615,4.6886,positive,A4,5.11,A,9220,2406,P1.3,Afrit,107
+RWS01_MONIBAS_0041hrl0151ra,A4 northBound naar Amsterdam na afrit 4 ri afrit 3a thv hmp 15.2,52.2589,4.6849,positive,A4,5.11,A,9220,2024,P1.3,Afrit,108
+RWS01_MONIBAS_0051hrr0010ra,A5 northBound naar Amsterdam op knppnt De Hoek ri afrit 3 thv hmp 1.1,52.2927,4.73206,positive,A5,5.11,A,19646,75,P1.2,Knooppunt (triangle),109
+RWS01_MONIBAS_0051hrr0014ra,A5 northBound naar Amsterdam op knppnt De Hoek ri afrit 3 thv hmp 1.4,52.2956,4.73129,positive,A5,5.11,A,19646,400,P1.2,Knooppunt (triangle),110
+RWS01_MONIBAS_0051hrr0016ra,A5 northBound naar Amsterdam op knppnt De Hoek ri afrit 3 thv hmp 1.7,52.2982,4.7313,positive,A5,5.11,A,19646,684,P1.2,Knooppunt (triangle),111
+RWS01_MONIBAS_0051hrr0019ra,A5 northBound naar Amsterdam op knppnt De Hoek ri afrit 3 thv hmp 1.9,52.3001,4.73147,positive,A5,5.11,A,19646,900,P1.2,Knooppunt (triangle),112
+RWS01_MONIBAS_0051hrr0021ra,A5 northBound naar Amsterdam op knppnt De Hoek ri afrit 3 thv hmp 2.2,52.3026,4.73169,positive,A5,5.11,A,19646,1173,P1.2,Knooppunt (triangle),113
+RWS01_MONIBAS_0051hrr0024ra,A5 northBound naar Amsterdam op knppnt De Hoek ri afrit 3 thv hmp 2.4,52.3046,4.73188,positive,A5,5.11,A,19646,1400,P1.2,Knooppunt (triangle),114
+RWS01_MONIBAS_0051hrr0026ra,A5 northBound naar Amsterdam op knppnt De Hoek ri afrit 3 thv hmp 2.7,52.3068,4.73209,positive,A5,5.11,A,19646,1653,P1.2,Knooppunt (triangle),115
+RWS01_MONIBAS_0051hrr0030ra,A5 northBound naar Amsterdam op knppnt De Hoek ri afrit 3 thv hmp 3.0,52.31,4.73237,positive,A5,5.11,A,19646,2000,P1.2,Knooppunt (triangle),116
+RWS01_MONIBAS_0051hrr0033ra,A5 northBound naar Amsterdam op knppnt De Hoek ri afrit 3 thv hmp 3.4,52.3134,4.73269,positive,A5,5.11,A,19646,2384,P1.2,Knooppunt (triangle),117
+RWS01_MONIBAS_0051hrr0037ra,A5 northBound naar Amsterdam op knppnt De Hoek ri afrit 3 thv hmp 3.7,52.3162,4.73293,positive,A5,5.11,A,19646,2700,P1.2,Knooppunt (triangle),118
+RWS01_MONIBAS_0051hrr0039ra,A5 northBound naar Amsterdam op knppnt De Hoek ri afrit 3 thv hmp 4.0,52.3187,4.73317,positive,A5,5.11,A,19646,2982,P1.2,Knooppunt (triangle),119
+RWS01_MONIBAS_0051hrr0044ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Raasdorp thv hmp 4.4,52.3227,4.73355,positive,A5,5.11,A,21617,232,P3.47,Viaduct,120
+RWS01_MONIBAS_0051hrr0047ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Raasdorp thv hmp 4.7,52.3252,4.73377,positive,A5,5.11,A,21617,500,P3.47,Viaduct,121
+RWS01_MONIBAS_0051hrr0050ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Raasdorp thv hmp 5.0,52.328,4.73403,positive,A5,5.11,A,21617,822,P3.47,Viaduct,122
+RWS01_MONIBAS_0051hrr0056ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Raasdorp thv hmp 5.7,52.334,4.73458,positive,A5,5.11,A,21617,1487,P3.47,Viaduct,123
+RWS01_MONIBAS_0051hrr0060ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Raasdorp thv hmp 6.0,52.3368,4.73482,positive,A5,5.11,A,21618,300,P3.2,Brug,124
+RWS01_MONIBAS_0051hrr0062ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Raasdorp thv hmp 6.3,52.3394,4.73504,positive,A5,5.11,A,21618,593,P3.2,Brug,125
+RWS01_MONIBAS_0051hrr0066ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Raasdorp thv hmp 6.6,52.3421,4.73531,positive,A5,5.11,A,21618,900,P3.2,Brug,126
+RWS01_MONIBAS_0051hrr0069ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Raasdorp thv hmp 7.0,52.3455,4.73564,positive,A5,5.11,A,21618,1283,P3.2,Brug,127
+RWS01_MONIBAS_0051hrr0074ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Raasdorp thv hmp 7.4,52.3495,4.7363,positive,A5,5.11,A,21618,1732,P3.2,Brug,128
+RWS01_MONIBAS_0051hrr0077ra,A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 7.7,52.3519,4.73709,positive,A5,5.11,A,19645,100,P1.1,Knooppunt,129
+RWS01_MONIBAS_0051hrr0081ra,A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 8.2,52.3559,4.73933,positive,A5,5.11,A,19645,570,P1.1,Knooppunt,130
+RWS01_MONIBAS_0051hrr0086ra,A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 8.7,52.3597,4.74274,positive,A5,5.11,A,19645,1061,P1.1,Knooppunt,131
+RWS01_MONIBAS_0051hrr0092ra,A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 9.3,52.364,4.74844,positive,A5,5.11,A,19645,1683,P1.1,Knooppunt,132
+RWS01_MONIBAS_0051hrr0096ra,A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 9.7,52.3663,4.75247,positive,A5,5.11,A,19645,2055,P1.1,Knooppunt,133
+RWS01_MONIBAS_0051hrr0099ra,A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 10.0,52.368,4.75642,positive,A5,5.11,A,19645,2385,P1.1,Knooppunt,134
+RWS01_MONIBAS_0051hrr0105ra,A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 10.6,52.3715,4.76299,positive,A5,5.11,A,19645,2980,P1.1,Knooppunt,135
+RWS01_MONIBAS_0051hrr0110ra,A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 11.1,52.3754,4.76659,positive,A5,5.11,A,19645,3481,P1.1,Knooppunt,136
+RWS01_MONIBAS_0051hrr0116ra,A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 11.6,52.3802,4.76789,positive,A5,5.11,A,19645,4021,P1.1,Knooppunt,137
+RWS01_MONIBAS_0051hrr0121ra,A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 12.2,52.385,4.76795,positive,A5,5.11,A,19645,4561,P1.1,Knooppunt,138
+RWS01_MONIBAS_0051hrr0127ra,A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 12.7,52.3895,4.77055,positive,A5,5.11,A,19645,5101,P1.1,Knooppunt,139
+RWS01_MONIBAS_0051hrr0129ra,A5 northBound naar Amsterdam op knppnt Raasdorp ri afrit 2 thv hmp 13.0,52.3913,4.77319,positive,A5,5.11,A,19645,5366,P1.1,Knooppunt,140
+RWS01_MONIBAS_0051hrr0134ra,A5 northBound naar Amsterdam na afrit 2 ri afrit 3 thv hmp 13.5,52.3932,4.77973,positive,A5,5.11,A,21972,65,P1.3,Afrit,141
+RWS01_MONIBAS_0051hrr0137ra,A5 northBound naar Amsterdam na afrit 2 ri afrit 3 thv hmp 13.7,52.3933,4.78376,positive,A5,5.11,A,21972,341,P1.3,Afrit,142
+RWS01_MONIBAS_0051hrr0140ra,A5 northBound naar Amsterdam na afrit 2 ri afrit 3 thv hmp 14.1,52.3933,4.7886,positive,A5,5.11,A,21972,671,P1.3,Afrit,143
+RWS01_MONIBAS_0051hrr0143ra,A5 northBound naar Amsterdam na afrit 2 ri afrit 3 thv hmp 14.4,52.3933,4.79333,positive,A5,5.11,A,21972,994,P1.3,Afrit,144
+RWS01_MONIBAS_0051hrr0147ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 14.8,52.3934,4.7988,positive,A5,5.11,A,21973,367,P1.3,Afrit,145
+RWS01_MONIBAS_0051hrr0152ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 15.3,52.393,4.80604,positive,A5,5.11,A,21973,865,P1.3,Afrit,146
+RWS01_MONIBAS_0051hrr0157ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 15.7,52.3921,4.81263,positive,A5,5.11,A,21973,1330,P1.3,Afrit,147
+RWS01_MONIBAS_0051hrr0162ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 16.3,52.3918,4.82017,positive,A5,5.11,A,21973,1850,P1.3,Afrit,148
+RWS01_MONIBAS_0051hrr0167ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 16.8,52.3918,4.82785,positive,A5,5.11,A,21973,2378,P1.3,Afrit,149
+RWS01_MONIBAS_0051hrr0173ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 17.3,52.3922,4.83595,positive,A5,5.11,A,21973,2939,P1.3,Afrit,150
+RWS01_MONIBAS_0051hrr0178ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 17.9,52.395,4.84208,positive,A5,5.11,A,21973,3473,P1.3,Afrit,151
+RWS01_MONIBAS_0051hrr0185ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 18.6,52.3997,4.84813,positive,A5,5.11,A,21973,4155,P1.3,Afrit,152
+RWS01_MONIBAS_0051hrr0187ra,A5 northBound naar Amsterdam na afrit 3 ri knppnt Westrandweg thv hmp 18.8,52.4013,4.85004,positive,A5,5.11,A,21973,4375,P1.3,Afrit,153
+RWS01_MONIBAS_0081hrl0006ra,A8 eastBound naar Amsterdam op knppnt Coenplein thv hmp 0.7,52.4242,4.88239,positive,A8,5.11,A,10552,805,P1.2,Knooppunt (triangle),154
+RWS01_MONIBAS_0081hrl0013ra,A8 eastBound naar Amsterdam op knppnt Coenplein thv hmp 1.4,52.426,4.87429,positive,A8,5.11,A,10552,105,P1.2,Knooppunt (triangle),155
+RWS01_MONIBAS_0081hrl0021ra,A8 eastBound naar Amsterdam na afrit 1 ri knppnt Coenplein thv hmp 2.1,52.4316,4.86802,positive,A8,5.11,A,10549,755,P1.3,Afrit,156
+RWS01_MONIBAS_0081hrl0025ra,A8 eastBound naar Amsterdam na afrit 1 ri knppnt Coenplein thv hmp 2.5,52.4345,4.86481,positive,A8,5.11,A,10549,365,P1.3,Afrit,157
+RWS01_MONIBAS_0081hrl0029ra,A8 eastBound naar Amsterdam na afrit 1 ri knppnt Coenplein thv hmp 2.9,52.4372,4.86183,positive,A8,5.11,A,10549,0,P1.3,Afrit,158
+RWS01_MONIBAS_0081hrl0032ra,A8 eastBound naar Amsterdam op knppnt Zaandam ri afrit 1 thv hmp 3.3,52.4399,4.85888,positive,A8,5.11,A,10545,2045,P1.1,Knooppunt,159
+RWS01_MONIBAS_0081hrl0036ra,A8 eastBound naar Amsterdam op knppnt Zaandam ri afrit 1 thv hmp 3.7,52.4428,4.85561,positive,A8,5.11,A,10545,1650,P1.1,Knooppunt,160
+RWS01_MONIBAS_0081hrl0042ra,A8 eastBound naar Amsterdam op knppnt Zaandam ri afrit 1 thv hmp 4.3,52.4473,4.85054,positive,A8,5.11,A,10545,1035,P1.1,Knooppunt,161
+RWS01_MONIBAS_0081hrl0046ra,A8 eastBound naar Amsterdam op knppnt Zaandam ri afrit 1 thv hmp 4.7,52.4505,4.84706,positive,A8,5.11,A,10545,615,P1.1,Knooppunt,162
+RWS01_MONIBAS_0091hrr0059ra,A9 northBound naar Amstelveen op knppnt Diemen ri afrit 1 thv hmp 6.0,52.3244,5.0047,positive,A9,5.11,A,10560,950,P1.2,Knooppunt (triangle),163
+RWS01_MONIBAS_0091hrr0065ra,A9 northBound naar Amstelveen op knppnt Diemen ri afrit 1 thv hmp 6.5,52.3201,5.00083,positive,A9,5.11,A,10560,1500,P1.2,Knooppunt (triangle),164
+RWS01_MONIBAS_0091hrr0068ra,A9 northBound naar Amstelveen op knppnt Diemen ri afrit 1 thv hmp 6.8,52.3181,4.99759,positive,A9,5.11,A,10560,1810,P1.2,Knooppunt (triangle),165
+RWS01_MONIBAS_0091hrr0071ra,A9 northBound naar Amstelveen op knppnt Diemen ri afrit 1 thv hmp 7.2,52.3161,4.99376,positive,A9,5.11,A,10560,2150,P1.2,Knooppunt (triangle),166
+RWS01_MONIBAS_0091hrr0075ra,A9 northBound naar Amstelveen na afrit 1 ri afrit 2 thv hmp 7.6,52.3141,4.98891,positive,A9,5.11,A,10563,50,P1.3,Afrit,167
+RWS01_MONIBAS_0091hrr0080ra,A9 northBound naar Amstelveen na afrit 1 ri afrit 2 thv hmp 8.0,52.312,4.98298,positive,A9,5.11,A,10563,510,P1.3,Afrit,168
+RWS01_MONIBAS_0091hrr0084ra,A9 northBound naar Amstelveen na afrit 2 ri afrit 3 thv hmp 8.4,52.3103,4.97789,positive,A9,5.11,A,10564,15,P1.3,Afrit,169
+RWS01_MONIBAS_0091hrr0089ra,A9 northBound naar Amstelveen na afrit 2 ri afrit 3 thv hmp 9.0,52.3079,4.97089,positive,A9,5.11,A,10564,560,P1.3,Afrit,170
+RWS01_MONIBAS_0091hrr0103ra,A9 northBound naar Amstelveen na afrit 2 ri afrit 3 thv hmp 10.4,52.3019,4.95333,positive,A9,5.11,A,10564,1950,P1.3,Afrit,171
+RWS01_MONIBAS_0091hrr0110ra,A9 northBound naar Amstelveen na afrit 3 ri knppnt Holendrecht thv hmp 11.1,52.2988,4.94374,positive,A9,5.11,A,10565,580,P1.3,Afrit,172
+RWS01_MONIBAS_0091hrr0112ra,A9 northBound naar Amstelveen na afrit 3 ri knppnt Holendrecht thv hmp 11.3,52.299,4.94093,positive,A9,5.11,A,10565,775,P1.3,Afrit,173
+RWS01_MONIBAS_0091hrr0117ra,A9 northBound naar Amstelveen op knppnt Holendrecht ri afrit 2 thv hmp 11.8,52.2974,4.93587,positive,A9,5.11,A,10568,450,P1.1,Knooppunt,174
+RWS01_MONIBAS_0091hrr0230ra,A9 northBound naar Amstelveen na afrit 2 ri afrit 4 thv hmp 23.0,52.2863,4.93412,positive,A9,5.11,A,21698,110,P1.3,Afrit,175
+RWS01_MONIBAS_0091hrr0235ra,A9 northBound naar Amstelveen na afrit 2 ri afrit 4 thv hmp 23.6,52.2869,4.92617,positive,A9,5.11,A,21698,660,P1.3,Afrit,176
+RWS01_MONIBAS_0091hrr0241ra,A9 northBound naar Amstelveen na afrit 2 ri afrit 4 thv hmp 24.1,52.288,4.918,positive,A9,5.11,A,21698,1230,P1.3,Afrit,177
+RWS01_MONIBAS_0091hrr0247ra,A9 northBound naar Amstelveen na afrit 2 ri afrit 4 thv hmp 24.8,52.2896,4.90932,positive,A9,5.11,A,21698,1850,P1.3,Afrit,178
+RWS01_MONIBAS_0091hrr0253ra,A9 northBound naar Amstelveen na afrit 2 ri afrit 4 thv hmp 25.4,52.2917,4.9011,positive,A9,5.11,A,21698,2460,P1.3,Afrit,179
+RWS01_MONIBAS_0091hrr0259ra,A9 northBound naar Amstelveen na afrit 2 ri afrit 4 thv hmp 26.0,52.2942,4.89325,positive,A9,5.11,A,21698,3060,P1.3,Afrit,180
+RWS01_MONIBAS_0091hrr0262ra,A9 northBound naar Amstelveen na afrit 4 ri afrit 5 thv hmp 26.3,52.2953,4.88862,positive,A9,5.11,A,10572,95,P1.3,Afrit,181
+RWS01_MONIBAS_0091hrr0267ra,A9 northBound naar Amstelveen na afrit 4 ri afrit 5 thv hmp 26.7,52.2963,4.88237,positive,A9,5.11,A,10572,540,P1.3,Afrit,182
+RWS01_MONIBAS_0091hrr0272ra,A9 northBound naar Amstelveen na afrit 4 ri afrit 5 thv hmp 27.3,52.2974,4.87478,positive,A9,5.11,A,10572,1070,P1.3,Afrit,183
+RWS01_MONIBAS_0091hrr0278ra,A9 northBound naar Amstelveen na afrit 4 ri afrit 5 thv hmp 27.8,52.299,4.86688,positive,A9,5.11,A,10572,1640,P1.3,Afrit,184
+RWS01_MONIBAS_0091hrr0282ra,A9 northBound naar Amstelveen na afrit 4 ri afrit 5 thv hmp 28.3,52.3004,4.86127,positive,A9,5.11,A,10572,2050,P1.3,Afrit,185
+RWS01_MONIBAS_0091hrr0287ra,A9 northBound naar Alkmaar na afrit 5 ri afrit 6 thv hmp 28.7,52.3018,4.85514,positive,A9,5.11,A,10573,400,P1.3,Afrit,186
+RWS01_MONIBAS_0091hrr0293ra,A9 northBound naar Alkmaar na afrit 5 ri afrit 6 thv hmp 29.3,52.3043,4.84664,positive,A9,5.11,A,10573,1045,P1.3,Afrit,187
+RWS01_MONIBAS_0091hrr0297ra,A9 northBound naar Alkmaar na afrit 5 ri afrit 6 thv hmp 29.7,52.3049,4.84155,positive,A9,5.11,A,10573,1400,P1.3,Afrit,188
+RWS01_MONIBAS_0091hrr0302ra,A9 northBound naar Alkmaar na afrit 5 ri afrit 6 thv hmp 30.3,52.3063,4.83313,positive,A9,5.11,A,10573,1970,P1.3,Afrit,189
+RWS01_MONIBAS_0091hrr0308ra,A9 northBound naar Alkmaar na afrit 5 ri afrit 6 thv hmp 30.9,52.3083,4.82517,positive,A9,5.11,A,10573,2570,P1.3,Afrit,190
+RWS01_MONIBAS_0091hrr0313ra,A9 northBound naar Alkmaar na afrit 5 ri afrit 6 thv hmp 31.4,52.3106,4.81942,positive,A9,5.11,A,10573,3050,P1.3,Afrit,191
+RWS01_MONIBAS_0091hrr0318ra,A9 northBound naar Alkmaar na afrit 5 ri afrit 6 thv hmp 31.8,52.3138,4.81433,positive,A9,5.11,A,10575,249,P3.2,Brug,192
+RWS01_MONIBAS_0091hrr0322ra,A9 northBound naar Alkmaar na afrit 6 ri knppnt Badhoevedorp thv hmp 32.2,52.3165,4.81107,positive,A9,5.11,A,10576,224,P1.3,Afrit,193
+RWS01_MONIBAS_0091hrr0326ra,A9 northBound naar Alkmaar na afrit 6 ri knppnt Badhoevedorp thv hmp 32.7,52.3198,4.80811,positive,A9,5.11,A,10576,650,P1.3,Afrit,194
+RWS01_MONIBAS_0091hrr0328ra,A9 northBound naar Alkmaar na afrit 6 ri knppnt Badhoevedorp thv hmp 32.8,52.3213,4.80671,positive,A9,5.11,A,10576,845,P1.3,Afrit,195
+RWS01_MONIBAS_0091hrr0330ra,A9 northBound naar Alkmaar na afrit 6 ri knppnt Badhoevedorp thv hmp 33.1,52.3231,4.80478,positive,A9,5.11,A,10576,1080,P1.3,Afrit,196
+RWS01_MONIBAS_0091hrr0339ra,A9 northBound naar Alkmaar op knppnt Badhoevedorp ri afrit 7 thv hmp 33.9,52.3284,4.79573,positive,A9,5.11,A,10579,635,P1.1,Knooppunt,197
+RWS01_MONIBAS_0091hrr0344ra,A9 northBound naar Alkmaar op knppnt Badhoevedorp ri afrit 7 thv hmp 34.4,52.3312,4.79048,positive,A9,5.11,A,10579,1105,P1.1,Knooppunt,198
+RWS01_MONIBAS_0091hrr0350ra,A9 northBound naar Alkmaar op knppnt Badhoevedorp ri afrit 7 thv hmp 35.0,52.3349,4.78361,positive,A9,5.11,A,10579,1721,P1.1,Knooppunt,199
+RWS01_MONIBAS_0091hrr0353ra,A9 northBound naar Alkmaar op knppnt Badhoevedorp ri afrit 7 thv hmp 35.4,52.3368,4.77985,positive,A9,5.11,A,10579,2057,P1.1,Knooppunt,200
+RWS01_MONIBAS_0091hrr0356ra,A9 northBound naar Alkmaar op knppnt Badhoevedorp ri afrit 7 thv hmp 35.6,52.3385,4.77675,positive,A9,5.11,A,10579,2333,P1.1,Knooppunt,201
+RWS01_MONIBAS_0091hrr0362ra,A9 northBound naar Alkmaar op knppnt Badhoevedorp ri afrit 7 thv hmp 36.2,52.3415,4.77002,positive,A9,5.11,A,10579,2900,P1.1,Knooppunt,202
+RWS01_MONIBAS_0091hrr0367ra,A9 northBound naar Alkmaar na afrit 7 ri knppnt Raasdorp thv hmp 36.7,52.3443,4.76418,positive,A9,5.11,A,10582,208,P1.3,Afrit,203
+RWS01_MONIBAS_0091hrr0373ra,A9 northBound naar Alkmaar na afrit 7 ri knppnt Raasdorp thv hmp 37.4,52.3479,4.75694,positive,A9,5.11,A,10582,850,P1.3,Afrit,204
+RWS01_MONIBAS_0091hrr0377ra,A9 northBound naar Alkmaar na afrit 7 ri knppnt Raasdorp thv hmp 37.7,52.3501,4.75277,positive,A9,5.11,A,10582,1229,P1.3,Afrit,205
+RWS01_MONIBAS_0091hrr0381ra,A9 northBound naar Alkmaar op knppnt Raasdorp ri afrit Haarlem-Zuid thv hmp 38.1,52.3523,4.74868,positive,A9,5.11,A,10624,300,P1.1,Knooppunt,206
+RWS01_MONIBAS_0091hrr0384ra,A9 northBound naar Alkmaar op knppnt Raasdorp ri afrit Haarlem-Zuid thv hmp 38.5,52.3545,4.74463,positive,A9,5.11,A,10624,666,P1.1,Knooppunt,207
+RWS01_MONIBAS_0091hrr0388ra,A9 northBound naar Alkmaar op knppnt Raasdorp ri afrit Haarlem-Zuid thv hmp 38.8,52.3565,4.74094,positive,A9,5.11,A,10624,1000,P1.1,Knooppunt,208
+RWS01_MONIBAS_0091hrr0391ra,A9 northBound naar Alkmaar op knppnt Raasdorp ri afrit Haarlem-Zuid thv hmp 39.1,52.3584,4.7374,positive,A9,5.11,A,10624,1321,P1.1,Knooppunt,209
+RWS01_MONIBAS_0091hrr0394ra,A9 northBound naar Alkmaar op knppnt Raasdorp ri afrit Haarlem-Zuid thv hmp 39.4,52.3601,4.7342,positive,A9,5.11,A,10624,1610,P1.1,Knooppunt,210
+RWS01_MONIBAS_0091hrr0396ra,A9 northBound naar Alkmaar op knppnt Raasdorp ri afrit Haarlem-Zuid thv hmp 39.6,52.3615,4.7316,positive,A9,5.11,A,10624,1846,P1.1,Knooppunt,211
+RWS01_MONIBAS_0091hrr0399ra,A9 northBound naar Alkmaar op knppnt Raasdorp ri afrit Haarlem-Zuid thv hmp 39.9,52.363,4.7288,positive,A9,5.11,A,10624,2100,P1.1,Knooppunt,212
+RWS01_MONIBAS_0091hrr0401ra,A9 northBound naar Alkmaar op knppnt Raasdorp ri afrit Haarlem-Zuid thv hmp 40.2,52.3645,4.72598,positive,A9,5.11,A,10624,2356,P1.1,Knooppunt,213
+RWS01_MONIBAS_0091hrr0405ra,A9 northBound naar Alkmaar op knppnt Raasdorp ri afrit Haarlem-Zuid thv hmp 40.5,52.3667,4.72193,positive,A9,5.11,A,10624,2726,P1.1,Knooppunt,214
+RWS01_MONIBAS_0091hrr0408ra,A9 northBound naar Alkmaar op knppnt Raasdorp ri afrit Haarlem-Zuid thv hmp 40.9,52.3689,4.71791,positive,A9,5.11,A,10624,3096,P1.1,Knooppunt,215
+RWS01_MONIBAS_0091hrr0411ra,A9 northBound naar Alkmaar na afrit N205/A205 ri knppnt Rottepolderplein thv hmp 41.2,52.3704,4.71504,positive,A9,5.11,A,10583,155,P1.3,Afrit,216
+RWS01_MONIBAS_0091hrr0414ra,A9 northBound naar Alkmaar na afrit N205/A205 ri knppnt Rottepolderplein thv hmp 41.4,52.3719,4.71232,positive,A9,5.11,A,10583,401,P1.3,Afrit,217
+RWS01_MONIBAS_0091hrr0418ra,A9 northBound naar Alkmaar na afrit N205/A205 ri knppnt Rottepolderplein thv hmp 41.8,52.3749,4.70908,positive,A9,5.11,A,10583,810,P1.3,Afrit,218
+RWS01_MONIBAS_0091hrr0421ra,A9 northBound naar Alkmaar na afrit N205/A205 ri knppnt Rottepolderplein thv hmp 42.1,52.3778,4.70863,positive,A9,5.11,A,10583,1135,P1.3,Afrit,219
+RWS01_MONIBAS_0091hrr0423ra,A9 northBound naar Alkmaar na afrit N205/A205 ri knppnt Rottepolderplein thv hmp 42.3,52.3795,4.70834,positive,A9,5.11,A,10583,1333,P1.3,Afrit,220
+RWS01_MONIBAS_0091hrr0427ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 42.8,52.3835,4.70771,positive,A9,5.11,A,10586,380,P1.1,Knooppunt,221
+RWS01_MONIBAS_0091hrr0433ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 43.3,52.3883,4.70693,positive,A9,5.11,A,10586,912,P1.1,Knooppunt,222
+RWS01_MONIBAS_0091hrr0437ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 43.7,52.3921,4.70636,positive,A9,5.11,A,10586,1335,P1.1,Knooppunt,223
+RWS01_MONIBAS_0091hrr0439ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 43.9,52.3936,4.70608,positive,A9,5.11,A,10586,1510,P1.1,Knooppunt,224
+RWS01_MONIBAS_0091hrr0443ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 44.3,52.3975,4.70543,positive,A9,5.11,A,10586,1938,P1.1,Knooppunt,225
+RWS01_MONIBAS_0091hrr0448ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 44.8,52.4021,4.70468,positive,A9,5.11,A,10586,2449,P1.1,Knooppunt,226
+RWS01_MONIBAS_0091hrr0453ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 45.3,52.406,4.7032,positive,A9,5.11,A,10586,2900,P1.1,Knooppunt,227
+RWS01_MONIBAS_0091hrr0456ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 45.6,52.4086,4.70184,positive,A9,5.11,A,10586,3200,P1.1,Knooppunt,228
+RWS01_MONIBAS_0091hrr0458ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 45.9,52.4111,4.70049,positive,A9,5.11,A,10586,3499,P1.1,Knooppunt,229
+RWS01_MONIBAS_0091hrr0462ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 46.2,52.4137,4.69911,positive,A9,5.11,A,10586,3800,P1.1,Knooppunt,230
+RWS01_MONIBAS_0091hrr0467ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 46.7,52.4178,4.69617,positive,A9,5.11,A,10586,4300,P1.1,Knooppunt,231
+RWS01_MONIBAS_0091hrr0469ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 46.9,52.4193,4.69454,positive,A9,5.11,A,10586,4500,P1.1,Knooppunt,232
+RWS01_MONIBAS_0091hrr0473ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 47.3,52.4221,4.69039,positive,A9,5.11,A,10589,321,P3.2,Brug,233
+RWS01_MONIBAS_0091hrr0476ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 47.6,52.4239,4.68716,positive,A9,5.11,A,10589,615,P3.2,Brug,234
+RWS01_MONIBAS_0091hrr0478ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 47.9,52.4256,4.68419,positive,A9,5.11,A,10589,897,P3.2,Brug,235
+RWS01_MONIBAS_0091hrr0481ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 48.2,52.4278,4.6814,positive,A9,5.11,A,10589,1199,P3.2,Brug,236
+RWS01_MONIBAS_0091hrr0484ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 48.5,52.43,4.67896,positive,A9,5.11,A,10589,1498,P3.2,Brug,237
+RWS01_MONIBAS_0091hrr0488ra,A9 northBound naar Alkmaar op knppnt Rottepolderplein ri knppnt Velsen thv hmp 48.9,52.4329,4.67596,positive,A9,5.11,A,10589,1878,P3.2,Brug,238
+RWS01_MONIBAS_0091hrr0493ra,A9 northBound naar Alkmaar op knppnt Velsen ri afrit 8 thv hmp 49.3,52.436,4.67263,positive,A9,5.11,A,10591,0,P1.2,Knooppunt (triangle),239
+RWS01_MONIBAS_0091hrr0496ra,A9 northBound naar Alkmaar op knppnt Velsen ri afrit 8 thv hmp 49.7,52.4388,4.67001,positive,A9,5.11,A,10591,360,P1.2,Knooppunt (triangle),240
+RWS01_MONIBAS_0091hrr0500ra,A9 northBound naar Alkmaar op knppnt Velsen ri afrit 8 thv hmp 50.1,52.4422,4.66797,positive,A9,5.11,A,10591,760,P1.2,Knooppunt (triangle),241
+RWS01_MONIBAS_0091hrr0504ra,A9 northBound naar Alkmaar op knppnt Velsen ri afrit 8 thv hmp 50.4,52.4453,4.66709,positive,A9,5.11,A,10591,1110,P1.2,Knooppunt (triangle),242
+RWS01_MONIBAS_0091hrr0507ra,A9 northBound naar Alkmaar op knppnt Velsen ri afrit 8 thv hmp 50.8,52.4484,4.66718,positive,A9,5.11,A,10591,1460,P1.2,Knooppunt (triangle),243
+RWS01_MONIBAS_0091hrr0509ra,A9 northBound naar Alkmaar op knppnt Velsen ri afrit 8 thv hmp 50.9,52.4498,4.66746,positive,A9,5.11,A,10591,1610,P1.2,Knooppunt (triangle),244
+RWS01_MONIBAS_0091hrr0512ra,A9 northBound naar Alkmaar op knppnt Velsen ri afrit 8 thv hmp 51.2,52.4524,4.66845,positive,A9,5.11,A,10591,1910,P1.2,Knooppunt (triangle),245
+RWS01_MONIBAS_0101hrr0019ra,A10 clockwise naar Volendam na afrit 17 ri afrit 16 thv hmp 1.9,52.4187,4.91172,positive,A10,5.11,A,7180,340,P1.3,Afrit,246
+RWS01_MONIBAS_0101hrr0025ra,A10 clockwise naar Volendam na afrit 17 ri afrit 16 thv hmp 2.5,52.4159,4.91924,positive,A10,5.11,A,7180,940,P1.3,Afrit,247
+RWS01_MONIBAS_0101hrr0032ra,A10 clockwise naar Volendam na afrit 17 ri afrit 16 thv hmp 3.2,52.4122,4.92699,positive,A10,5.11,A,7180,1605,P1.3,Afrit,248
+RWS01_MONIBAS_0101hrr0037ra,A10 clockwise naar Volendam na afrit 16 ri afrit 15 thv hmp 3.7,52.4094,4.93263,positive,A10,5.11,A,7182,100,P1.3,Afrit,249
+RWS01_MONIBAS_0101hrr0042ra,A10 clockwise naar Volendam na afrit 16 ri afrit 15 thv hmp 4.2,52.4073,4.93909,positive,A10,5.11,A,7182,600,P1.3,Afrit,250
+RWS01_MONIBAS_0101hrr0045ra,A10 clockwise naar Volendam na afrit 16 ri afrit 15 thv hmp 4.5,52.4061,4.94349,positive,A10,5.11,A,7182,930,P1.3,Afrit,251
+RWS01_MONIBAS_0101hrr0051ra,A10 clockwise naar Volendam na afrit 16 ri afrit 15 thv hmp 5.2,52.403,4.95113,positive,A10,5.11,A,7182,1550,P1.3,Afrit,252
+RWS01_MONIBAS_0101hrr0057ra,A10 clockwise naar Volendam na afrit 16 ri afrit 15 thv hmp 5.8,52.3993,4.9576,positive,A10,5.11,A,7182,2160,P1.3,Afrit,253
+RWS01_MONIBAS_0101hrr0063ra,A10 clockwise naar Volendam na afrit 16 ri afrit 15 thv hmp 6.4,52.3948,4.96259,positive,A10,5.11,A,7182,2760,P1.3,Afrit,254
+RWS01_MONIBAS_0101hrr0067ra,A10 clockwise naar Watergraafsmeer na afrit 15 ri afrit 14 thv hmp 6.8,52.3914,4.96546,positive,A10,5.11,A,7183,285,P1.3,Afrit,255
+RWS01_MONIBAS_0101hrr0069ra,A10 clockwise naar Watergraafsmeer na afrit 15 ri afrit 14 thv hmp 7.0,52.3901,4.96667,positive,A10,5.11,A,7183,460,P1.3,Afrit,256
+RWS01_MONIBAS_0101hrr0072ra,A10 clockwise naar Watergraafsmeer na afrit 15 ri afrit 14 thv hmp 7.2,52.3881,4.96835,positive,A10,5.11,A,7183,710,P1.3,Afrit,257
+RWS01_MONIBAS_0101hrr0074ra,A10 clockwise naar Watergraafsmeer na afrit 15 ri afrit 14 thv hmp 7.5,52.3861,4.96999,positive,A10,5.11,A,7183,960,P1.3,Afrit,258
+RWS01_MONIBAS_0101hrr0078ra,A10 clockwise naar Watergraafsmeer na afrit 15 ri afrit 14 thv hmp 7.8,52.3833,4.97188,positive,A10,5.11,A,7183,1300,P1.3,Afrit,259
+RWS01_MONIBAS_0101hrr0080ra,A10 clockwise naar Watergraafsmeer na afrit 15 ri afrit 14 thv hmp 8.0,52.3813,4.97276,positive,A10,5.11,A,7183,1520,P1.3,Afrit,260
+RWS01_MONIBAS_0101hrr0085ra,A10 clockwise naar Watergraafsmeer na afrit 15 ri afrit 14 thv hmp 8.5,52.3771,4.9739,positive,A10,5.11,A,7184,100,P3.1,Tunnel,261
+RWS01_MONIBAS_0101hrr0086ra,A10 clockwise naar Watergraafsmeer na afrit 15 ri afrit 14 thv hmp 8.6,52.3762,4.974,positive,A10,5.11,A,7184,200,P3.1,Tunnel,262
+RWS01_MONIBAS_0101hrr0087ra,A10 clockwise naar Watergraafsmeer na afrit 15 ri afrit 14 thv hmp 8.8,52.3748,4.97405,positive,A10,5.11,A,7184,360,P3.1,Tunnel,263
+RWS01_MONIBAS_0101hrr0088ra,A10 clockwise naar Watergraafsmeer na afrit 15 ri afrit 14 thv hmp 8.9,52.3736,4.97401,positive,A10,5.11,A,7184,490,P3.1,Tunnel,264
+RWS01_MONIBAS_0101hrr0090ra,A10 clockwise naar Watergraafsmeer na afrit 15 ri afrit 14 thv hmp 9.0,52.3724,4.97385,positive,A10,5.11,A,7184,620,P3.1,Tunnel,265
+RWS01_MONIBAS_0101hrr0092ra,A10 clockwise naar Watergraafsmeer na afrit 15 ri afrit 14 thv hmp 9.2,52.3708,4.97343,positive,A10,5.11,A,7184,800,P3.1,Tunnel,266
+RWS01_MONIBAS_0101hrr0093ra,A10 clockwise naar Watergraafsmeer na afrit 15 ri afrit 14 thv hmp 9.4,52.3693,4.97292,positive,A10,5.11,A,7184,972,P3.1,Tunnel,267
+RWS01_MONIBAS_0101hrr0097ra,A10 clockwise naar Watergraafsmeer na afrit 14 ri knppnt Watergraafsmeer thv hmp 9.8,52.3658,4.97122,positive,A10,5.11,A,7185,280,P1.3,Afrit,268
+RWS01_MONIBAS_0101hrr0103ra,A10 clockwise naar Watergraafsmeer na afrit 14 ri knppnt Watergraafsmeer thv hmp 10.3,52.3614,4.9688,positive,A10,5.11,A,7185,800,P1.3,Afrit,269
+RWS01_MONIBAS_0101hrr0109ra,A10 clockwise naar Watergraafsmeer na afrit 14 ri knppnt Watergraafsmeer thv hmp 10.9,52.3563,4.96592,positive,A10,5.11,A,7185,1400,P1.3,Afrit,270
+RWS01_MONIBAS_0101hrr0110ra,A10 clockwise naar Watergraafsmeer na afrit 14 ri knppnt Watergraafsmeer thv hmp 11.0,52.3551,4.96522,positive,A10,5.11,A,7185,1545,P1.3,Afrit,271
+RWS01_MONIBAS_0101hrr0113ra,A10 clockwise naar Watergraafsmeer op knppnt Watergraafsmeer ri afrit 13 thv hmp 11.3,52.353,4.96395,positive,A10,5.11,A,7187,100,P1.2,Knooppunt (triangle),272
+RWS01_MONIBAS_0101hrr0118ra,A10 clockwise naar Watergraafsmeer op knppnt Watergraafsmeer ri afrit 13 thv hmp 11.8,52.349,4.96068,positive,A10,5.11,A,7187,600,P1.2,Knooppunt (triangle),273
+RWS01_MONIBAS_0101hrr0123ra,A10 clockwise naar Watergraafsmeer op knppnt Watergraafsmeer ri afrit 13 thv hmp 12.3,52.345,4.95667,positive,A10,5.11,A,7187,1120,P1.2,Knooppunt (triangle),274
+RWS01_MONIBAS_0101hrr0127ra,A10 clockwise naar De Nieuwe Meer na afrit 13 ri afrit 12 thv hmp 12.8,52.3413,4.95321,positive,A10,5.11,A,7189,290,P1.3,Afrit,275
+RWS01_MONIBAS_0101hrr0129ra,A10 clockwise naar De Nieuwe Meer na afrit 13 ri afrit 12 thv hmp 13.0,52.34,4.95128,positive,A10,5.11,A,7189,490,P1.3,Afrit,276
+RWS01_MONIBAS_0101hrr0133ra,A10 clockwise naar De Nieuwe Meer na afrit 13 ri afrit 12 thv hmp 13.4,52.3382,4.94629,positive,A10,5.11,A,7189,890,P1.3,Afrit,277
+RWS01_MONIBAS_0101hrr0135ra,A10 clockwise naar De Nieuwe Meer na afrit 13 ri afrit 12 thv hmp 13.6,52.3376,4.94362,positive,A10,5.11,A,7189,1085,P1.3,Afrit,278
+RWS01_MONIBAS_0101hrr0138ra,A10 clockwise naar De Nieuwe Meer na afrit 12 ri afrit 11 thv hmp 13.9,52.3364,4.93974,positive,A10,5.11,A,7190,180,P1.3,Afrit,279
+RWS01_MONIBAS_0101hrr0141ra,A10 clockwise naar De Nieuwe Meer na afrit 12 ri afrit 11 thv hmp 14.2,52.3349,4.93579,positive,A10,5.11,A,7190,495,P1.3,Afrit,280
+RWS01_MONIBAS_0101hrr0144ra,A10 clockwise naar De Nieuwe Meer na afrit 12 ri afrit 11 thv hmp 14.4,52.3339,4.93292,positive,A10,5.11,A,7190,720,P1.3,Afrit,281
+RWS01_MONIBAS_0101hrr0147ra,A10 clockwise naar De Nieuwe Meer na afrit 11 ri afrit 10 thv hmp 14.8,52.3323,4.92828,positive,A10,5.11,A,7191,285,P1.3,Afrit,282
+RWS01_MONIBAS_0101hrr0149ra,A10 clockwise naar De Nieuwe Meer na afrit 11 ri afrit 10 thv hmp 15.0,52.3314,4.92567,positive,A10,5.11,A,7191,490,P1.3,Afrit,283
+RWS01_MONIBAS_0101hrr0153ra,A10 clockwise naar De Nieuwe Meer op knppnt Amstel ri afrit 9 thv hmp 15.3,52.3299,4.92138,positive,A10,5.11,A,7194,22,P1.1,Knooppunt,284
+RWS01_MONIBAS_0101hrr0157ra,A10 clockwise naar De Nieuwe Meer op knppnt Amstel ri afrit 9 thv hmp 15.8,52.3285,4.91551,positive,A10,5.11,A,7194,460,P1.1,Knooppunt,285
+RWS01_MONIBAS_0101hrr0163ra,A10 clockwise naar De Nieuwe Meer op knppnt Amstel ri afrit 9 thv hmp 16.3,52.3295,4.90731,positive,A10,5.11,A,7194,1043,P1.1,Knooppunt,286
+RWS01_MONIBAS_0101hrr0169ra,A10 clockwise naar De Nieuwe Meer op knppnt Amstel ri afrit 9 thv hmp 16.9,52.3323,4.90058,positive,A10,5.11,A,7197,6,P3.2,Brug,287
+RWS01_MONIBAS_0101hrr0171ra,A10 clockwise naar De Nieuwe Meer op knppnt Amstel ri afrit 9 thv hmp 17.2,52.3339,4.8976,positive,A10,5.11,A,7197,277,P3.2,Brug,288
+RWS01_MONIBAS_0101hrr0175ra,A10 clockwise naar De Nieuwe Meer na afrit 9 ri afrit 8 thv hmp 17.6,52.3362,4.89329,positive,A10,5.11,A,7198,359,P1.3,Afrit,289
+RWS01_MONIBAS_0101hrr0180ra,A10 clockwise naar De Nieuwe Meer na afrit 9 ri afrit 8 thv hmp 18.0,52.3387,4.88811,positive,A10,5.11,A,7198,800,P1.3,Afrit,290
+RWS01_MONIBAS_0101hrr0185ra,A10 clockwise naar De Nieuwe Meer na afrit 9 ri afrit 8 thv hmp 18.5,52.3397,4.88084,positive,A10,5.11,A,7198,1306,P1.3,Afrit,291
+RWS01_MONIBAS_0101hrr0189ra,A10 clockwise naar De Nieuwe Meer na afrit 9 ri afrit 8 thv hmp 19.0,52.3395,4.87426,positive,A10,5.11,A,7198,1750,P1.3,Afrit,292
+RWS01_MONIBAS_0101hrr0194ra,A10 clockwise naar De Nieuwe Meer na afrit 8 ri knppnt De Nieuwe Meer thv hmp 19.4,52.3392,4.86728,positive,A10,5.11,A,7199,22,P1.3,Afrit,293
+RWS01_MONIBAS_0101hrr0197ra,A10 clockwise naar De Nieuwe Meer na afrit 8 ri knppnt De Nieuwe Meer thv hmp 19.8,52.3389,4.8621,positive,A10,5.11,A,7199,375,P1.3,Afrit,294
+RWS01_MONIBAS_0101hrr0203ra,A10 clockwise naar De Nieuwe Meer op knppnt De Nieuwe Meer ri afrit 7 thv hmp 20.3,52.3385,4.85447,positive,A10,5.11,A,7202,300,P1.2,Knooppunt (triangle),295
+RWS01_MONIBAS_0101hrr0205ra,A10 clockwise naar De Nieuwe Meer op knppnt De Nieuwe Meer ri afrit 7 thv hmp 20.6,52.3383,4.85033,positive,A10,5.11,A,7202,586,P1.2,Knooppunt (triangle),296
+RWS01_MONIBAS_0101hrr0209ra,A10 clockwise naar De Nieuwe Meer na afrit 8 ri knppnt De Nieuwe Meer thv hmp 21.0,52.3381,4.84459,positive,A10,5.11,A,7200,295,P3.2,Brug,297
+RWS01_MONIBAS_0101hrr0215ra,A10 clockwise naar Coenplein na afrit 7 ri afrit 6 thv hmp 21.5,52.3417,4.84148,positive,A10,5.11,A,7204,330,P1.3,Afrit,298
+RWS01_MONIBAS_0101hrr0219ra,A10 clockwise naar Coenplein na afrit 7 ri afrit 6 thv hmp 22.0,52.3455,4.84111,positive,A10,5.11,A,7204,755,P1.3,Afrit,299
+RWS01_MONIBAS_0101hrr0225ra,A10 clockwise naar Coenplein na afrit 7 ri afrit 6 thv hmp 22.6,52.3508,4.84251,positive,A10,5.11,A,7204,1350,P1.3,Afrit,300
+RWS01_MONIBAS_0101hrr0229ra,A10 clockwise naar Coenplein na afrit 6 ri afrit 5 thv hmp 22.9,52.354,4.84272,positive,A10,5.11,A,7205,0,P1.3,Afrit,301
+RWS01_MONIBAS_0101hrr0233ra,A10 clockwise naar Coenplein na afrit 6 ri afrit 5 thv hmp 23.4,52.358,4.8426,positive,A10,5.11,A,7205,450,P1.3,Afrit,302
+RWS01_MONIBAS_0101hrr0239ra,A10 clockwise naar Coenplein na afrit 6 ri afrit 5 thv hmp 23.9,52.3629,4.84248,positive,A10,5.11,A,7205,1000,P1.3,Afrit,303
+RWS01_MONIBAS_0101hrr0244ra,A10 clockwise naar Coenplein na afrit 5 ri afrit 4 thv hmp 24.4,52.3678,4.84232,positive,A10,5.11,A,7206,47,P1.3,Afrit,304
+RWS01_MONIBAS_0101hrr0249ra,A10 clockwise naar Coenplein na afrit 5 ri afrit 4 thv hmp 24.9,52.3719,4.84221,positive,A10,5.11,A,7206,500,P1.3,Afrit,305
+RWS01_MONIBAS_0101hrr0253ra,A10 clockwise naar Coenplein na afrit 4 ri afrit 3 thv hmp 25.4,52.3759,4.84333,positive,A10,5.11,A,7207,50,P1.3,Afrit,306
+RWS01_MONIBAS_0101hrr0258ra,A10 clockwise naar Coenplein na afrit 4 ri afrit 3 thv hmp 25.8,52.3799,4.84484,positive,A10,5.11,A,7207,517,P1.3,Afrit,307
+RWS01_MONIBAS_0101hrr0261ra,A10 clockwise naar Coenplein na afrit 3 ri afrit 2 thv hmp 26.2,52.3832,4.84478,positive,A10,5.11,A,7208,185,P1.3,Afrit,308
+RWS01_MONIBAS_0101hrr0264ra,A10 clockwise naar Coenplein na afrit 3 ri afrit 2 thv hmp 26.5,52.3857,4.84465,positive,A10,5.11,A,7208,465,P1.3,Afrit,309
+RWS01_MONIBAS_0101hrr0267ra,A10 clockwise naar Coenplein na afrit 3 ri afrit 2 thv hmp 26.7,52.3881,4.84451,positive,A10,5.11,A,7208,735,P1.3,Afrit,310
+RWS01_MONIBAS_0101hrr0271ra,A10 clockwise naar Coenplein na afrit 2 ri knppnt Westrandweg thv hmp 27.2,52.3923,4.84431,positive,A10,5.11,A,7209,395,P1.3,Afrit,311
+RWS01_MONIBAS_0101hrr0276ra,A10 clockwise naar Coenplein na afrit 2 ri knppnt Westrandweg thv hmp 27.6,52.3959,4.84504,positive,A10,5.11,A,7209,805,P1.3,Afrit,312
+RWS01_MONIBAS_0101hrr0279ra,A10 clockwise naar Coenplein op knppnt Westrandweg ri afrit 1 thv hmp 27.9,52.3983,4.84685,positive,A10,5.11,A,21978,105,P1.2,Knooppunt (triangle),313
+RWS01_MONIBAS_0101hrr0281ra,A10 clockwise naar Coenplein op knppnt Westrandweg ri afrit 1 thv hmp 28.1,52.3998,4.84869,positive,A10,5.11,A,21978,325,P1.2,Knooppunt (triangle),314
+RWS01_MONIBAS_0101hrr0285ra,A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 28.6,52.4029,4.85225,positive,A10,5.11,A,7210,250,P1.3,Afrit,315
+RWS01_MONIBAS_0101hrr0287ra,A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 28.7,52.4044,4.8539,positive,A10,5.11,A,7210,445,P1.3,Afrit,316
+RWS01_MONIBAS_0101hrr0290ra,A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 29.1,52.4069,4.85694,positive,A10,5.11,A,7210,795,P1.3,Afrit,317
+RWS01_MONIBAS_0101hrr0294ra,A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 29.5,52.4097,4.86032,positive,A10,5.11,A,7210,1175,P1.3,Afrit,318
+RWS01_MONIBAS_0101hrr0297ra,A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 29.7,52.4114,4.86205,positive,A10,5.11,A,7211,202,P3.1,Tunnel,319
+RWS01_MONIBAS_0101hrr0298ra,A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 29.9,52.4126,4.86321,positive,A10,5.11,A,7211,358,P3.1,Tunnel,320
+RWS01_MONIBAS_0101hrr0299ra,A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 30.0,52.4134,4.86393,positive,A10,5.11,A,7211,453,P3.1,Tunnel,321
+RWS01_MONIBAS_0101hrr0300ra,A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 30.0,52.414,4.86452,positive,A10,5.11,A,7211,533,P3.1,Tunnel,322
+RWS01_MONIBAS_0101hrr0301ra,A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 30.1,52.4146,4.86508,positive,A10,5.11,A,7211,608,P3.1,Tunnel,323
+RWS01_MONIBAS_0101hrr0302ra,A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 30.2,52.4154,4.86587,positive,A10,5.11,A,7211,713,P3.1,Tunnel,324
+RWS01_MONIBAS_0101hrr0303ra,A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 30.3,52.4162,4.86661,positive,A10,5.11,A,7211,813,P3.1,Tunnel,325
+RWS01_MONIBAS_0101hrr0305ra,A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 30.5,52.4179,4.86826,positive,A10,5.11,A,7211,1045,P3.1,Tunnel,326
+RWS01_MONIBAS_0101hrr0308ra,A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 30.9,52.4201,4.87079,positive,A10,5.11,A,7211,1365,P3.1,Tunnel,327
+RWS01_MONIBAS_0101hrr0312ra,A10 clockwise naar Coenplein op knppnt Coenplein ri afrit 18 thv hmp 31.2,52.4217,4.87482,positive,A10,5.11,A,7213,305,P1.2,Knooppunt (triangle),328
+RWS01_MONIBAS_0101hrr0317ra,A10 clockwise naar Volendam na afrit 18 ri afrit 17 thv hmp 31.8,52.4243,4.88199,positive,A10,5.11,A,7215,475,P1.3,Afrit,329
+RWS01_MONIBAS_0101hrr0323ra,A10 clockwise naar Volendam na afrit 18 ri afrit 17 thv hmp 32.4,52.425,4.89042,positive,A10,5.11,A,7215,1051,P1.3,Afrit,330
+RWS01_MONIBAS_0101hrr0330ra,A10 clockwise naar Volendam na afrit 18 ri afrit 17 thv hmp 31.3,52.4237,4.89955,positive,A10,5.11,A,7215,0,P1.3,Afrit,331
+RWS01_MONICA_00D001021C0AD0070007,"A1 eastBound naar Amersfoort na afrit 4 ri knppnt Muiderberg thv hmp 13.5, rstr 1",52.3219,5.08078,positive,A1,5.11,A,7011,1110,P1.3,Afrit,332
+RWS01_MONICA_10D00205D050D0050005,"A2 northBound naar Amsterdam na afrit 3 ri afrit 2 thv hmp 37.3, rstr 1",52.2794,4.95376,positive,A2,5.11,A,8003,2220,P1.3,Afrit,333
+RWS01_MONICA_10D00A04783708200187,"A10 clockwise naar Coenplein na afrit 1 ri knppnt Coenplein thv hmp 28.7, Vluchtstr",52.4036,4.85335,positive,A10,5.11,A,7210,355,P1.3,Afrit,334
