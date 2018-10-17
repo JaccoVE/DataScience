@@ -40,12 +40,14 @@ csv_speed_meta <- data.table::fread(file = paste(f_main, f_speed_meta, sep="", c
 # Load data ----------------------------------------
 
 # Load data of one day intensity (nrows=8176606)
-csv_intensity <- data.table::fread(file = paste(f_main, f_intensity, "01.csv", sep="", collapse=NULL),
+csv_intensity <- data.table::fread(file = paste(f_main, f_intensity, "02.csv", sep="", collapse=NULL),
+                                   nrows = 10000,
                                    nThread = num_threads)#,
 #                                    nrows = dim(csv_intensity_meta)[1])
 
 # Load data of one day speed (nrows=7898604)
-csv_speed <- data.table::fread(file = paste(f_main, f_speed, "01.csv", sep="", collapse=NULL),
+csv_speed <- data.table::fread(file = paste(f_main, f_speed, "02.csv", sep="", collapse=NULL),
+                               nrows = 10000,
                                nThread = num_threads)#,
 #                                nrows = dim(csv_speed_meta)[1])
 
@@ -57,67 +59,72 @@ data_intensity_meta <- csv_intensity_meta %>%
   select(
     "measurementSiteReference",
     "index",
-    "numberOfInputValuesused",
-    "numberOfIncompleteInputs",
     "generatedSiteName",
-    "periodStart",
-    "periodEnd",
     "startLocatieForDisplayLat",
     "startLocatieForDisplayLong",
     "specificLocation",
-    "alertCDirectionCoded",
-    "avgVehicleFlow",
-    "avgVehicleSpeed") %>%
-  arrange(measurementSiteReference) %>%
+    "alertCDirectionCoded") %>%
+  arrange(
+    measurementSiteReference,
+    index) %>%
   group_by(
-    measurementSiteReference) %>%
+    measurementSiteReference,
+    index) %>%
   distinct() %>%
-  ungroup()
+  ungroup() %>%
+  mutate(
+    intensity_id = row_number())
 
 data_speed_meta <- csv_speed_meta %>%
   select(
     "measurementSiteReference",
     "index",
-    "numberOfInputValuesused",
-    "numberOfIncompleteInputs",
     "generatedSiteName",
-    "periodStart",
-    "periodEnd",
     "startLocatieForDisplayLat",
     "startLocatieForDisplayLong",
     "specificLocation",
-    "alertCDirectionCoded",
-    "avgVehicleFlow",
-    "avgVehicleSpeed") %>%
-  arrange(measurementSiteReference) %>%
+    "alertCDirectionCoded") %>%
+  arrange(
+    measurementSiteReference,
+    index) %>%
   group_by(
-    measurementSiteReference) %>%
+    measurementSiteReference,
+    index) %>%
   distinct() %>%
-  ungroup()
+  ungroup() %>%
+  mutate(
+    speed_id = row_number())
+
+# Save to file
+data.table::fwrite(data_intensity_meta, file = "data_intensity_meta.csv")
+data.table::fwrite(data_speed_meta, file = "data_speed_meta.csv")
 
 # Select data
 data_intensity <- csv_intensity %>%
   select(
     "measurementSiteReference",
     "index",
-    "numberOfInputValuesused",
-    "numberOfIncompleteInputs",
     "generatedSiteName",
     "periodStart",
     "periodEnd",
+    "numberOfInputValuesused",
+    "numberOfIncompleteInputs",
     "avgVehicleFlow",
     "avgVehicleSpeed") %>%
   rename(
     meas_site_ref = "measurementSiteReference",
     ind = "index",
-    num_in_use = "numberOfInputValuesused",
-    num_in_in = "numberOfIncompleteInputs",
     gen_site_name = "generatedSiteName",
     per_start = "periodStart",
     per_end = "periodEnd",
+    num_in_use = "numberOfInputValuesused",
+    num_in_in = "numberOfIncompleteInputs",
     avg_flow = "avgVehicleFlow",
     avg_speed = "avgVehicleSpeed") %>%
-  arrange(meas_site_ref) %>%
+  arrange(
+    meas_site_ref,
+    ind,
+    gen_site_name) %>%
   group_by(
     meas_site_ref) %>%
   distinct() %>%
@@ -127,24 +134,28 @@ data_speed <- csv_speed %>%
   select(
     "measurementSiteReference",
     "index",
-    "numberOfInputValuesused",
-    "numberOfIncompleteInputs",
     "generatedSiteName",
     "periodStart",
     "periodEnd",
+    "numberOfInputValuesused",
+    "numberOfIncompleteInputs",
     "avgVehicleFlow",
     "avgVehicleSpeed") %>%
   rename(
     meas_site_ref = "measurementSiteReference",
     ind = "index",
-    num_in_use = "numberOfInputValuesused",
-    num_in_in = "numberOfIncompleteInputs",
     gen_site_name = "generatedSiteName",
     per_start = "periodStart",
     per_end = "periodEnd",
+    num_in_use = "numberOfInputValuesused",
+    num_in_in = "numberOfIncompleteInputs",
     avg_flow = "avgVehicleFlow",
     avg_speed = "avgVehicleSpeed") %>%
-  arrange(meas_site_ref) %>%
+  arrange(
+    per_start,
+    per_end,
+    num_in_use,
+    num_in_in) %>%
   group_by(
     meas_site_ref) %>%
   distinct() %>%
@@ -189,6 +200,10 @@ data_com_speed <- data_speed_meta %>%
 # Remove all rows that contain NA's for flow or speed
 data_com_intensity <- data_com_intensity[!is.na(data_com_intensity$avg_flow),]
 data_com_speed <- data_com_speed[!is.na(data_com_speed$avg_speed),]
+
+# Remove all rows that contain NA's for the coordinates
+data_com_intensity <- data_com_intensity[!is.na(data_com_intensity$startLocatieForDisplayLat),]
+data_com_speed <- data_com_speed[!is.na(data_com_speed$startLocatieForDisplayLat),]
 
 
 # --------------------------------------------------
