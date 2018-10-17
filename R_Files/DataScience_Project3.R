@@ -7,6 +7,7 @@ library(lubridate)
 library(xml2)
 library(data.table)
 library(gtools)
+source("/home/jacco/Documents/Git/DataScience/R_Files/sort_points.R")
 #library(parallel)
 
 # --------------------------------------------------
@@ -58,9 +59,9 @@ csv_speed <- data.table::fread(file = paste(f_main, f_speed, "01.csv", sep="", c
                                nThread = num_threads)
 
 # --------------------------------------------------
-# Create UniqueSites  -----------------------------
+# Create UniqueSiteReference tables ----------------
 
-# Unique Sites (left and right still combined)
+# Unique Sites (positive and negative still combined)
 data_intensity_unique <- csv_intensity_meta %>%
   select(
     "measurementSiteReference",
@@ -81,35 +82,62 @@ data_intensity_unique <- data_intensity_unique[data_intensity_unique$ROADNUMBER 
                                                         c("A1", "A2", "A4", "A5", "A8", "A9", "A10"), ]
 
 # Create all positive and negative UniqueSites
-data_intensity_uniqueL <- data_intensity_unique[grep("positive", data_intensity_unique$alertCDirectionCoded), ]
-data_intensity_uniqueR <- data_intensity_unique[grep("negative", data_intensity_unique$alertCDirectionCoded), ]
+data_intensity_uniqueP <- data_intensity_unique[grep("positive", data_intensity_unique$alertCDirectionCoded), ]
+data_intensity_uniqueN <- data_intensity_unique[grep("negative", data_intensity_unique$alertCDirectionCoded), ]
+
+# -----------------------------------------------------
+# Connect measurement points with a line
+# Get centre (-oid) point of points
+x <- data_intensity_uniqueP$startLocatieForDisplayLong
+y <- data_intensity_uniqueP$startLocatieForDisplayLat
+
+x_centre <- mean(x)
+y_centre <- mean(y)
+
+# Calculate deltas
+data_intensity_uniqueP$x_delta <- x - x_centre
+data_intensity_uniqueP$y_delta <- y - y_centre
+
+# Resolve angle, in radians
+data_intensity_uniqueP$angle <- atan2(data_intensity_uniqueP$y_delta, data_intensity_uniqueP$x_delta)
+
+# Arrange by angle
+data_intensity_uniqueP <- data_intensity_uniqueP[order(data_intensity_uniqueP$angle, decreasing = TRUE), ]
+  
+# Drop intermediate variables
+data_intensity_uniqueP[, c("x_delta", "y_delta", "angle")] <- NULL
 
 # Add trafficID's to positive and negative UniqueSites
-data_intensity_uniqueL <- data_intensity_uniqueL %>%
+data_intensity_uniqueP <- data_intensity_uniqueP %>%
   mutate(
     trafficID = row_number())
 
-data_intensity_uniqueR <- data_intensity_uniqueR %>%
+data_intensity_uniqueN <- data_intensity_uniqueN %>%
   mutate(
     trafficID = row_number())
+
+# ----------------------------------------------------
 
 # Save to csv file
-data.table::fwrite(data_intensity_uniqueL,
+data.table::fwrite(data_intensity_uniqueP,
                    nThread = num_threads,
-                   file = paste(f_output, "data_intensity_uniqueL.csv", sep="", collapse=NULL),
+                   file = paste(f_output, "data_intensity_uniqueP.csv", sep="", collapse=NULL),
                    sep = sep_symbol)
 
-data.table::fwrite(data_intensity_uniqueR,
+data.table::fwrite(data_intensity_uniqueN,
                    nThread = num_threads,
-                   file = paste(f_output, "data_intensity_uniqueR.csv", sep="", collapse=NULL),
+                   file = paste(f_output, "data_intensity_uniqueN.csv", sep="", collapse=NULL),
                    sep = sep_symbol)
 
 # Remove tables that are no longer needed
 remove(data_intensity_unique)
 gc()
 
+# --------------------------------------------------
+# Create traffic tables --------------------------
+
 # Select meta data
-data_intensity_meta <- csv_intensity_meta %>%
+data_traffic <- csv_intensity %>%
   select(
     "measurementSiteReference",
     "generatedSiteName",
@@ -155,6 +183,9 @@ data.table::fwrite(data_speed_meta,
                    nThread = num_threads,
                    file = paste(f_output, "data_speed_meta.csv", sep="", collapse=NULL),
                    sep = sep_symbol)
+
+# --------------------------------------------------
+# Create flowID tables -----------------------------
 
 # Select data
 data_intensity <- csv_intensity %>%
