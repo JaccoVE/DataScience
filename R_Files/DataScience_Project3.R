@@ -66,12 +66,20 @@ data_intensity_unique <- csv_intensity_meta %>%
   select(
     "measurementSiteReference",
     "generatedSiteName",
+    "carriageway",
     "startLocatieForDisplayLat",
     "startLocatieForDisplayLong",
     "alertCDirectionCoded",
-    "ROADNUMBER") %>%
+    "ROADNUMBER",
+    "LocationTableNumber",
+    "LocationTableVersion",
+    "specificLocation",
+    "offsetDistance",
+    "LOC_TYPE",
+    "LOC_DES") %>%
   arrange(
-    measurementSiteReference) %>%
+    measurementSiteReference,
+    specificLocation) %>%
   group_by(
     measurementSiteReference) %>%
   distinct() %>%
@@ -81,31 +89,25 @@ data_intensity_unique <- csv_intensity_meta %>%
 data_intensity_unique <- data_intensity_unique[data_intensity_unique$ROADNUMBER %in% 
                                                         c("A1", "A2", "A4", "A5", "A8", "A9", "A10"), ]
 
+# Select only mainCarriageway
+data_intensity_unique <- data_intensity_unique[data_intensity_unique$carriageway %in% 
+                                                 c("mainCarriageway"), ]
+
+# Remove mainCarriageway from table
+data_intensity_unique <- data_intensity_unique %>%
+  select(
+    -carriageway)
+
 # Create all positive and negative UniqueSites
 data_intensity_uniqueP <- data_intensity_unique[grep("positive", data_intensity_unique$alertCDirectionCoded), ]
 data_intensity_uniqueN <- data_intensity_unique[grep("negative", data_intensity_unique$alertCDirectionCoded), ]
 
-# -----------------------------------------------------
-# Connect measurement points with a line
-# Get centre (-oid) point of points
-x <- data_intensity_uniqueP$startLocatieForDisplayLong
-y <- data_intensity_uniqueP$startLocatieForDisplayLat
+# Remove row if coordinate already exists
+data_intensity_uniqueP <- data_intensity_uniqueP[!duplicated(data_intensity_uniqueP[
+  c("startLocatieForDisplayLat","startLocatieForDisplayLong")]),]
 
-x_centre <- mean(x)
-y_centre <- mean(y)
-
-# Calculate deltas
-data_intensity_uniqueP$x_delta <- x - x_centre
-data_intensity_uniqueP$y_delta <- y - y_centre
-
-# Resolve angle, in radians
-data_intensity_uniqueP$angle <- atan2(data_intensity_uniqueP$y_delta, data_intensity_uniqueP$x_delta)
-
-# Arrange by angle
-data_intensity_uniqueP <- data_intensity_uniqueP[order(data_intensity_uniqueP$angle, decreasing = TRUE), ]
-  
-# Drop intermediate variables
-data_intensity_uniqueP[, c("x_delta", "y_delta", "angle")] <- NULL
+data_intensity_uniqueN <- data_intensity_uniqueN[!duplicated(data_intensity_uniqueN[
+  c("startLocatieForDisplayLat","startLocatieForDisplayLong")]),]
 
 # Add trafficID's to positive and negative UniqueSites
 data_intensity_uniqueP <- data_intensity_uniqueP %>%
@@ -115,8 +117,6 @@ data_intensity_uniqueP <- data_intensity_uniqueP %>%
 data_intensity_uniqueN <- data_intensity_uniqueN %>%
   mutate(
     trafficID = row_number())
-
-# ----------------------------------------------------
 
 # Save to csv file
 data.table::fwrite(data_intensity_uniqueP,
