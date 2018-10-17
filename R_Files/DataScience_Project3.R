@@ -78,8 +78,7 @@ data_intensity_unique <- csv_intensity_meta %>%
     "LOC_TYPE",
     "LOC_DES") %>%
   arrange(
-    measurementSiteReference,
-    specificLocation) %>%
+    measurementSiteReference) %>%
   group_by(
     measurementSiteReference) %>%
   distinct() %>%
@@ -111,10 +110,14 @@ data_intensity_uniqueN <- data_intensity_uniqueN[!duplicated(data_intensity_uniq
 
 # Add trafficID's to positive and negative UniqueSites
 data_intensity_uniqueP <- data_intensity_uniqueP %>%
+  arrange(
+    specificLocation) %>%
   mutate(
     trafficID = row_number())
 
 data_intensity_uniqueN <- data_intensity_uniqueN %>%
+  arrange(
+    specificLocation) %>%
   mutate(
     trafficID = row_number())
 
