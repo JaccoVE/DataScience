@@ -27,6 +27,8 @@ sep_symbol <- ","
 f_main <- "/home/jacco/Documents/DataScienceData/Data/NDW/"
 f_intensity_meta <- "utwente intensiteiten groot amsterdam 1 dag met metadata (2) 20160916T104708 197/utwente intensiteiten groot amsterdam  1 dag met metadata (2)_intensiteit_00001.csv"
 f_intensity <- "utwente intensiteiten groot amsterdam/utwente intensiteiten groot amsterdam _intensiteit_000"
+f_time_meta <- "utwente reistijden groot amsterdam 1 dag met metadata 20160916T103803 197/utwente reistijden groot amsterdam  1 dag met metadata_reistijd_00001.csv"
+f_time <- "utwente reistijden groot amsterdam 20160916T115957 197/utwente reistijden groot amsterdam  _reistijd_000"
 f_speed_meta <- "utwente snelheden groot amsterdam 1 dag met metadata 20160916T105028 197/utwente snelheden groot amsterdam  1 dag met metadata_snelheid_00001.csv"
 f_speed <- "utwente snelheden groot amsterdam/utwente snelheden groot amsterdam _snelheid_000"
 f_output <- "/home/jacco/Documents/Git/DataScience/Tableau Input Files/"
@@ -41,6 +43,12 @@ gc()
 csv_intensity_meta <- data.table::fread(file = paste(f_main, f_intensity_meta, sep="", collapse=NULL),
                                         nThread = num_threads)
 
+# Load meta data time
+csv_time_meta <- data.table::fread(file = paste(f_main, f_time_meta, sep="", collapse=NULL),
+                                    nThread = num_threads)
+# remove duplicated columns
+csv_time_meta <- csv_time_meta[,unique(names(csv_time_meta)),with=FALSE]
+
 # Load meta data speed
 csv_speed_meta <- data.table::fread(file = paste(f_main, f_speed_meta, sep="", collapse=NULL),
                                     nThread = num_threads)
@@ -53,13 +61,18 @@ csv_intensity <- data.table::fread(file = paste(f_main, f_intensity, "01.csv", s
                                    nrows = num_rows,
                                    nThread = num_threads)
 
+# Load data of one day time (nrows=xxx)
+csv_time <- data.table::fread(file = paste(f_main, f_time, "01.csv", sep="", collapse=NULL),
+                               nrows = num_rows,
+                               nThread = num_threads)
+
 # Load data of one day speed (nrows=7898604)
 csv_speed <- data.table::fread(file = paste(f_main, f_speed, "01.csv", sep="", collapse=NULL),
                                nrows = num_rows,
                                nThread = num_threads)
 
 # --------------------------------------------------
-# Create UniqueSiteReference tables ----------------
+# Create UniqueSiteReference tables intensity ------
 
 # Unique Sites (positive and negative still combined)
 data_intensity_unique <- csv_intensity_meta %>%
@@ -110,14 +123,10 @@ data_intensity_uniqueN <- data_intensity_uniqueN[!duplicated(data_intensity_uniq
 
 # Add trafficID's to positive and negative UniqueSites
 data_intensity_uniqueP <- data_intensity_uniqueP %>%
-  arrange(
-    specificLocation) %>%
   mutate(
     trafficID = row_number())
 
 data_intensity_uniqueN <- data_intensity_uniqueN %>%
-  arrange(
-    specificLocation) %>%
   mutate(
     trafficID = row_number())
 
@@ -134,6 +143,96 @@ data.table::fwrite(data_intensity_uniqueN,
 
 # Remove tables that are no longer needed
 remove(data_intensity_unique)
+gc()
+
+# --------------------------------------------------
+# Create UniqueSiteReference tables time -----------
+
+# Unique Sites (positive and negative still combined)
+data_time_unique <- csv_time_meta %>%
+  select(
+    "measurementSiteReference",
+    "generatedSiteName",
+    "carriageway",
+    "startLocatieForDisplayLat",
+    "startLocatieForDisplayLong",
+    "eindLocatieForDisplayLat",
+    "eindLocatieForDisplayLong",
+    "alertCDirectionCoded",
+    "ROADNUMBER",
+    "LocationTableNumber",
+    "LocationTableVersion",
+    "specificLocation",
+    "offsetDistance",
+    "LOC_TYPE",
+    "LOC_DES",
+    "measurementSiteNumberOfLanes",
+    "offsetDistance",
+    "primaryLocation_specificLocation",
+    "primaryLocation_offsetDistance",
+    "secondaryLocation_specificLocation",
+    "secondaryLocation_offsetDistance",
+    "ROADNUMBER_PRIM",
+    "lengthAffected") %>%
+  arrange(
+    measurementSiteReference) %>%
+  group_by(
+    measurementSiteReference) %>%
+  distinct() %>%
+  ungroup()
+
+# Save to csv file
+data.table::fwrite(data_time_unique,
+                   nThread = num_threads,
+                   file = paste(f_output, "data_time_unique.csv", sep="", collapse=NULL),
+                   sep = sep_symbol)
+
+# Select only A1, A2, A4, A5, A8, A9 and A10
+data_time_unique <- data_time_unique[data_time_unique$ROADNUMBER %in% 
+                                                 c("A1", "A2", "A4", "A5", "A8", "A9", "A10"), ]
+
+# Select only mainCarriageway
+data_time_unique <- data_time_unique[data_time_unique$carriageway %in% 
+                                                 c("mainCarriageway"), ]
+
+# Remove mainCarriageway from table
+data_time_unique <- data_time_unique %>%
+  select(
+    -carriageway)
+
+# Create all positive and negative UniqueSites
+data_time_uniqueP <- data_time_unique[grep("positive", data_time_unique$alertCDirectionCoded), ]
+data_time_uniqueN <- data_time_unique[grep("negative", data_time_unique$alertCDirectionCoded), ]
+
+# Remove row if coordinate already exists
+data_time_uniqueP <- data_time_uniqueP[!duplicated(data_time_uniqueP[
+  c("startLocatieForDisplayLat","startLocatieForDisplayLong")]),]
+
+data_time_uniqueN <- data_time_uniqueN[!duplicated(data_time_uniqueN[
+  c("startLocatieForDisplayLat","startLocatieForDisplayLong")]),]
+
+# Add trafficID's to positive and negative UniqueSites
+data_time_uniqueP <- data_time_uniqueP %>%
+  mutate(
+    trafficID = row_number())
+
+data_time_uniqueN <- data_time_uniqueN %>%
+  mutate(
+    trafficID = row_number())
+
+# Save to csv file
+data.table::fwrite(data_time_uniqueP,
+                   nThread = num_threads,
+                   file = paste(f_output, "data_time_uniqueP.csv", sep="", collapse=NULL),
+                   sep = sep_symbol)
+
+data.table::fwrite(data_time_uniqueN,
+                   nThread = num_threads,
+                   file = paste(f_output, "data_time_uniqueN.csv", sep="", collapse=NULL),
+                   sep = sep_symbol)
+
+# Remove tables that are no longer needed
+remove(data_time_unique)
 gc()
 
 # --------------------------------------------------
