@@ -7,16 +7,14 @@ library(lubridate)
 library(xml2)
 library(data.table)
 library(gtools)
-#library(parallel)
+library(foreach)
+library(doMC)
 
 # --------------------------------------------------
 # Settings -----------------------------------------
 
-# Number of threads to use when reading files from disk
-num_threads <- 24
-
-# Number of rows to read from data csv file ("10000", "dim(csv_speed_meta)[1]" or "Inf")
-num_rows <- Inf
+# Number of threads to use when performing the for loop
+registerDoMC(6)
 
 # Seperated for csv save
 sep_symbol <- ","
@@ -29,45 +27,24 @@ f_intensity <- "utwente intensiteiten groot amsterdam/utwente intensiteiten groo
 f_output <- "/home/jacco/Documents/Git/DataScience/NDW/Tableau Input Files/"
 
 # --------------------------------------------------
-# Load meta data -----------------------------------
+# Create UniqueSiteReference tables intensity ------
 
 # Collect garbage
 gc()
 
 # Load meta data intensity
 csv_intensity_meta <- data.table::fread(file = paste(f_main, f_intensity_meta, sep="", collapse=NULL),
-                                        nThread = num_threads)
-
-# --------------------------------------------------
-# Load data ----------------------------------------
-
-# Load data of one day intensity (nrows=8176606)
-csv_intensity <- data.table::fread(file = paste(f_main, f_intensity, "01.csv", sep="", collapse=NULL),
-                                   nrows = dim(csv_intensity_meta)[1],
-                                   nThread = num_threads)
-
-# --------------------------------------------------
-# Create UniqueSiteReference tables intensity ------
+                                        nThread = 24)
 
 # Unique Sites
 data_intensity_unique <- csv_intensity_meta %>%
   select(
     "measurementSiteReference",
-    "generatedSiteName",
     "index",
-    "carriageway",
-    "specificLane",
     "specificVehicleCharacteristics",
     "startLocatieForDisplayLat",
     "startLocatieForDisplayLong",
-    "alertCDirectionCoded",
-    "ROADNUMBER",
-    "LocationTableNumber",
-    "LocationTableVersion",
-    "specificLocation",
-    "offsetDistance",
-    "LOC_TYPE",
-    "LOC_DES") %>%
+    "ROADNUMBER") %>%
   arrange(
     measurementSiteReference) %>%
   group_by(
@@ -77,121 +54,134 @@ data_intensity_unique <- csv_intensity_meta %>%
   mutate(
     trafficID = row_number())
 
-# Remove row if coordinate already exists
-#data_intensity_unique <- data_intensity_unique[!duplicated(data_intensity_unique[
-#  c("startLocatieForDisplayLat","startLocatieForDisplayLong")]),]
-
 # Save to csv file
 data.table::fwrite(data_intensity_unique,
-                   nThread = num_threads,
+                   nThread = 24,
                    file = paste(f_output, "data_intensity_unique.csv", sep="", collapse=NULL),
                    sep = sep_symbol)
 
 # Remove tables that are no longer needed
-#remove(data_intensity_unique)
+remove(csv_intensity_meta)
 gc()
 
 # --------------------------------------------------
-# Create flowID tables -----------------------------
+# Create trafficID table ---------------------------
 
-# Select data
-data_intensity <- csv_intensity %>%
-  select(
-    "measurementSiteReference",
-    "generatedSiteName",
-    "index",
-    "periodStart",
-    "periodEnd",
-    "numberOfInputValuesused",
-    "numberOfIncompleteInputs",
-    "avgVehicleFlow") %>%
-  rename(
-    meas_site_ref = "measurementSiteReference",
-    gen_site_name = "generatedSiteName",
-    ind = "index",
-    per_start = "periodStart",
-    per_end = "periodEnd",
-    num_in_use = "numberOfInputValuesused",
-    num_in_in = "numberOfIncompleteInputs",
-    avg_flow = "avgVehicleFlow") %>%
-  arrange(
-    per_start)
+# List of data.table's
+data_intensity_list <- list()
 
-# --------------------------------------------------
-# Combine data with meta data ----------------------
+# Iterate over each file in parallel
+data_intensity_list <- foreach(i=1:27) %dopar% {
+  
+  s_file_num = formatC(i, width = 2, format = "d", flag = "0")
 
-data_com_intensity <- data_intensity %>%
-  full_join(
-    data_intensity_unique, 
-    by = c(
-      "meas_site_ref" = "measurementSiteReference",
-      "gen_site_name" = "generatedSiteName",
-      "ind" = "index")) %>%
-  select( 
-    -meas_site_ref, 
-    -gen_site_name,
-    -ind,
-    -startLocatieForDisplayLat,
-    -startLocatieForDisplayLong,
-    -specificLocation,
-    -alertCDirectionCoded,
-    -ROADNUMBER,
-    -carriageway,
-    -specificLane,
-    -LocationTableNumber,
-    -LocationTableVersion,
-    -offsetDistance,
-    -LOC_TYPE,
-    -LOC_DES)
+  # Load data
+  data_intensity = data.table::fread(file = paste(f_main, f_intensity, s_file_num, ".csv", sep="", collapse=NULL),
+                                     nThread = 1)
+  
+  # Select data
+  data_intensity = data_intensity %>%
+    select(
+      "measurementSiteReference",
+      "index",
+      "periodStart",
+      "periodEnd",
+      "numberOfInputValuesused",
+      "numberOfIncompleteInputs",
+      "avgVehicleFlow") %>%
+    rename(
+      meas_site_ref = "measurementSiteReference",
+      ind = "index",
+      per_start = "periodStart",
+      per_end = "periodEnd",
+      num_in_use = "numberOfInputValuesused",
+      num_in_in = "numberOfIncompleteInputs",
+      avg_flow = "avgVehicleFlow") %>%
+    arrange(
+      per_start)
+  
+  # Collect garbage
+  gc()
+  
+  # Combine data with meta data
+  data_intensity = data_intensity %>%
+    full_join(
+      data_intensity_unique, 
+      by = c(
+        "meas_site_ref" = "measurementSiteReference",
+        "ind" = "index")) %>%
+    select( 
+      -meas_site_ref, 
+      -ind,
+      -startLocatieForDisplayLat,
+      -startLocatieForDisplayLong,
+      -ROADNUMBER,
+      -specificVehicleCharacteristics)
+  
+  # Collect garbage
+  gc()
+  
+  # Add date column and remove period_start and period_end columns
+  data_intensity = data_intensity %>%
+    mutate(
+      date_month = format(as.Date(data_intensity$per_start,format="%Y-%m-%d"), "%m"),
+      date_day = format(as.Date(data_intensity$per_start,format="%Y-%m-%d"), "%d")) %>%
+    select( 
+      -per_start,
+      -per_end)
+  
+  # Remove all rows that contain NA's for flow
+  data_intensity = data_intensity[!is.na(data_intensity$avg_flow),]
+  
+  # Remove all rows that contain 0's for flow and do not have 0's for numberOfIncompleteInputs
+  data_intensity = data_intensity[!(
+    identical(data_intensity$avg_flow, as.numeric(0)) && 
+    identical(data_intensity$num_in_in, as.numberic(0))),]
+  
+  # Remove unuseful columns
+  data_intensity = data_intensity %>%
+    select( 
+      -num_in_use,
+      -num_in_in)
+  
+  # Remove all flows smaller than zero because we don't 
+  # want to sum negative flows
+  data_intensity = data_intensity[which(data_intensity$avg_flow>=0),]
+  
+  # Collect garbage
+  gc()
+  
+  # Sum flows for each measurement point per day and add to list
+  data_intensity = data_intensity %>%
+    group_by(trafficID,
+             date_month,
+             date_day) %>%
+    summarise(avg_flow = sum(avg_flow))%>%
+    ungroup()
+  
+  # Remove data_intensity and collect garbage
+  gc()
+  
+  returnValue(data_intensity)
 
-# --------------------------------------------------
-# Remove unuseful rows and columns -----------------
+}
 
-# Collect garbage
-gc()
 
-# Remove all rows that contain NA's for flow
-data_com_intensity <- data_com_intensity[!is.na(data_com_intensity$avg_flow),]
+# Combine the list of data.table's to one data.table
+data_intensity <- rbindlist(data_intensity_list)
 
-# Remove all rows that contain 0's for flow and do not have 0's for numberOfIncompleteInputs
-data_com_intensity <- data_com_intensity[!(
-  identical(data_com_intensity$avg_flow, as.numeric(0)) && 
-  identical(data_com_intensity$num_in_in, as.numberic(0))),]
-
-# Remove unuseful columns
-data_com_intensity <- data_com_intensity %>%
-  select( 
-    -num_in_use,
-    -num_in_in)
-
-# Remove all flows smaller than zero because we don't 
-# want to sum negative flows
-data_com_intensity <- data_com_intensity[which(data_com_intensity$avg_flow>=0),]
-
-# Collect garbage
-gc()
-
-# --------------------------------------------------
-# Sum flows for each measurement point per day -----
-#test <- aggregate(data_com_intensity$avg_flow, by=list(avg_flow=data_com_intensity$avg_flow), FUN=sum)
-data_com_intensity <- data_com_intensity %>%
-  group_by(trafficID) %>%
-  summarise(avg_flow = sum(avg_flow))
-
-#arrange(
-#    trafficID) %>%
-#  group_by(
-#    trafficID) %>%
-#  distinct() %>%
-#  ungroup()
-
-# --------------------------------------------------
-# Save to file -------------------------------------
+# Remove overlappings in lists, meaning:
+# sum flows when date and trafficID occurs double
+data_intensity <- data_intensity %>%
+  group_by(trafficID,
+           date_month,
+           date_day) %>%
+  summarise(avg_flow = sum(avg_flow))%>%
+  ungroup()
 
 # Save to file
 data.table::fwrite(
-  data_com_intensity,
-  nThread = num_threads,
-  file = paste(f_output, "data_com_intensity.csv", sep="", collapse=NULL),
+  data_intensity,
+  nThread = 24,
+  file = paste(f_output, "data_intensity.csv", sep="", collapse=NULL),
   sep = sep_symbol)
-
