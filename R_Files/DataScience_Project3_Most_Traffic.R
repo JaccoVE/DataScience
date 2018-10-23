@@ -14,7 +14,7 @@ library(doMC)
 # Settings -----------------------------------------
 
 # Number of threads to use when performing the for loop
-registerDoMC(6)
+registerDoMC(9)
 
 # Seperated for csv save
 sep_symbol <- ","
@@ -73,6 +73,10 @@ data_intensity_list <- list()
 # Iterate over each file in parallel
 data_intensity_list <- foreach(i=1:27) %dopar% {
   
+  # Collect garbage
+  gc()
+  
+  # Convert loop integer to string format with pre-zeros
   s_file_num = formatC(i, width = 2, format = "d", flag = "0")
 
   # Load data
@@ -130,19 +134,31 @@ data_intensity_list <- foreach(i=1:27) %dopar% {
       -per_start,
       -per_end)
   
+  # Collect garbage
+  gc()
+  
   # Remove all rows that contain NA's for flow
   data_intensity = data_intensity[!is.na(data_intensity$avg_flow),]
+  
+  # Collect garbage
+  gc()
   
   # Remove all rows that contain 0's for flow and do not have 0's for numberOfIncompleteInputs
   data_intensity = data_intensity[!(
     identical(data_intensity$avg_flow, as.numeric(0)) && 
     identical(data_intensity$num_in_in, as.numberic(0))),]
   
+  # Collect garbage
+  gc()
+  
   # Remove unuseful columns
   data_intensity = data_intensity %>%
     select( 
       -num_in_use,
       -num_in_in)
+  
+  # Collect garbage
+  gc()
   
   # Remove all flows smaller than zero because we don't 
   # want to sum negative flows
@@ -159,7 +175,7 @@ data_intensity_list <- foreach(i=1:27) %dopar% {
     summarise(avg_flow = sum(avg_flow))%>%
     ungroup()
   
-  # Remove data_intensity and collect garbage
+  # Collect garbage
   gc()
   
   returnValue(data_intensity)
