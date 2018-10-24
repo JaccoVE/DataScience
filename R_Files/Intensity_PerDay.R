@@ -33,11 +33,11 @@ f_output <- "/home/jacco/Documents/Git/DataScience/NDW/Tableau Input Files/"
 gc()
 
 # Load meta data intensity
-csv_intensity_meta <- data.table::fread(file = paste(f_main, f_intensity_meta, sep="", collapse=NULL),
+intensity_unique <- data.table::fread(file = paste(f_main, f_intensity_meta, sep="", collapse=NULL),
                                         nThread = 24)
 
 # Unique Sites
-data_intensity_unique <- csv_intensity_meta %>%
+intensity_unique <- intensity_unique %>%
   select(
     "measurementSiteReference",
     "index",
@@ -55,23 +55,22 @@ data_intensity_unique <- csv_intensity_meta %>%
     trafficID = row_number())
 
 # Save to csv file
-data.table::fwrite(data_intensity_unique,
+data.table::fwrite(intensity_unique,
                    nThread = 24,
-                   file = paste(f_output, "data_intensity_unique.csv", sep="", collapse=NULL),
+                   file = paste(f_output, "intensity_unique.csv", sep="", collapse=NULL),
                    sep = sep_symbol)
 
-# Remove tables that are no longer needed
-remove(csv_intensity_meta)
+# Collect garbage
 gc()
 
 # --------------------------------------------------
 # Create trafficID table ---------------------------
 
 # List of data.table's
-data_intensity_list <- list()
+intensity_data_list <- list()
 
 # Iterate over each file in parallel
-data_intensity_list <- foreach(i=1:27) %dopar% {
+intensity_data_list <- foreach(i=1:27) %dopar% {
   
   # Collect garbage
   gc()
@@ -80,11 +79,11 @@ data_intensity_list <- foreach(i=1:27) %dopar% {
   s_file_num = formatC(i, width = 2, format = "d", flag = "0")
 
   # Load data
-  data_intensity = data.table::fread(file = paste(f_main, f_intensity, s_file_num, ".csv", sep="", collapse=NULL),
+  intensity_data = data.table::fread(file = paste(f_main, f_intensity, s_file_num, ".csv", sep="", collapse=NULL),
                                      nThread = 1)
   
   # Select data
-  data_intensity = data_intensity %>%
+  intensity_data = intensity_data %>%
     select(
       "measurementSiteReference",
       "index",
@@ -108,9 +107,9 @@ data_intensity_list <- foreach(i=1:27) %dopar% {
   gc()
   
   # Combine data with meta data
-  data_intensity = data_intensity %>%
+  intensity_data = intensity_data %>%
     full_join(
-      data_intensity_unique, 
+      intensity_unique, 
       by = c(
         "meas_site_ref" = "measurementSiteReference",
         "ind" = "index")) %>%
@@ -126,9 +125,9 @@ data_intensity_list <- foreach(i=1:27) %dopar% {
   gc()
   
   # Add date column and remove period_start and period_end columns
-  data_intensity = data_intensity %>%
+  intensity_data = intensity_data %>%
     mutate(
-      date = format(as.Date(data_intensity$per_start,format="%Y-%m-%d"), "%Y-%m-%d")) %>%
+      date = format(strptime(intensity_data$per_start,format="%Y-%m-%d %H:%M"), "%Y-%m-%d")) %>%
     select( 
       -per_start,
       -per_end)
@@ -137,21 +136,21 @@ data_intensity_list <- foreach(i=1:27) %dopar% {
   gc()
   
   # Remove all rows that contain NA's for flow
-  data_intensity = data_intensity[!is.na(data_intensity$avg_flow),]
+  intensity_data = intensity_data[!is.na(intensity_data$avg_flow),]
   
   # Collect garbage
   gc()
   
   # Remove all rows that contain 0's for flow and do not have 0's for numberOfIncompleteInputs
-  data_intensity = data_intensity[!(
-    identical(data_intensity$avg_flow, as.numeric(0)) && 
-    identical(data_intensity$num_in_in, as.numberic(0))),]
+  intensity_data = intensity_data[!(
+    identical(intensity_data$avg_flow, as.numeric(0)) && 
+    identical(intensity_data$num_in_in, as.numberic(0))),]
   
   # Collect garbage
   gc()
   
   # Remove unuseful columns
-  data_intensity = data_intensity %>%
+  intensity_data = intensity_data %>%
     select( 
       -num_in_use,
       -num_in_in)
@@ -161,13 +160,13 @@ data_intensity_list <- foreach(i=1:27) %dopar% {
   
   # Remove all flows smaller than zero because we don't 
   # want to sum negative flows
-  data_intensity = data_intensity[which(data_intensity$avg_flow>=0),]
+  intensity_data = intensity_data[which(intensity_data$avg_flow>=0),]
   
   # Collect garbage
   gc()
   
-  # Sum flows for each measurement point per day and add to list
-  data_intensity = data_intensity %>%
+  # Sum flows for each measurement point per hour and add to list
+  intensity_data = intensity_data %>%
     group_by(trafficID,
              date) %>%
     summarise(avg_flow = sum(avg_flow))%>%
@@ -176,31 +175,31 @@ data_intensity_list <- foreach(i=1:27) %dopar% {
   # Collect garbage
   gc()
   
-  returnValue(data_intensity)
+  returnValue(intensity_data)
 
 }
 
 
 # Combine the list of data.table's to one data.table
-data_intensity <- rbindlist(data_intensity_list)
+intensity_data <- rbindlist(intensity_data_list)
 
 # Remove overlappings in lists, meaning:
 # sum flows when date and trafficID occurs double
-data_intensity <- data_intensity %>%
+intensity_data <- intensity_data %>%
   group_by(trafficID,
            date) %>%
   summarise(avg_flow = sum(avg_flow))%>%
   ungroup()
 
 # Remove all rows that contain NA's for trafficID
-data_intensity = data_intensity[!is.na(data_intensity$trafficID),]
+intensity_data = intensity_data[!is.na(intensity_data$trafficID),]
 
 # Collect garbage
 gc()
 
 # Save to file
 data.table::fwrite(
-  data_intensity,
+  intensity_data,
   nThread = 24,
-  file = paste(f_output, "data_intensity.csv", sep="", collapse=NULL),
+  file = paste(f_output, "intensity_data_PerDay.csv", sep="", collapse=NULL),
   sep = sep_symbol)
