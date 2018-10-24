@@ -192,6 +192,12 @@ data_intensity <- data_intensity %>%
   summarise(avg_flow = sum(avg_flow))%>%
   ungroup()
 
+# Remove all rows that contain NA's for trafficID
+data_intensity = data_intensity[!is.na(data_intensity$trafficID),]
+
+# Collect garbage
+gc()
+
 # Save to file
 data.table::fwrite(
   data_intensity,
