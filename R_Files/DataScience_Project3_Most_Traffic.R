@@ -128,8 +128,7 @@ data_intensity_list <- foreach(i=1:27) %dopar% {
   # Add date column and remove period_start and period_end columns
   data_intensity = data_intensity %>%
     mutate(
-      date_month = format(as.Date(data_intensity$per_start,format="%Y-%m-%d"), "%m"),
-      date_day = format(as.Date(data_intensity$per_start,format="%Y-%m-%d"), "%d")) %>%
+      date = format(as.Date(data_intensity$per_start,format="%Y-%m-%d"), "%Y-%m-%d")) %>%
     select( 
       -per_start,
       -per_end)
@@ -170,8 +169,7 @@ data_intensity_list <- foreach(i=1:27) %dopar% {
   # Sum flows for each measurement point per day and add to list
   data_intensity = data_intensity %>%
     group_by(trafficID,
-             date_month,
-             date_day) %>%
+             date) %>%
     summarise(avg_flow = sum(avg_flow))%>%
     ungroup()
   
@@ -190,8 +188,7 @@ data_intensity <- rbindlist(data_intensity_list)
 # sum flows when date and trafficID occurs double
 data_intensity <- data_intensity %>%
   group_by(trafficID,
-           date_month,
-           date_day) %>%
+           date) %>%
   summarise(avg_flow = sum(avg_flow))%>%
   ungroup()
 
