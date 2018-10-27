@@ -91,6 +91,7 @@ intensity_data_list <- foreach(i=1:27) %dopar% {
       "periodEnd",
       "numberOfInputValuesused",
       "numberOfIncompleteInputs",
+      "dataError",
       "avgVehicleFlow") %>%
     rename(
       meas_site_ref = "measurementSiteReference",
@@ -99,9 +100,41 @@ intensity_data_list <- foreach(i=1:27) %dopar% {
       per_end = "periodEnd",
       num_in_use = "numberOfInputValuesused",
       num_in_in = "numberOfIncompleteInputs",
+      error = "dataError",
       avg_flow = "avgVehicleFlow") %>%
     arrange(
       per_start)
+  
+  # Collect garbage
+  gc()
+  
+  # Remove all rows that contain an error
+  intensity_data = intensity_data[!grepl("1", intensity_data$error),]
+  
+  # Remove all rows that contain NA's for flow
+  intensity_data = intensity_data[!is.na(intensity_data$avg_flow),]
+  
+  # Collect garbage
+  gc()
+  
+  # Remove all rows that contain 0's for flow and do not have 0's for numberOfIncompleteInputs
+  intensity_data = intensity_data[!(intensity_data$avg_flow == 0 & intensity_data$num_in_in != 0),]
+  
+  # Collect garbage
+  gc()
+  
+  # Remove unuseful columns
+  intensity_data = intensity_data %>%
+    select( 
+      -num_in_use,
+      -num_in_in,
+      -error)
+  
+  # Collect garbage
+  gc()
+  
+  # Remove remaining rows with NA's
+  intensity_data = na.omit(intensity_data) 
   
   # Collect garbage
   gc()
@@ -135,29 +168,6 @@ intensity_data_list <- foreach(i=1:27) %dopar% {
   # Collect garbage
   gc()
   
-  # Remove all rows that contain NA's for flow
-  intensity_data = intensity_data[!is.na(intensity_data$avg_flow),]
-  
-  # Collect garbage
-  gc()
-  
-  # Remove all rows that contain 0's for flow and do not have 0's for numberOfIncompleteInputs
-  intensity_data = intensity_data[!(
-    identical(intensity_data$avg_flow, as.numeric(0)) && 
-    identical(intensity_data$num_in_in, as.numberic(0))),]
-  
-  # Collect garbage
-  gc()
-  
-  # Remove unuseful columns
-  intensity_data = intensity_data %>%
-    select( 
-      -num_in_use,
-      -num_in_in)
-  
-  # Collect garbage
-  gc()
-  
   # Remove all flows smaller than zero because we don't 
   # want to sum negative flows
   intensity_data = intensity_data[which(intensity_data$avg_flow>=0),]
@@ -165,11 +175,11 @@ intensity_data_list <- foreach(i=1:27) %dopar% {
   # Collect garbage
   gc()
   
-  # Sum flows for each measurement point per hour and add to list
+  # Average flow (cars/h) for each measurement point per day and add to list
   intensity_data = intensity_data %>%
     group_by(trafficID,
              date) %>%
-    summarise(avg_flow = sum(avg_flow))%>%
+    summarise(avg_flow = mean(avg_flow))%>%
     ungroup()
   
   # Collect garbage
@@ -188,7 +198,7 @@ intensity_data <- rbindlist(intensity_data_list)
 intensity_data <- intensity_data %>%
   group_by(trafficID,
            date) %>%
-  summarise(avg_flow = sum(avg_flow))%>%
+  summarise(avg_flow = mean(avg_flow))%>%
   ungroup()
 
 # Remove all rows that contain NA's for trafficID
