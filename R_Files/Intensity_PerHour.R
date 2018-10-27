@@ -165,7 +165,7 @@ intensity_data_list <- foreach(i=1:27) %dopar% {
   # Collect garbage
   gc()
   
-  # Sum flows for each measurement point per hour and add to list
+  # Sum flows (cars/h) for each measurement point per hour and add to list
   intensity_data = intensity_data %>%
     group_by(trafficID,
              date) %>%
