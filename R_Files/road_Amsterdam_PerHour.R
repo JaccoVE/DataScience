@@ -62,7 +62,7 @@ gc()
 # Save to csv file
 data.table::fwrite(road_data,
                    nThread = 24,
-                   file = paste(f_output, "road_data_Amsterdam.csv", sep="", collapse=NULL),
+                   file = paste(f_output, "road_data_Amsterdam_PerHour.csv", sep="", collapse=NULL),
                    sep = sep_symbol)
 
 # Collect garbage
