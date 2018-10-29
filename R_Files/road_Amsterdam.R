@@ -5,6 +5,9 @@ library(readr)
 library(dplyr)
 library(lubridate)
 library(xml2)
+library(ggplot2)
+library(sp)
+library(rgdal)
 library(data.table)
 library(gtools)
 library(foreach)
@@ -35,28 +38,31 @@ gc()
 road_data <- data.table::fread(file = paste(f_road, sep="", collapse=NULL),
                                         nThread = 24)
 
-# Unique Sites
-intensity_unique <- intensity_unique %>%
-  select(
-    "measurementSiteReference",
-    "index",
-    "specificVehicleCharacteristics",
-    "startLocatieForDisplayLat",
-    "startLocatieForDisplayLong",
-    "ROADNUMBER") %>%
-  arrange(
-    measurementSiteReference) %>%
-  group_by(
-    measurementSiteReference) %>%
-  distinct() %>%
-  ungroup() %>%
+# Select coordinates in range of Amsterdam area
+road_data <- road_data[road_data$location_locationForDisplay_latitude >= 52.2602 & 
+                       road_data$location_locationForDisplay_latitude <= 52.5066 &
+                       road_data$location_locationForDisplay_longitude >= 4.5689 &
+                       road_data$location_locationForDisplay_longitude <= 5.0558,]
+
+# Collect garbage
+gc()
+
+# Change time format
+road_data <- road_data %>%
   mutate(
-    trafficID = row_number())
+    date_start = format(strptime(road_data$validity_overallStartTime,format="%Y-%m-%dT%H:%M"), "%Y-%m-%d-%H"),
+    date_end   = format(strptime(road_data$validity_overallEndTime,format="%Y-%m-%dT%H:%M"), "%Y-%m-%d-%H"))%>%
+  select( 
+    -validity_overallStartTime,
+    -validity_overallEndTime)
+
+# Collect garbage
+gc()
 
 # Save to csv file
-data.table::fwrite(intensity_unique,
+data.table::fwrite(road_data,
                    nThread = 24,
-                   file = paste(f_output, "intensity_unique.csv", sep="", collapse=NULL),
+                   file = paste(f_output, "road_data_Amsterdam.csv", sep="", collapse=NULL),
                    sep = sep_symbol)
 
 # Collect garbage
