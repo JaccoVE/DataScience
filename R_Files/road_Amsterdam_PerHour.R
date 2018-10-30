@@ -59,6 +59,12 @@ road_data <- road_data %>%
 # Collect garbage
 gc()
 
+# Add day of the week
+road_data <- road_data %>%
+  mutate(
+    week_day_start = weekdays(as.Date(road_data$date_start,'%Y-%m-%d')),
+    week_day_end   = weekdays(as.Date(road_data$date_end,'%Y-%m-%d')))
+
 # Save to csv file
 data.table::fwrite(road_data,
                    nThread = 24,
@@ -67,3 +73,4 @@ data.table::fwrite(road_data,
 
 # Collect garbage
 gc()
+

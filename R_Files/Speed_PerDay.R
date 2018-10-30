@@ -66,6 +66,9 @@ gc()
 # --------------------------------------------------
 # Create trafficID table ---------------------------
 
+# Get all trafficID's where specificVehicleCharacteristics equals anyVehicle
+anyVehicleIDs <- speed_unique$trafficID[speed_unique$specificVehicleCharacteristics == "anyVehicle"]
+
 # List of data.table's
 speed_data_list <- list()
 
@@ -157,6 +160,9 @@ speed_data_list <- foreach(i=1:25) %dopar% {
   # Collect garbage
   gc()
   
+  # Remove all rows that are not anyVehicle
+  speed_data = speed_data[ speed_data$trafficID %in% anyVehicleIDs, ]
+  
   # Add date column and remove period_start and period_end columns
   speed_data = speed_data %>%
     mutate(
@@ -168,9 +174,9 @@ speed_data_list <- foreach(i=1:25) %dopar% {
   # Collect garbage
   gc()
   
-  # Remove all speeds smaller than zero because we don't 
+  # Remove all speeds smaller or equal to zero because we don't 
   # want to sum negative speeds
-  speed_data = speed_data[which(speed_data$avg_speed>=0),]
+  speed_data = speed_data[which(speed_data$avg_speed>0),]
   
   # Collect garbage
   gc()
@@ -189,7 +195,6 @@ speed_data_list <- foreach(i=1:25) %dopar% {
 
 }
 
-
 # Combine the list of data.table's to one data.table
 speed_data <- rbindlist(speed_data_list)
 
@@ -206,6 +211,19 @@ speed_data = speed_data[!is.na(speed_data$trafficID),]
 
 # Collect garbage
 gc()
+
+# Add day of the week
+speed_data = speed_data %>%
+  mutate(
+    week_day = weekdays(as.Date(speed_data$date,'%Y-%m-%d')))
+
+# Add reference column (average for each trafficID and day of the week)
+speed_data = speed_data %>%
+  mutate(ref_trafficID_dayWeek         = ave(speed_data$avg_speed, speed_data$trafficID, speed_data$week_day, FUN = mean))
+
+# Add difference column
+speed_data = speed_data %>%
+  mutate(dif_trafficID_dayWeek         = speed_data$avg_speed - speed_data$ref_trafficID_dayWeek)
 
 # Save to file
 data.table::fwrite(

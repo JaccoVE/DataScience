@@ -66,6 +66,9 @@ gc()
 # --------------------------------------------------
 # Create trafficID table ---------------------------
 
+# Get all trafficID's where specificVehicleCharacteristics equals anyVehicle
+anyVehicleIDs <- intensity_unique$trafficID[intensity_unique$specificVehicleCharacteristics == "anyVehicle"]
+
 # List of data.table's
 intensity_data_list <- list()
 
@@ -157,6 +160,9 @@ intensity_data_list <- foreach(i=1:27) %dopar% {
   # Collect garbage
   gc()
   
+  # Remove all rows that are not anyVehicle
+  intensity_data = intensity_data[ intensity_data$trafficID %in% anyVehicleIDs, ]
+  
   # Add date column and remove period_start and period_end columns
   intensity_data = intensity_data %>%
     mutate(
@@ -189,7 +195,6 @@ intensity_data_list <- foreach(i=1:27) %dopar% {
 
 }
 
-
 # Combine the list of data.table's to one data.table
 intensity_data <- rbindlist(intensity_data_list)
 
@@ -206,6 +211,27 @@ intensity_data = intensity_data[!is.na(intensity_data$trafficID),]
 
 # Collect garbage
 gc()
+
+# Add day of the week
+intensity_data = intensity_data %>%
+  mutate(
+    week_day = weekdays(as.Date(intensity_data$date,'%Y-%m-%d')))
+
+# Add seperate hour column
+intensity_data = intensity_data %>%
+  mutate(
+    hour = format(strptime(intensity_data$date,format="%Y-%m-%d-%H"), "%H"))
+
+# Add reference column (average for each trafficID, day of the week and hour of the day)
+intensity_data = intensity_data %>%
+  mutate(ref_trafficID_dayWeek         = ave(intensity_data$avg_flow, intensity_data$trafficID, intensity_data$week_day, FUN = mean),
+         ref_trafficID_dayWeek_hourDay = ave(intensity_data$avg_flow, intensity_data$trafficID, intensity_data$week_day, intensity_data$hour, FUN = mean)) %>%
+  select(-hour)
+
+# Add difference column
+intensity_data = intensity_data %>%
+  mutate(dif_trafficID_dayWeek         = intensity_data$avg_flow - intensity_data$ref_trafficID_dayWeek,
+         dif_trafficID_dayWeek_hourDay = intensity_data$avg_flow - intensity_data$ref_trafficID_dayWeek_hourDay)
 
 # Save to file
 data.table::fwrite(
