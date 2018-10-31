@@ -5,9 +5,6 @@ library(readr)
 library(dplyr)
 library(lubridate)
 library(xml2)
-library(ggplot2)
-library(sp)
-library(rgdal)
 library(data.table)
 library(gtools)
 library(foreach)
@@ -35,40 +32,35 @@ f_output <- "/home/jacco/Documents/Git/DataScience/Status/Tableau Input Files/"
 gc()
 
 # Load meta data intensity
-road_data <- data.table::fread(file = paste(f_road, sep="", collapse=NULL),
+metaRoad <- data.table::fread(file = paste(f_road, sep="", collapse=NULL),
                                         nThread = 24)
 
 # Select coordinates in range of Amsterdam area
-road_data <- road_data[road_data$location_locationForDisplay_latitude >= 52.2602 & 
-                       road_data$location_locationForDisplay_latitude <= 52.5066 &
-                       road_data$location_locationForDisplay_longitude >= 4.5689 &
-                       road_data$location_locationForDisplay_longitude <= 5.0558,]
+metaRoad <- metaRoad[metaRoad$location_locationForDisplay_latitude >= 52.2602 & 
+                       metaRoad$location_locationForDisplay_latitude <= 52.5066 &
+                       metaRoad$location_locationForDisplay_longitude >= 4.5689 &
+                       metaRoad$location_locationForDisplay_longitude <= 5.0558,]
 
 # Collect garbage
 gc()
 
-# Change time format
-road_data <- road_data %>%
-  mutate(
-    date_start = format(strptime(road_data$validity_overallStartTime,format="%Y-%m-%dT%H:%M"), "%Y-%m-%d"),
-    date_end   = format(strptime(road_data$validity_overallEndTime,format="%Y-%m-%dT%H:%M"), "%Y-%m-%d"))%>%
-  select( 
-    -validity_overallStartTime,
-    -validity_overallEndTime)
-
-# Collect garbage
-gc()
-
-# Add day of the week
-road_data <- road_data %>%
-  mutate(
-    week_day_start = weekdays(as.Date(road_data$date_start,'%Y-%m-%d')),
-    week_day_end   = weekdays(as.Date(road_data$date_end,'%Y-%m-%d')))
+# Select columns
+metaRoad = metaRoad %>%
+  select(
+    "location_locationForDisplay_latitude",
+    "location_locationForDisplay_longitude",
+    "location_carriageway") %>%
+  rename(
+    startLocatieForDisplayLat = "location_locationForDisplay_latitude",
+    startLocatieForDisplayLong = "location_locationForDisplay_longitude",
+    carriageway = "location_carriageway") %>%
+  unique() %>%
+  mutate(roadID = row_number())
 
 # Save to csv file
-data.table::fwrite(road_data,
+data.table::fwrite(metaRoad,
                    nThread = 24,
-                   file = paste(f_output, "road_data_Amsterdam_PerDay.csv", sep="", collapse=NULL),
+                   file = paste(f_output, "metaRoad.csv", sep="", collapse=NULL),
                    sep = sep_symbol)
 
 # Collect garbage

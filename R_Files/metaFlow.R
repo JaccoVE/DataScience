@@ -22,21 +22,21 @@ sep_symbol <- ","
 # Folder Locations
 #f_main <- "/media/jacco/HDD/DataScienceData/Data/NDW/"
 f_main <- "/home/jacco/Documents/DataScienceData/Data/NDW/"
-f_intensity_meta <- "utwente intensiteiten groot amsterdam 1 dag met metadata (2) 20160916T104708 197/utwente intensiteiten groot amsterdam  1 dag met metadata (2)_intensiteit_00001.csv"
+f_flow_meta <- "utwente intensiteiten groot amsterdam 1 dag met metadata (2) 20160916T104708 197/utwente intensiteiten groot amsterdam  1 dag met metadata (2)_intensiteit_00001.csv"
 f_output <- "/home/jacco/Documents/Git/DataScience/NDW/Tableau Input Files/"
 
 # --------------------------------------------------
-# Create UniqueSiteReference tables intensity ------
+# Create UniqueSiteReference tables flow ------
 
 # Collect garbage
 gc()
 
-# Load meta data intensity
-intensity_unique <- data.table::fread(file = paste(f_main, f_intensity_meta, sep="", collapse=NULL),
+# Load meta data flow
+metaFlow <- data.table::fread(file = paste(f_main, f_flow_meta, sep="", collapse=NULL),
                                         nThread = 24)
 
 # Unique Sites
-intensity_unique <- intensity_unique %>%
+metaFlow <- metaFlow %>%
   select(
     "measurementSiteReference",
     "index",
@@ -51,12 +51,12 @@ intensity_unique <- intensity_unique %>%
   distinct() %>%
   ungroup() %>%
   mutate(
-    trafficID = row_number())
+    flowID = row_number())
 
 # Save to csv file
-data.table::fwrite(intensity_unique,
+data.table::fwrite(metaFlow,
                    nThread = 24,
-                   file = paste(f_output, "intensity_unique.csv", sep="", collapse=NULL),
+                   file = paste(f_output, "metaFlow.csv", sep="", collapse=NULL),
                    sep = sep_symbol)
 
 # Collect garbage

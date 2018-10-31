@@ -26,17 +26,17 @@ f_speed_meta <- "utwente snelheden groot amsterdam 1 dag met metadata 20160916T1
 f_output <- "/home/jacco/Documents/Git/DataScience/NDW/Tableau Input Files/"
 
 # --------------------------------------------------
-# Create UniqueSiteReference tables speed ------
+# Create UniqueSiteReference tables speed ----------
 
 # Collect garbage
 gc()
 
 # Load meta data speed
-speed_unique <- data.table::fread(file = paste(f_main, f_speed_meta, sep="", collapse=NULL),
+metaSpeed <- data.table::fread(file = paste(f_main, f_speed_meta, sep="", collapse=NULL),
                                         nThread = 24)
 
 # Unique Sites
-speed_unique <- speed_unique %>%
+metaSpeed <- metaSpeed %>%
   select(
     "measurementSiteReference",
     "index",
@@ -51,12 +51,12 @@ speed_unique <- speed_unique %>%
   distinct() %>%
   ungroup() %>%
   mutate(
-    trafficID = row_number())
+    speedID = row_number())
 
 # Save to csv file
-data.table::fwrite(speed_unique,
+data.table::fwrite(metaSpeed,
                    nThread = 24,
-                   file = paste(f_output, "speed_unique.csv", sep="", collapse=NULL),
+                   file = paste(f_output, "metaSpeed.csv", sep="", collapse=NULL),
                    sep = sep_symbol)
 
 # Collect garbage
