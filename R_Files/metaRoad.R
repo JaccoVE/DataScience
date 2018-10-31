@@ -26,12 +26,12 @@ f_road <- "/home/jacco/Documents/Git/DataScience/Status/Tableau Input Files/road
 f_output <- "/home/jacco/Documents/Git/DataScience/Status/Tableau Input Files/"
 
 # ----------------------------------------------------
-# Select all relevant RoadMaintenance's for Amsterdam
+# Generate metaRoad.csv
 
 # Collect garbage
 gc()
 
-# Load meta data intensity
+# Load data road
 metaRoad <- data.table::fread(file = paste(f_road, sep="", collapse=NULL),
                                         nThread = 24)
 
