@@ -15,7 +15,7 @@ library(doMC)
 # Settings -----------------------------------------
 
 # Number of threads to use when performing the for loop
-registerDoMC(4)
+registerDoMC(8)
 
 # Seperated for csv save
 sep_symbol <- ","
@@ -28,16 +28,51 @@ f_input <- c("intensity_data_PerDay",
              "intensity_data_PerHour",
              "speed_data_PerDay", 
              "speed_data_PerHour",
-             "road_data_Amsterdam_PerDay.csv",
-             "road_data_Amsterdam_PerHour.csv")
+             "road_data_Amsterdam_PerDay",
+             "road_data_Amsterdam_PerHour")
 
 f_output <- "/home/jacco/Documents/Git/DataScience/NDW/Tableau Input Files/"
 
 # ----------------------------------------------------
-# Add day of the week to data
+# Load and prepare road data
+
+foreach(i=5:6) %do% {
+  
+  # Load road data
+  road = data.table::fread(file = paste(f_Status, f_input[i], ".csv", sep="", collapse=NULL),
+                                  nThread = 24)
+  
+  # Select columns
+  road = road %>%
+    select(
+      "date_start",
+      "date_end",
+      "week_day_start",
+      "week_day_end",
+      "location_locationForDisplay_latitude",
+      "location_locationForDisplay_longitude") %>%
+    arrange(
+      date_start) %>%
+    unique()
+  
+  if(i == 5) # perDay
+  {
+    road_perDay <- road 
+  }
+  else # perHour
+  {
+    road_perHour <- road
+  }
+}
+
+# Remove road data because it is renamed
+remove(road)
 
 # Collect garbage
 gc()
+
+# ----------------------------------------------------
+# Combine road with speed/flow
 
 # Iterate over each file in parallel
 foreach(i=1:4) %dopar% {
@@ -51,32 +86,21 @@ foreach(i=1:4) %dopar% {
   # Collect garbage
   gc()
   
-  # Add day of the week
+  # Add label wheter have road data or flow/speed data
   data = data %>%
     mutate(
-      week_day = weekdays(as.Date(data$date,'%Y-%m-%d')))
+      roadORdata = "data")
   
-  # Handle difference in flow and speed column names
-  if(i == 1 | i == 2) # Flow 
-  {
-    # Add reference column
-    data = data %>%
-      mutate(reference = ave(data$avg_flow, data$week_day))
+  # Add end date column
+  data = data %>%
+    mutate(
+      date_end = "data")
     
-    # Add difference column
-    data_test = data %>%
-      mutate(difference = data$avg_flow - data$reference)
-    
-    # Save to csv file
-    data.table::fwrite(road_data,
-                       nThread = 1,
-                       file = paste(f_output, f_input[i], "2.csv", sep="", collapse=NULL),
-                       sep = sep_symbol)
-  }
-  else # Speed
-  {
-    
-  }
+  # Save to csv file
+  data.table::fwrite(data,
+                     nThread = 1,
+                     file = paste(f_output, f_input[i], "_Combined.csv", sep="", collapse=NULL),
+                     sep = sep_symbol)
   
   # Collect garbage
   gc()
