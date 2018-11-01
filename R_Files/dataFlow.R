@@ -14,66 +14,34 @@ library(doMC)
 # Settings -----------------------------------------
 
 # Number of threads to use when performing the for loop
-registerDoMC(9)
+registerDoMC(8)
 
 # Seperated for csv save
 sep_symbol <- ","
 
 # Folder Locations
-#f_main <- "/media/jacco/HDD/DataScienceData/Data/NDW/"
-f_main <- "/home/jacco/Documents/DataScienceData/Data/NDW/"
-f_intensity_meta <- "utwente intensiteiten groot amsterdam 1 dag met metadata (2) 20160916T104708 197/utwente intensiteiten groot amsterdam  1 dag met metadata (2)_intensiteit_00001.csv"
-f_intensity <- "utwente intensiteiten groot amsterdam/utwente intensiteiten groot amsterdam _intensiteit_000"
-f_output <- "/home/jacco/Documents/Git/DataScience/NDW/Tableau Input Files/"
+f_metaFlow <- "/home/jacco/Documents/Git/DataScience/NDW/Tableau Input Files/metaFlow.csv"
+f_dataFlow <- "/home/jacco/Documents/DataScienceData/Data/NDW/utwente intensiteiten groot amsterdam/utwente intensiteiten groot amsterdam _intensiteit_000"
+f_output <- "/home/jacco/Documents/Git/DataScience/NDW/Tableau Input Files/dataFlow/"
 
-# --------------------------------------------------
-# Create UniqueSiteReference tables intensity ------
-
-# Collect garbage
-gc()
-
-# Load meta data intensity
-intensity_unique <- data.table::fread(file = paste(f_main, f_intensity_meta, sep="", collapse=NULL),
+# Load metaFlow
+metaFlow <- data.table::fread(file = paste(f_metaFlow, sep="", collapse=NULL),
                                         nThread = 24)
 
-# Unique Sites
-intensity_unique <- intensity_unique %>%
-  select(
-    "measurementSiteReference",
-    "index",
-    "specificVehicleCharacteristics",
-    "startLocatieForDisplayLat",
-    "startLocatieForDisplayLong",
-    "ROADNUMBER") %>%
-  arrange(
-    measurementSiteReference) %>%
-  group_by(
-    measurementSiteReference) %>%
-  distinct() %>%
-  ungroup() %>%
-  mutate(
-    trafficID = row_number())
-
-# Save to csv file
-data.table::fwrite(intensity_unique,
-                   nThread = 24,
-                   file = paste(f_output, "intensity_unique.csv", sep="", collapse=NULL),
-                   sep = sep_symbol)
-
 # Collect garbage
 gc()
 
 # --------------------------------------------------
-# Create trafficID table ---------------------------
+# Create flowID table ---------------------------
 
-# Get all trafficID's where specificVehicleCharacteristics equals anyVehicle
-anyVehicleIDs <- intensity_unique$trafficID[intensity_unique$specificVehicleCharacteristics == "anyVehicle"]
+# Get all flowID's where specificVehicleCharacteristics equals anyVehicle
+anyVehicleIDs <- metaFlow$flowID[metaFlow$specificVehicleCharacteristics == "anyVehicle"]
 
 # List of data.table's
-intensity_data_list <- list()
+dataFlow_list <- list()
 
 # Iterate over each file in parallel
-intensity_data_list <- foreach(i=1:27) %dopar% {
+dataFlow_list <- foreach(i=1:27) %dopar% {
   
   # Collect garbage
   gc()
@@ -82,11 +50,11 @@ intensity_data_list <- foreach(i=1:27) %dopar% {
   s_file_num = formatC(i, width = 2, format = "d", flag = "0")
 
   # Load data
-  intensity_data = data.table::fread(file = paste(f_main, f_intensity, s_file_num, ".csv", sep="", collapse=NULL),
+  dataFlow = data.table::fread(file = paste(f_dataFlow, s_file_num, ".csv", sep="", collapse=NULL),
                                      nThread = 1)
   
   # Select data
-  intensity_data = intensity_data %>%
+  dataFlow = dataFlow %>%
     select(
       "measurementSiteReference",
       "index",
@@ -112,22 +80,22 @@ intensity_data_list <- foreach(i=1:27) %dopar% {
   gc()
   
   # Remove all rows that contain an error
-  intensity_data = intensity_data[!grepl("1", intensity_data$error),]
+  dataFlow = dataFlow[!grepl("1", dataFlow$error),]
   
   # Remove all rows that contain NA's for flow
-  intensity_data = intensity_data[!is.na(intensity_data$avg_flow),]
+  dataFlow = dataFlow[!is.na(dataFlow$avg_flow),]
   
   # Collect garbage
   gc()
   
   # Remove all rows that contain 0's for flow and do not have 0's for numberOfIncompleteInputs
-  intensity_data = intensity_data[!(intensity_data$avg_flow == 0 & intensity_data$num_in_in != 0),]
+  dataFlow = dataFlow[!(dataFlow$avg_flow == 0 & dataFlow$num_in_in != 0),]
   
   # Collect garbage
   gc()
   
   # Remove unuseful columns
-  intensity_data = intensity_data %>%
+  dataFlow = dataFlow %>%
     select( 
       -num_in_use,
       -num_in_in,
@@ -137,15 +105,15 @@ intensity_data_list <- foreach(i=1:27) %dopar% {
   gc()
   
   # Remove remaining rows with NA's
-  intensity_data = na.omit(intensity_data) 
+  dataFlow = na.omit(dataFlow) 
   
   # Collect garbage
   gc()
   
   # Combine data with meta data
-  intensity_data = intensity_data %>%
+  dataFlow = dataFlow %>%
     full_join(
-      intensity_unique, 
+      metaFlow, 
       by = c(
         "meas_site_ref" = "measurementSiteReference",
         "ind" = "index")) %>%
@@ -161,12 +129,12 @@ intensity_data_list <- foreach(i=1:27) %dopar% {
   gc()
   
   # Remove all rows that are not anyVehicle
-  intensity_data = intensity_data[ intensity_data$trafficID %in% anyVehicleIDs, ]
+  dataFlow = dataFlow[ dataFlow$flowID %in% anyVehicleIDs, ]
   
   # Add date column and remove period_start and period_end columns
-  intensity_data = intensity_data %>%
+  dataFlow = dataFlow %>%
     mutate(
-      date = format(strptime(intensity_data$per_start,format="%Y-%m-%d %H:%M"), "%Y-%m-%d-%H")) %>%
+      date = format(strptime(dataFlow$per_start,format="%Y-%m-%d %H:%M"), "%Y-%m-%d-%H")) %>%
     select( 
       -per_start,
       -per_end)
@@ -174,16 +142,16 @@ intensity_data_list <- foreach(i=1:27) %dopar% {
   # Collect garbage
   gc()
   
-  # Remove all flows smaller than zero because we don't 
+  # Remove all flows smaller or equal to zero because we don't 
   # want to sum negative flows
-  intensity_data = intensity_data[which(intensity_data$avg_flow>=0),]
+  dataFlow = dataFlow[which(dataFlow$avg_flow>0),]
   
   # Collect garbage
   gc()
   
   # Average flow (cars/h) for each measurement point per hour and add to list
-  intensity_data = intensity_data %>%
-    group_by(trafficID,
+  dataFlow = dataFlow %>%
+    group_by(flowID,
              date) %>%
     summarise(avg_flow = mean(avg_flow))%>%
     ungroup()
@@ -191,51 +159,64 @@ intensity_data_list <- foreach(i=1:27) %dopar% {
   # Collect garbage
   gc()
   
-  returnValue(intensity_data)
+  returnValue(dataFlow)
 
 }
 
 # Combine the list of data.table's to one data.table
-intensity_data <- rbindlist(intensity_data_list)
+dataFlow <- rbindlist(dataFlow_list)
 
 # Remove overlappings in lists, meaning:
-# sum flows when date and trafficID occurs double
-intensity_data <- intensity_data %>%
-  group_by(trafficID,
+# sum flows when date and flowID occurs double
+dataFlow <- dataFlow %>%
+  group_by(flowID,
            date) %>%
   summarise(avg_flow = mean(avg_flow))%>%
   ungroup()
 
-# Remove all rows that contain NA's for trafficID
-intensity_data = intensity_data[!is.na(intensity_data$trafficID),]
+# Remove all rows that contain NA's for flowID
+dataFlow = dataFlow[!is.na(dataFlow$flowID),]
 
 # Collect garbage
 gc()
 
 # Add day of the week
-intensity_data = intensity_data %>%
+dataFlow = dataFlow %>%
   mutate(
-    week_day = weekdays(as.Date(intensity_data$date,'%Y-%m-%d')))
+    week_day = weekdays(as.Date(dataFlow$date,'%Y-%m-%d')))
 
-# Add seperate hour column
-intensity_data = intensity_data %>%
+# Add seperate hour and day column
+dataFlow = dataFlow %>%
   mutate(
-    hour = format(strptime(intensity_data$date,format="%Y-%m-%d-%H"), "%H"))
+    hour = format(strptime(dataFlow$date,format="%Y-%m-%d-%H"), "%H"),
+    day = format(strptime(dataFlow$date,format="%Y-%m-%d-%H"), "%Y-%m-%d"))
 
-# Add reference column (average for each trafficID, day of the week and hour of the day)
-intensity_data = intensity_data %>%
-  mutate(ref_trafficID_dayWeek         = ave(intensity_data$avg_flow, intensity_data$trafficID, intensity_data$week_day, FUN = mean),
-         ref_trafficID_dayWeek_hourDay = ave(intensity_data$avg_flow, intensity_data$trafficID, intensity_data$week_day, intensity_data$hour, FUN = mean)) %>%
+# Add reference column (average for each flowID, day of the week and hour of the day)
+dataFlow = dataFlow %>%
+  mutate(ref_flowID_dayWeek         = ave(dataFlow$avg_flow, dataFlow$flowID, dataFlow$week_day, FUN = mean),
+         ref_flowID_dayWeek_hourDay = ave(dataFlow$avg_flow, dataFlow$flowID, dataFlow$week_day, dataFlow$hour, FUN = mean)) %>%
   select(-hour)
 
 # Add difference column
-intensity_data = intensity_data %>%
-  mutate(dif_trafficID_dayWeek         = intensity_data$avg_flow - intensity_data$ref_trafficID_dayWeek,
-         dif_trafficID_dayWeek_hourDay = intensity_data$avg_flow - intensity_data$ref_trafficID_dayWeek_hourDay)
+dataFlow = dataFlow %>%
+  mutate(dif_flowID_dayWeek         = dataFlow$avg_flow - dataFlow$ref_flowID_dayWeek,
+         dif_flowID_dayWeek_hourDay = dataFlow$avg_flow - dataFlow$ref_flowID_dayWeek_hourDay)
 
-# Save to file
-data.table::fwrite(
-  intensity_data,
-  nThread = 24,
-  file = paste(f_output, "intensity_data_PerHour.csv", sep="", collapse=NULL),
-  sep = sep_symbol)
+# Determine unique days
+uniqueDays = unique(dataFlow$day)
+
+# Iterate over each file in parallel
+foreach(i=1:length(uniqueDays)) %dopar% {
+  
+  dataFlow_Splitted = dataFlow[dataFlow$day == uniqueDays[i], ]
+  
+  dataFlow_Splitted = dataFlow_Splitted %>%
+    select(-day)
+  
+  # Save to file
+  data.table::fwrite(
+    dataFlow_Splitted,
+    nThread = 1,
+    file = paste(f_output, "dataFlow_", uniqueDays[i], ".csv", sep="", collapse=NULL),
+    sep = sep_symbol)
+}
