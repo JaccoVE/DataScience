@@ -20,60 +20,28 @@ registerDoMC(6)
 sep_symbol <- ","
 
 # Folder Locations
-#f_main <- "/media/jacco/HDD/DataScienceData/Data/NDW/"
-f_main <- "/home/jacco/Documents/DataScienceData/Data/NDW/"
-f_speed_meta <- "utwente snelheden groot amsterdam 1 dag met metadata 20160916T105028 197/utwente snelheden groot amsterdam  1 dag met metadata_snelheid_00001.csv"
-f_speed <- "utwente snelheden groot amsterdam/utwente snelheden groot amsterdam _snelheid_000"
-f_output <- "/home/jacco/Documents/Git/DataScience/NDW/Tableau Input Files/"
+f_metaSpeed <- "/home/jacco/Documents/Git/DataScience/NDW/Tableau Input Files/metaSpeed.csv"
+f_dataSpeed <- "/home/jacco/Documents/DataScienceData/Data/NDW/utwente snelheden groot amsterdam/utwente snelheden groot amsterdam _snelheid_000"
+f_output <- "/home/jacco/Documents/Git/DataScience/NDW/Tableau Input Files/dataSpeed/"
 
-# --------------------------------------------------
-# Create UniqueSiteReference tables speed ------
-
-# Collect garbage
-gc()
-
-# Load meta data speed
-speed_unique <- data.table::fread(file = paste(f_main, f_speed_meta, sep="", collapse=NULL),
+# Load metaSpeed
+metaSpeed <- data.table::fread(file = paste(f_metaSpeed, sep="", collapse=NULL),
                                         nThread = 24)
 
-# Unique Sites
-speed_unique <- speed_unique %>%
-  select(
-    "measurementSiteReference",
-    "index",
-    "specificVehicleCharacteristics",
-    "startLocatieForDisplayLat",
-    "startLocatieForDisplayLong",
-    "ROADNUMBER") %>%
-  arrange(
-    measurementSiteReference) %>%
-  group_by(
-    measurementSiteReference) %>%
-  distinct() %>%
-  ungroup() %>%
-  mutate(
-    trafficID = row_number())
-
-# Save to csv file
-data.table::fwrite(speed_unique,
-                   nThread = 24,
-                   file = paste(f_output, "speed_unique.csv", sep="", collapse=NULL),
-                   sep = sep_symbol)
-
 # Collect garbage
 gc()
 
 # --------------------------------------------------
-# Create trafficID table ---------------------------
+# Create dataSpeed table ---------------------------
 
-# Get all trafficID's where specificVehicleCharacteristics equals anyVehicle
-anyVehicleIDs <- speed_unique$trafficID[speed_unique$specificVehicleCharacteristics == "anyVehicle"]
+# Get all speedID's where specificVehicleCharacteristics equals anyVehicle
+anyVehicleIDs <- metaSpeed$speedID[metaSpeed$specificVehicleCharacteristics == "anyVehicle"]
 
 # List of data.table's
-speed_data_list <- list()
+dataSpeed_list <- list()
 
 # Iterate over each file in parallel
-speed_data_list <- foreach(i=1:25) %dopar% {
+dataSpeed_list <- foreach(i=1:25) %dopar% {
   
   # Collect garbage
   gc()
@@ -82,11 +50,11 @@ speed_data_list <- foreach(i=1:25) %dopar% {
   s_file_num = formatC(i, width = 2, format = "d", flag = "0")
 
   # Load data
-  speed_data = data.table::fread(file = paste(f_main, f_speed, s_file_num, ".csv", sep="", collapse=NULL),
+  dataSpeed = data.table::fread(file = paste(f_dataSpeed, s_file_num, ".csv", sep="", collapse=NULL),
                                      nThread = 1)
   
   # Select data
-  speed_data = speed_data %>%
+  dataSpeed = dataSpeed %>%
     select(
       "measurementSiteReference",
       "index",
@@ -112,22 +80,22 @@ speed_data_list <- foreach(i=1:25) %dopar% {
   gc()
   
   # Remove all rows that contain an error
-  speed_data = speed_data[!grepl("1", speed_data$error),]
+  dataSpeed = dataSpeed[!grepl("1", dataSpeed$error),]
   
   # Remove all rows that contain NA's for speed
-  speed_data = speed_data[!is.na(speed_data$avg_speed),]
+  dataSpeed = dataSpeed[!is.na(dataSpeed$avg_speed),]
   
   # Collect garbage
   gc()
   
   # Remove all rows that contain -1's for speed and do not have 0's for numberOfIncompleteInputs and numberOfInputValuesUsed
-  speed_data = speed_data[!(speed_data$avg_speed == -1 & speed_data$num_in_use != 0 & speed_data$num_in_in != 0),]
+  dataSpeed = dataSpeed[!(dataSpeed$avg_speed == -1 & dataSpeed$num_in_use != 0 & dataSpeed$num_in_in != 0),]
   
   # Collect garbage
   gc()
   
   # Remove unuseful columns
-  speed_data = speed_data %>%
+  dataSpeed = dataSpeed %>%
     select( 
       -num_in_use,
       -num_in_in,
@@ -137,15 +105,15 @@ speed_data_list <- foreach(i=1:25) %dopar% {
   gc()
   
   # Remove remaining rows with NA's
-  speed_data = na.omit(speed_data) 
+  dataSpeed = na.omit(dataSpeed) 
   
   # Collect garbage
   gc()
   
   # Combine data with meta data
-  speed_data = speed_data %>%
+  dataSpeed = dataSpeed %>%
     full_join(
-      speed_unique, 
+      metaSpeed, 
       by = c(
         "meas_site_ref" = "measurementSiteReference",
         "ind" = "index")) %>%
@@ -161,12 +129,12 @@ speed_data_list <- foreach(i=1:25) %dopar% {
   gc()
   
   # Remove all rows that are not anyVehicle
-  speed_data = speed_data[ speed_data$trafficID %in% anyVehicleIDs, ]
+  dataSpeed = dataSpeed[ dataSpeed$speedID %in% anyVehicleIDs, ]
   
   # Add date column and remove period_start and period_end columns
-  speed_data = speed_data %>%
+  dataSpeed = dataSpeed %>%
     mutate(
-      date = format(strptime(speed_data$per_start,format="%Y-%m-%d %H:%M"), "%Y-%m-%d-%H")) %>%
+      date = format(strptime(dataSpeed$per_start,format="%Y-%m-%d %H:%M"), "%Y-%m-%d-%H")) %>%
     select( 
       -per_start,
       -per_end)
@@ -176,14 +144,14 @@ speed_data_list <- foreach(i=1:25) %dopar% {
   
   # Remove all speeds smaller or equal to zero because we don't 
   # want to sum negative speeds
-  speed_data = speed_data[which(speed_data$avg_speed>0),]
+  dataSpeed = dataSpeed[which(dataSpeed$avg_speed>0),]
   
   # Collect garbage
   gc()
   
   # Average speed (km/h) for each measurement point per hour and add to list
-  speed_data = speed_data %>%
-    group_by(trafficID,
+  dataSpeed = dataSpeed %>%
+    group_by(speedID,
              date) %>%
     summarise(avg_speed = mean(avg_speed))%>%
     ungroup()
@@ -191,51 +159,64 @@ speed_data_list <- foreach(i=1:25) %dopar% {
   # Collect garbage
   gc()
   
-  returnValue(speed_data)
+  returnValue(dataSpeed)
 
 }
 
 # Combine the list of data.table's to one data.table
-speed_data <- rbindlist(speed_data_list)
+dataSpeed <- rbindlist(dataSpeed_list)
 
 # Remove overlappings in lists, meaning:
-# sum speeds when date and trafficID occurs double
-speed_data <- speed_data %>%
-  group_by(trafficID,
+# sum speeds when date and speedID occurs double
+dataSpeed <- dataSpeed %>%
+  group_by(speedID,
            date) %>%
   summarise(avg_speed = mean(avg_speed))%>%
   ungroup()
 
-# Remove all rows that contain NA's for trafficID
-speed_data = speed_data[!is.na(speed_data$trafficID),]
+# Remove all rows that contain NA's for speedID
+dataSpeed = dataSpeed[!is.na(dataSpeed$speedID),]
 
 # Collect garbage
 gc()
 
 # Add day of the week
-speed_data = speed_data %>%
+dataSpeed = dataSpeed %>%
   mutate(
-    week_day = weekdays(as.Date(speed_data$date,'%Y-%m-%d')))
+    week_day = weekdays(as.Date(dataSpeed$date,'%Y-%m-%d')))
 
-# Add seperate hour column
-speed_data = speed_data %>%
+# Add seperate hour and date column
+dataSpeed = dataSpeed %>%
   mutate(
-    hour = format(strptime(speed_data$date,format="%Y-%m-%d-%H"), "%H"))
+    hour = format(strptime(dataSpeed$date,format="%Y-%m-%d-%H"), "%H"),
+    day = format(strptime(dataSpeed$date,format="%Y-%m-%d-%H"), "%Y-%m-%d"))
 
-# Add reference column (average for each trafficID, day of the week and hour of the day)
-speed_data = speed_data %>%
-  mutate(ref_trafficID_dayWeek         = ave(speed_data$avg_speed, speed_data$trafficID, speed_data$week_day, FUN = mean),
-         ref_trafficID_dayWeek_hourDay = ave(speed_data$avg_speed, speed_data$trafficID, speed_data$week_day, speed_data$hour, FUN = mean)) %>%
+# Add reference column (average for each speedID, day of the week and hour of the day)
+dataSpeed = dataSpeed %>%
+  mutate(ref_speedID_dayWeek         = ave(dataSpeed$avg_speed, dataSpeed$speedID, dataSpeed$week_day, FUN = mean),
+         ref_speedID_dayWeek_hourDay = ave(dataSpeed$avg_speed, dataSpeed$speedID, dataSpeed$week_day, dataSpeed$hour, FUN = mean)) %>%
   select(-hour)
 
 # Add difference column
-speed_data = speed_data %>%
-  mutate(dif_trafficID_dayWeek         = speed_data$avg_speed - speed_data$ref_trafficID_dayWeek,
-         dif_trafficID_dayWeek_hourDay = speed_data$avg_speed - speed_data$ref_trafficID_dayWeek_hourDay)
+dataSpeed = dataSpeed %>%
+  mutate(dif_speedID_dayWeek         = dataSpeed$avg_speed - dataSpeed$ref_speedID_dayWeek,
+         dif_speedID_dayWeek_hourDay = dataSpeed$avg_speed - dataSpeed$ref_speedID_dayWeek_hourDay)
 
-# Save to file
-data.table::fwrite(
-  speed_data,
-  nThread = 24,
-  file = paste(f_output, "speed_data_PerHour.csv", sep="", collapse=NULL),
-  sep = sep_symbol)
+# Determine unique days
+uniqueDays = unique(dataSpeed$day)
+
+# Iterate over each file in parallel
+foreach(i=1:length(uniqueDays)) %dopar% {
+  
+  dataSpeed_Splitted = dataSpeed[dataSpeed$day == uniqueDays[i], ]
+  
+  dataSpeed_Splitted = dataSpeed_Splitted %>%
+    select(-day)
+  
+  # Save to file
+  data.table::fwrite(
+    dataSpeed_Splitted,
+    nThread = 1,
+    file = paste(f_output, "dataSpeed_", uniqueDays[i], ".csv", sep="", collapse=NULL),
+    sep = sep_symbol)
+}
