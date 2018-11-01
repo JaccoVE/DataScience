@@ -61,3 +61,4 @@ data.table::fwrite(metaSpeed,
 
 # Collect garbage
 gc()
+

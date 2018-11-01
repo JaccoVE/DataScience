@@ -61,3 +61,4 @@ data.table::fwrite(metaFlow,
 
 # Collect garbage
 gc()
+

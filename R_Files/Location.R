@@ -126,7 +126,7 @@ metaRoad = metaRoad %>%
 
 # Combine Location with metaSpeed
 metaSpeed = metaSpeed %>%
-  mutate(metaType = "Flow") %>%
+  mutate(metaType = "Speed") %>%
   rename(
     Lat = "startLocatieForDisplayLat",
     Long = "startLocatieForDisplayLong",
