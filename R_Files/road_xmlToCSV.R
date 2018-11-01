@@ -25,7 +25,7 @@ sep_symbol <- ","
 #f_main <- "/media/jacco/HDD/DataScienceData/Data/Status/"
 f_main <- "/home/jacco/Documents/DataScienceData/Data/Status/"
 f_road <- "RoadMaintenance/"
-f_output <- "/home/jacco/Documents/Git/DataScience/Status/Tableau Input Files/"
+f_output <- "/home/jacco/Documents/Git/DataScience/Database/"
 
 # --------------------------------------------------------
 # Functions ----------------------------------------------

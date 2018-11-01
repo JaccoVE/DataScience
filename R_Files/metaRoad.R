@@ -20,8 +20,6 @@ registerDoMC(9)
 sep_symbol <- ","
 
 # Folder Locations
-#f_main <- "/media/jacco/HDD/DataScienceData/Data/Status/"
-f_main <- "/home/jacco/Documents/DataScienceData/Data/Status/"
 f_road <- "/home/jacco/Documents/Git/DataScience/Database/road_data.csv"
 f_output <- "/home/jacco/Documents/Git/DataScience/Database/"
 
