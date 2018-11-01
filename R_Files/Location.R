@@ -24,6 +24,9 @@ sep_symbol <- ","
 f_database <- "/home/jacco/Documents/Git/DataScience/Database/"
 f_output <- "/home/jacco/Documents/Git/DataScience/Database/"
 
+# --------------------------------------------------
+# Generate location table --------------------------
+
 # Load metaRoad
 metaRoad = data.table::fread(file = paste(f_database, "metaRoad", ".csv", sep="", collapse=NULL),
                                nThread = 24)
@@ -36,3 +39,19 @@ metaFlow = data.table::fread(file = paste(f_database, "metaFlow", ".csv", sep=""
 metaSpeed = data.table::fread(file = paste(f_database, "metaSpeed", ".csv", sep="", collapse=NULL),
                              nThread = 24)
 
+# Select coordinates of metaRoad
+locationRoad = metaRoad %>%
+  select("startLocatieForDisplayLat",
+         "startLocatieForDisplayLong")
+
+# Select coordinates of metaFlow
+locationFlow = metaFlow %>%
+  select("startLocatieForDisplayLat",
+         "startLocatieForDisplayLong")
+
+# Select coordinates of metaSpeed
+locationSpeed = metaSpeed %>%
+  select("startLocatieForDisplayLat",
+         "startLocatieForDisplayLong")
+
+# Combine metaRoad, metaFlow and metaSpeed coordinates in 1 data.table
