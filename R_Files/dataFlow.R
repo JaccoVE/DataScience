@@ -20,9 +20,9 @@ registerDoMC(8)
 sep_symbol <- ","
 
 # Folder Locations
-f_metaFlow <- "/home/jacco/Documents/Git/DataScience/NDW/Tableau Input Files/metaFlow.csv"
+f_metaFlow <- "/home/jacco/Documents/Git/DataScience/Database/metaFlow.csv"
 f_dataFlow <- "/home/jacco/Documents/DataScienceData/Data/NDW/utwente intensiteiten groot amsterdam/utwente intensiteiten groot amsterdam _intensiteit_000"
-f_output <- "/home/jacco/Documents/Git/DataScience/NDW/Tableau Input Files/dataFlow/"
+f_output <- "/home/jacco/Documents/Git/DataScience/Database/dataFlow/"
 
 # Load metaFlow
 metaFlow <- data.table::fread(file = paste(f_metaFlow, sep="", collapse=NULL),

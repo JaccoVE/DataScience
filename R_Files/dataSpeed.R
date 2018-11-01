@@ -20,9 +20,9 @@ registerDoMC(6)
 sep_symbol <- ","
 
 # Folder Locations
-f_metaSpeed <- "/home/jacco/Documents/Git/DataScience/NDW/Tableau Input Files/metaSpeed.csv"
+f_metaSpeed <- "/home/jacco/Documents/Git/DataScience/Database/metaSpeed.csv"
 f_dataSpeed <- "/home/jacco/Documents/DataScienceData/Data/NDW/utwente snelheden groot amsterdam/utwente snelheden groot amsterdam _snelheid_000"
-f_output <- "/home/jacco/Documents/Git/DataScience/NDW/Tableau Input Files/dataSpeed/"
+f_output <- "/home/jacco/Documents/Git/DataScience/Database/dataSpeed/"
 
 # Load metaSpeed
 metaSpeed <- data.table::fread(file = paste(f_metaSpeed, sep="", collapse=NULL),

@@ -23,7 +23,7 @@ sep_symbol <- ","
 #f_main <- "/media/jacco/HDD/DataScienceData/Data/NDW/"
 f_main <- "/home/jacco/Documents/DataScienceData/Data/NDW/"
 f_flow_meta <- "utwente intensiteiten groot amsterdam 1 dag met metadata (2) 20160916T104708 197/utwente intensiteiten groot amsterdam  1 dag met metadata (2)_intensiteit_00001.csv"
-f_output <- "/home/jacco/Documents/Git/DataScience/NDW/Tableau Input Files/"
+f_output <- "/home/jacco/Documents/Git/DataScience/Database/"
 
 # --------------------------------------------------
 # Create UniqueSiteReference tables flow ------
