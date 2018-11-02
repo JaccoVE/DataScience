@@ -21,8 +21,8 @@ registerDoMC(8)
 sep_symbol <- ","
 
 # Folder Locations
-f_database <- "/home/jacco/Documents/Git/DataScience/Database/"
-f_output <- "/home/jacco/Documents/Git/DataScience/Database/"
+f_database <- "/home/jacco/Documents/Git/DataScience/DatabasePerWeek/"
+f_output <- "/home/jacco/Documents/Git/DataScience/DatabasePerWeek/"
 
 # --------------------------------------------------
 # Generate location table --------------------------
@@ -159,3 +159,4 @@ data.table::fwrite(metaSpeed,
                    nThread = 24,
                    file = paste(f_output, "metaSpeed.csv", sep="", collapse=NULL),
                    sep = sep_symbol)
+

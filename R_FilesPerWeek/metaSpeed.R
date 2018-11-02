@@ -23,7 +23,7 @@ sep_symbol <- ","
 #f_main <- "/media/jacco/HDD/DataScienceData/Data/NDW/"
 f_main <- "/home/jacco/Documents/DataScienceData/Data/NDW/"
 f_speed_meta <- "utwente snelheden groot amsterdam 1 dag met metadata 20160916T105028 197/utwente snelheden groot amsterdam  1 dag met metadata_snelheid_00001.csv"
-f_output <- "/home/jacco/Documents/Git/DataScience/Database/"
+f_output <- "/home/jacco/Documents/Git/DataScience/DatabasePerWeek/"
 
 # --------------------------------------------------
 # Create UniqueSiteReference tables speed ----------

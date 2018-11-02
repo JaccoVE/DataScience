@@ -14,15 +14,15 @@ library(doMC)
 # Settings -----------------------------------------
 
 # Number of threads to use when performing the for loop
-registerDoMC(8)
+registerDoMC(6)
 
 # Seperated for csv save
 sep_symbol <- ","
 
 # Folder Locations
-f_metaFlow <- "/home/jacco/Documents/Git/DataScience/Database/metaFlow.csv"
+f_metaFlow <- "/home/jacco/Documents/Git/DataScience/DatabasePerWeek/metaFlow.csv"
 f_dataFlow <- "/home/jacco/Documents/DataScienceData/Data/NDW/utwente intensiteiten groot amsterdam/utwente intensiteiten groot amsterdam _intensiteit_000"
-f_output <- "/home/jacco/Documents/Git/DataScience/Database/dataFlow/"
+f_output <- "/home/jacco/Documents/Git/DataScience/DatabasePerWeek/dataFlow/"
 
 # Load metaFlow
 metaFlow <- data.table::fread(file = paste(f_metaFlow, sep="", collapse=NULL),
@@ -191,6 +191,11 @@ dataFlow = dataFlow %>%
     hour = format(strptime(dataFlow$date,format="%Y-%m-%d-%H"), "%H"),
     day = format(strptime(dataFlow$date,format="%Y-%m-%d-%H"), "%Y-%m-%d"))
 
+# Add week number
+dataFlow = dataFlow %>%
+  mutate(
+    weekNumber = strftime(dataFlow$day, format = "%V"))
+
 # Add reference column (average for each flowID, day of the week and hour of the day)
 dataFlow = dataFlow %>%
   mutate(ref_flowID_dayWeek         = ave(dataFlow$avg_flow, dataFlow$flowID, dataFlow$week_day, FUN = mean),
@@ -205,10 +210,26 @@ dataFlow = dataFlow %>%
 # Determine unique days
 uniqueDays = unique(dataFlow$day)
 
-# Iterate over each file in parallel
-foreach(i=1:length(uniqueDays)) %dopar% {
+# Iterate over each file
+for (i in seq(1, length(uniqueDays), by=3)) {
   
-  dataFlow_Splitted = dataFlow[dataFlow$day == uniqueDays[i], ]
+  print(i)
+  
+  if(i + 2 <= length(uniqueDays))
+  {
+    dataFlow_Splitted = dataFlow[dataFlow$day == uniqueDays[i] | dataFlow$day == uniqueDays[i+1] | dataFlow$day == uniqueDays[i+2], ]
+    print("1")
+  }
+  else if(i + 1 <= length(uniqueDays))
+  {
+    dataFlow_Splitted = dataFlow[dataFlow$day == uniqueDays[i] | dataFlow$day == uniqueDays[i+1], ]
+    print("2")
+  }
+  else
+  {
+    dataFlow_Splitted = dataFlow[dataFlow$day == uniqueDays[i], ]
+    print("3")
+  }
   
   dataFlow_Splitted = dataFlow_Splitted %>%
     select(-day)
@@ -217,6 +238,6 @@ foreach(i=1:length(uniqueDays)) %dopar% {
   data.table::fwrite(
     dataFlow_Splitted,
     nThread = 1,
-    file = paste(f_output, "dataFlow_", uniqueDays[i], ".csv", sep="", collapse=NULL),
+    file = paste(f_output, "dataFlow_part_", i, ".csv", sep="", collapse=NULL),
     sep = sep_symbol)
 }

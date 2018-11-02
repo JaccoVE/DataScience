@@ -20,9 +20,9 @@ registerDoMC(6)
 sep_symbol <- ","
 
 # Folder Locations
-f_metaSpeed <- "/home/jacco/Documents/Git/DataScience/Database/metaSpeed.csv"
+f_metaSpeed <- "/home/jacco/Documents/Git/DataScience/DatabasePerWeek/metaSpeed.csv"
 f_dataSpeed <- "/home/jacco/Documents/DataScienceData/Data/NDW/utwente snelheden groot amsterdam/utwente snelheden groot amsterdam _snelheid_000"
-f_output <- "/home/jacco/Documents/Git/DataScience/Database/dataSpeed/"
+f_output <- "/home/jacco/Documents/Git/DataScience/DatabasePerWeek/dataSpeed/"
 
 # Load metaSpeed
 metaSpeed <- data.table::fread(file = paste(f_metaSpeed, sep="", collapse=NULL),
@@ -191,6 +191,11 @@ dataSpeed = dataSpeed %>%
     hour = format(strptime(dataSpeed$date,format="%Y-%m-%d-%H"), "%H"),
     day = format(strptime(dataSpeed$date,format="%Y-%m-%d-%H"), "%Y-%m-%d"))
 
+# Add week number
+dataSpeed = dataSpeed %>%
+  mutate(
+    weekNumber = strftime(dataSpeed$day, format = "%V"))
+
 # Add reference column (average for each speedID, day of the week and hour of the day)
 dataSpeed = dataSpeed %>%
   mutate(ref_speedID_dayWeek         = ave(dataSpeed$avg_speed, dataSpeed$speedID, dataSpeed$week_day, FUN = mean),
@@ -206,9 +211,25 @@ dataSpeed = dataSpeed %>%
 uniqueDays = unique(dataSpeed$day)
 
 # Iterate over each file in parallel
-foreach(i=1:length(uniqueDays)) %dopar% {
+for (i in seq(1, length(uniqueDays), by=3)) {
   
-  dataSpeed_Splitted = dataSpeed[dataSpeed$day == uniqueDays[i], ]
+  print(i)
+  
+  if(i + 2 <= length(uniqueDays))
+  {
+    dataSpeed_Splitted = dataSpeed[dataSpeed$day == uniqueDays[i] | dataSpeed$day == uniqueDays[i+1] | dataSpeed$day == uniqueDays[i+2], ]
+    print("1")
+  }
+  else if(i + 1 <= length(uniqueDays))
+  {
+    dataSpeed_Splitted = dataSpeed[dataSpeed$day == uniqueDays[i] | dataSpeed$day == uniqueDays[i+1], ]
+    print("2")
+  }
+  else
+  {
+    dataSpeed_Splitted = dataSpeed[dataSpeed$day == uniqueDays[i], ]
+    print("3")
+  }
   
   dataSpeed_Splitted = dataSpeed_Splitted %>%
     select(-day)
@@ -217,6 +238,6 @@ foreach(i=1:length(uniqueDays)) %dopar% {
   data.table::fwrite(
     dataSpeed_Splitted,
     nThread = 1,
-    file = paste(f_output, "dataSpeed_", uniqueDays[i], ".csv", sep="", collapse=NULL),
+    file = paste(f_output, "dataSpeed_part_", i, ".csv", sep="", collapse=NULL),
     sep = sep_symbol)
 }
