@@ -21,8 +21,8 @@ registerDoMC(8)
 sep_symbol <- ","
 
 # Folder Locations
-f_database <- "/home/jacco/Documents/Git/DataScience/Database/"
-f_output <- "/home/jacco/Documents/Git/DataScience/Database/"
+f_database <- "/home/jacco/Documents/Git/DataScience/DatabaseWithDate/"
+f_output <- "/home/jacco/Documents/Git/DataScience/DatabaseWithDate/"
 
 # --------------------------------------------------
 # Generate location table --------------------------
