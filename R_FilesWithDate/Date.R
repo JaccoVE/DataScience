@@ -38,17 +38,17 @@ dataFlow = data.table::fread(file = paste(f_database, "dataFlow", ".csv", sep=""
 dataSpeed = data.table::fread(file = paste(f_database, "dataSpeed", ".csv", sep="", collapse=NULL),
                              nThread = 24)
 
-# Select date column of metaFlow and add dataType label
+# Select date column of dataFlow and add dataType label
 dateFlow = dataFlow %>%
   select("date") %>%
   mutate(dataType = "Flow")
 
-# Select date column of metaSpeed and add dataType label
+# Select date column of dataSpeed and add dataType label
 dateSpeed = dataSpeed %>%
   select("date") %>%
   mutate(dataType = "Speed")
 
-# Combine metaRoad, metaFlow and metaSpeed coordinates in 1 data.table
+# Combine dataRoad, dataFlow and dataSpeed dates in 1 data.table
 Date <- rbind(dateFlow, dateSpeed)
 
 # Remove data.tables that are no longer needed
