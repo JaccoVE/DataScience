@@ -185,7 +185,7 @@ dataRoad = dataRoad %>%
          date_start = format(strptime(dataRoad$date_start,format="%Y-%m-%d-%H"), "%Y-%m-%d"),
          date_end = format(strptime(dataRoad$date_end,format="%Y-%m-%d-%H"), "%Y-%m-%d"))
 
-# Delete rows that are now within range
+# Delete rows that are not within range
 dataRoad = dataRoad[!(dataRoad$date_end < min(Date$date)), ]
 dataRoad = dataRoad[!(dataRoad$date_start > max(Date$date)), ]
 
