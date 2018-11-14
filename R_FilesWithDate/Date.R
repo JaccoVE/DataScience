@@ -38,12 +38,12 @@ dataFlow = data.table::fread(file = paste(f_database, "dataFlow", ".csv", sep=""
 dataSpeed = data.table::fread(file = paste(f_database, "dataSpeed", ".csv", sep="", collapse=NULL),
                              nThread = 24)
 
-# Select coordinates of metaFlow
+# Select date column of metaFlow and add dataType label
 dateFlow = dataFlow %>%
   select("date") %>%
   mutate(dataType = "Flow")
 
-# Select coordinates of metaSpeed
+# Select date column of metaSpeed and add dataType label
 dateSpeed = dataSpeed %>%
   select("date") %>%
   mutate(dataType = "Speed")
