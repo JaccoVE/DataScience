@@ -20,22 +20,56 @@ registerDoMC(6)
 sep_symbol <- ","
 
 # Folder Locations
-f_metaSpeed <- "/home/jacco/Documents/Git/DataScience/DatabaseWithDate/metaSpeed.csv"
+f_main <- "/home/jacco/Documents/DataScienceData/Data/NDW/"
+f_metaSpeed <- "/home/jacco/Documents/Git/DataScience/DatabaseWithDate (Revision)/metaSpeed.csv"
+f_speed_meta <- "utwente snelheden groot amsterdam 1 dag met metadata 20160916T105028 197/utwente snelheden groot amsterdam  1 dag met metadata_snelheid_00001.csv"
 f_dataSpeed <- "/home/jacco/Documents/DataScienceData/Data/NDW/utwente snelheden groot amsterdam/utwente snelheden groot amsterdam _snelheid_000"
-f_output <- "/home/jacco/Documents/Git/DataScience/DatabaseWithDate/"
+f_output <- "/home/jacco/Documents/Git/DataScience/DatabaseWithDate (Revision)/"
 
 # Load metaSpeed
 metaSpeed <- data.table::fread(file = paste(f_metaSpeed, sep="", collapse=NULL),
                                         nThread = 24)
 
+# Load meta data speed
+metaSpeedFull <- data.table::fread(file = paste(f_main, f_speed_meta, sep="", collapse=NULL),
+                               nThread = 24)
+
+# Get all indexes where specificVehicleCharacteristics equals anyVehicle
+anyVehicleIndexes <- metaSpeedFull$index[metaSpeedFull$specificVehicleCharacteristics == "anyVehicle"] %>%
+  unique()
+
+# Remove unused tables
+remove(metaSpeedFull)
+
 # Collect garbage
 gc()
 
 # --------------------------------------------------
-# Create dataSpeed table ---------------------------
+# Functions ----------------------------------------
+func_mean <- function(x, w ){
+  if(anyNA(w)) # Return Harmonic Mean if we have no weight value
+  {
+    return(length(x)/sum(1/x))
+  }
+  else # Return Weighed Harmonic Mean
+  {
+    return(sum(w)/(sum(w/x)))
+  }
+}
 
-# Get all speedID's where specificVehicleCharacteristics equals anyVehicle
-anyVehicleIDs <- metaSpeed$speedID[metaSpeed$specificVehicleCharacteristics == "anyVehicle"]
+func_sd <- function(x, w ){
+  if(length(x) - 1 == 0) # Return zero for the Standard Deviation if only one value is used
+  {
+    return(0)
+  }
+  else # Return Standard Deviation
+  {
+    return(sqrt(sum((x - func_mean(x,w))^2) / (length(x) - 1))) 
+  }
+}
+
+# --------------------------------------------------
+# Create dataSpeed table ---------------------------
 
 # List of data.table's
 dataSpeed_list <- list()
@@ -53,11 +87,16 @@ dataSpeed_list <- foreach(i=1:25) %dopar% {
   dataSpeed = data.table::fread(file = paste(f_dataSpeed, s_file_num, ".csv", sep="", collapse=NULL),
                                      nThread = 1)
   
+  # Remove all rows that are not anyVehicle
+  dataSpeed = dataSpeed[ dataSpeed$index %in% anyVehicleIndexes, ]
+  
+  # Collect garbage
+  gc()
+  
   # Select data
   dataSpeed = dataSpeed %>%
     select(
       "measurementSiteReference",
-      "index",
       "periodStart",
       "periodEnd",
       "numberOfInputValuesused",
@@ -66,7 +105,6 @@ dataSpeed_list <- foreach(i=1:25) %dopar% {
       "avgVehicleSpeed") %>%
     rename(
       meas_site_ref = "measurementSiteReference",
-      ind = "index",
       per_start = "periodStart",
       per_end = "periodEnd",
       num_in_use = "numberOfInputValuesused",
@@ -88,8 +126,8 @@ dataSpeed_list <- foreach(i=1:25) %dopar% {
   # Collect garbage
   gc()
   
-  # Remove all rows that contain -1's for speed and do not have 0's for numberOfIncompleteInputs and numberOfInputValuesUsed
-  dataSpeed = dataSpeed[!(dataSpeed$avg_speed == -1 & dataSpeed$num_in_use != 0 & dataSpeed$num_in_in != 0),]
+  # Remove all speeds smaller or equal to zero (invalid speeds)
+  dataSpeed = dataSpeed[which(dataSpeed$avg_speed>0),]
   
   # Collect garbage
   gc()
@@ -97,15 +135,8 @@ dataSpeed_list <- foreach(i=1:25) %dopar% {
   # Remove unuseful columns
   dataSpeed = dataSpeed %>%
     select( 
-      -num_in_use,
       -num_in_in,
       -error)
-  
-  # Collect garbage
-  gc()
-  
-  # Remove remaining rows with NA's
-  dataSpeed = na.omit(dataSpeed) 
   
   # Collect garbage
   gc()
@@ -115,21 +146,15 @@ dataSpeed_list <- foreach(i=1:25) %dopar% {
     full_join(
       metaSpeed, 
       by = c(
-        "meas_site_ref" = "measurementSiteReference",
-        "ind" = "index")) %>%
+        "meas_site_ref" = "measurementSiteReference")) %>%
     select( 
       -meas_site_ref, 
-      -ind,
       -startLocatieForDisplayLat,
       -startLocatieForDisplayLong,
-      -ROADNUMBER,
-      -specificVehicleCharacteristics)
+      -ROADNUMBER)
   
   # Collect garbage
   gc()
-  
-  # Remove all rows that are not anyVehicle
-  dataSpeed = dataSpeed[ dataSpeed$speedID %in% anyVehicleIDs, ]
   
   # Add date column and remove period_start and period_end columns
   dataSpeed = dataSpeed %>%
@@ -137,23 +162,19 @@ dataSpeed_list <- foreach(i=1:25) %dopar% {
       date = format(strptime(dataSpeed$per_start,format="%Y-%m-%d %H:%M"), "%Y-%m-%d-%H")) %>%
     select( 
       -per_start,
-      -per_end)
+      -per_end) %>%
+    arrange(speedID,
+            date)
   
   # Collect garbage
   gc()
   
-  # Remove all speeds smaller or equal to zero because we don't 
-  # want to sum negative speeds
-  dataSpeed = dataSpeed[which(dataSpeed$avg_speed>0),]
-  
-  # Collect garbage
-  gc()
-  
-  # Average speed (km/h) for each measurement point per hour and add to list
+  # Calculate weighted harmonic mean of the speed and the standard deviation in km/h for each 
+  # measurement point per hour and add to list
   dataSpeed = dataSpeed %>%
     group_by(speedID,
              date) %>%
-    summarise(avg_speed = mean(avg_speed))%>%
+    summarise(std = func_sd(avg_speed, num_in_use), avg_speed = func_mean(avg_speed, num_in_use)) %>%
     ungroup()
   
   # Collect garbage
@@ -167,11 +188,12 @@ dataSpeed_list <- foreach(i=1:25) %dopar% {
 dataSpeed <- rbindlist(dataSpeed_list)
 
 # Remove overlappings in lists, meaning:
-# sum speeds when date and speedID occurs double
-dataSpeed <- dataSpeed %>%
+# Calculate weighted mean of the speed and the mean of the standard deviation in km/h for each 
+# measurement point per hour
+dataSpeed = dataSpeed %>%
   group_by(speedID,
            date) %>%
-  summarise(avg_speed = mean(avg_speed))%>%
+  summarise(std = mean(std), avg_speed = mean(avg_speed)) %>%
   ungroup()
 
 # Remove all rows that contain NA's for speedID
@@ -191,10 +213,10 @@ dataSpeed = dataSpeed %>%
     hour = format(strptime(dataSpeed$date,format="%Y-%m-%d-%H"), "%H"),
     day = format(strptime(dataSpeed$date,format="%Y-%m-%d-%H"), "%Y-%m-%d"))
 
-# Add reference column (average for each speedID, day of the week and hour of the day)
+# Add reference column (average for each speedID, day of the week and hour of the day - standard deviation)
 dataSpeed = dataSpeed %>%
-  mutate(ref_speedID_dayWeek         = ave(dataSpeed$avg_speed, dataSpeed$speedID, dataSpeed$week_day, FUN = mean),
-         ref_speedID_dayWeek_hourDay = ave(dataSpeed$avg_speed, dataSpeed$speedID, dataSpeed$week_day, dataSpeed$hour, FUN = mean)) %>%
+  mutate(ref_speedID_dayWeek         = ave(dataSpeed$avg_speed, dataSpeed$speedID, dataSpeed$week_day, FUN = mean) - std,
+         ref_speedID_dayWeek_hourDay = ave(dataSpeed$avg_speed, dataSpeed$speedID, dataSpeed$week_day, dataSpeed$hour, FUN = mean) - std) %>%
   select(-hour)
 
 # Add difference column

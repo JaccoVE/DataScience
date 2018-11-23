@@ -20,22 +20,32 @@ registerDoMC(6)
 sep_symbol <- ","
 
 # Folder Locations
-f_metaFlow <- "/home/jacco/Documents/Git/DataScience/DatabaseWithDate/metaFlow.csv"
+f_main <- "/home/jacco/Documents/DataScienceData/Data/NDW/"
+f_metaFlow <- "/home/jacco/Documents/Git/DataScience/DatabaseWithDate (Revision)/metaFlow.csv"
+f_flow_meta <- "utwente intensiteiten groot amsterdam 1 dag met metadata (2) 20160916T104708 197/utwente intensiteiten groot amsterdam  1 dag met metadata (2)_intensiteit_00001.csv"
 f_dataFlow <- "/home/jacco/Documents/DataScienceData/Data/NDW/utwente intensiteiten groot amsterdam/utwente intensiteiten groot amsterdam _intensiteit_000"
-f_output <- "/home/jacco/Documents/Git/DataScience/DatabaseWithDate/"
+f_output <- "/home/jacco/Documents/Git/DataScience/DatabaseWithDate (Revision)/"
 
 # Load metaFlow
 metaFlow <- data.table::fread(file = paste(f_metaFlow, sep="", collapse=NULL),
                                         nThread = 24)
 
+# Load meta data flow
+metaFlowFull <- data.table::fread(file = paste(f_main, f_flow_meta, sep="", collapse=NULL),
+                               nThread = 24)
+
+# Get all indexes where specificVehicleCharacteristics equals anyVehicle
+anyVehicleIndexes <- metaFlowFull$index[metaFlowFull$specificVehicleCharacteristics == "anyVehicle"] %>%
+  unique()
+
+# Remove unused tables
+remove(metaFlowFull)
+
 # Collect garbage
 gc()
 
 # --------------------------------------------------
-# Create flowID table ---------------------------
-
-# Get all flowID's where specificVehicleCharacteristics equals anyVehicle
-anyVehicleIDs <- metaFlow$flowID[metaFlow$specificVehicleCharacteristics == "anyVehicle"]
+# Create dataFlow table ---------------------------
 
 # List of data.table's
 dataFlow_list <- list()
@@ -53,11 +63,16 @@ dataFlow_list <- foreach(i=1:27) %dopar% {
   dataFlow = data.table::fread(file = paste(f_dataFlow, s_file_num, ".csv", sep="", collapse=NULL),
                                      nThread = 1)
   
+  # Remove all rows that are not anyVehicle
+  dataFlow = dataFlow[ dataFlow$index %in% anyVehicleIndexes, ]
+  
+  # Collect garbage
+  gc()
+  
   # Select data
   dataFlow = dataFlow %>%
     select(
       "measurementSiteReference",
-      "index",
       "periodStart",
       "periodEnd",
       "numberOfInputValuesused",
@@ -66,7 +81,6 @@ dataFlow_list <- foreach(i=1:27) %dopar% {
       "avgVehicleFlow") %>%
     rename(
       meas_site_ref = "measurementSiteReference",
-      ind = "index",
       per_start = "periodStart",
       per_end = "periodEnd",
       num_in_use = "numberOfInputValuesused",
@@ -97,15 +111,8 @@ dataFlow_list <- foreach(i=1:27) %dopar% {
   # Remove unuseful columns
   dataFlow = dataFlow %>%
     select( 
-      -num_in_use,
       -num_in_in,
       -error)
-  
-  # Collect garbage
-  gc()
-  
-  # Remove remaining rows with NA's
-  dataFlow = na.omit(dataFlow) 
   
   # Collect garbage
   gc()
@@ -115,21 +122,15 @@ dataFlow_list <- foreach(i=1:27) %dopar% {
     full_join(
       metaFlow, 
       by = c(
-        "meas_site_ref" = "measurementSiteReference",
-        "ind" = "index")) %>%
+        "meas_site_ref" = "measurementSiteReference")) %>%
     select( 
       -meas_site_ref, 
-      -ind,
       -startLocatieForDisplayLat,
       -startLocatieForDisplayLong,
-      -ROADNUMBER,
-      -specificVehicleCharacteristics)
+      -ROADNUMBER)
   
   # Collect garbage
   gc()
-  
-  # Remove all rows that are not anyVehicle
-  dataFlow = dataFlow[ dataFlow$flowID %in% anyVehicleIDs, ]
   
   # Add date column and remove period_start and period_end columns
   dataFlow = dataFlow %>%
@@ -137,23 +138,19 @@ dataFlow_list <- foreach(i=1:27) %dopar% {
       date = format(strptime(dataFlow$per_start,format="%Y-%m-%d %H:%M"), "%Y-%m-%d-%H")) %>%
     select( 
       -per_start,
-      -per_end)
+      -per_end) %>%
+    arrange(flowID,
+            date)
   
   # Collect garbage
   gc()
   
-  # Remove all flows smaller or equal to zero because we don't 
-  # want to sum negative flows
-  dataFlow = dataFlow[which(dataFlow$avg_flow>0),]
-  
-  # Collect garbage
-  gc()
-  
-  # Average flow (cars/h) for each measurement point per hour and add to list
+  # Calculate mean of the flow and the standard deviation in km/h for each 
+  # measurement point per hour and add to list
   dataFlow = dataFlow %>%
     group_by(flowID,
              date) %>%
-    summarise(avg_flow = mean(avg_flow))%>%
+    summarise(std = sd(avg_flow), avg_flow = mean(avg_flow)) %>%
     ungroup()
   
   # Collect garbage
@@ -167,11 +164,12 @@ dataFlow_list <- foreach(i=1:27) %dopar% {
 dataFlow <- rbindlist(dataFlow_list)
 
 # Remove overlappings in lists, meaning:
-# sum flows when date and flowID occurs double
-dataFlow <- dataFlow %>%
+# Calculate mean of the flow and the mean of the standard deviation in km/h for each 
+# measurement point per hour
+dataFlow = dataFlow %>%
   group_by(flowID,
            date) %>%
-  summarise(avg_flow = mean(avg_flow))%>%
+  summarise(std = mean(std), avg_flow = mean(avg_flow)) %>%
   ungroup()
 
 # Remove all rows that contain NA's for flowID
@@ -191,10 +189,10 @@ dataFlow = dataFlow %>%
     hour = format(strptime(dataFlow$date,format="%Y-%m-%d-%H"), "%H"),
     day = format(strptime(dataFlow$date,format="%Y-%m-%d-%H"), "%Y-%m-%d"))
 
-# Add reference column (average for each flowID, day of the week and hour of the day)
+# Add reference column (average for each flowID, day of the week and hour of the day - the standard deviation)
 dataFlow = dataFlow %>%
-  mutate(ref_flowID_dayWeek         = ave(dataFlow$avg_flow, dataFlow$flowID, dataFlow$week_day, FUN = mean),
-         ref_flowID_dayWeek_hourDay = ave(dataFlow$avg_flow, dataFlow$flowID, dataFlow$week_day, dataFlow$hour, FUN = mean)) %>%
+  mutate(ref_flowID_dayWeek         = ave(dataFlow$avg_flow, dataFlow$flowID, dataFlow$week_day, FUN = mean) - std,
+         ref_flowID_dayWeek_hourDay = ave(dataFlow$avg_flow, dataFlow$flowID, dataFlow$week_day, dataFlow$hour, FUN = mean) - std) %>%
   select(-hour)
 
 # Add difference column

@@ -20,8 +20,8 @@ registerDoMC(20)
 sep_symbol <- ","
 
 # Folder Locations
-f_database <- "/home/jacco/Documents/Git/DataScience/DatabaseWithDate/"
-f_output <- "/home/jacco/Documents/Git/DataScience/DatabaseWithDate/"
+f_database <- "/home/jacco/Documents/Git/DataScience/DatabaseWithDate (Revision)/"
+f_output <- "/home/jacco/Documents/Git/DataScience/DatabaseWithDate (Revision)/"
 
 # --------------------------------------------------
 # Generate date table --------------------------
@@ -185,8 +185,8 @@ dataRoad = dataRoad %>%
          date_start = format(strptime(dataRoad$date_start,format="%Y-%m-%d-%H"), "%Y-%m-%d"),
          date_end = format(strptime(dataRoad$date_end,format="%Y-%m-%d-%H"), "%Y-%m-%d"))
 
-# Delete rows that are now within range
-dataRoad = dataRoad[!(dataRoad$date_end < min(Date$date)), ]
+# Delete rows that are not within range
+dataRoadtest = dataRoad[!(dataRoad$date_end < min(Date$date)), ]
 dataRoad = dataRoad[!(dataRoad$date_start > max(Date$date)), ]
 
 # Remove remaining rows with NA's

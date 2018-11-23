@@ -23,7 +23,7 @@ sep_symbol <- ","
 #f_main <- "/media/jacco/HDD/DataScienceData/Data/NDW/"
 f_main <- "/home/jacco/Documents/DataScienceData/Data/NDW/"
 f_speed_meta <- "utwente snelheden groot amsterdam 1 dag met metadata 20160916T105028 197/utwente snelheden groot amsterdam  1 dag met metadata_snelheid_00001.csv"
-f_output <- "/home/jacco/Documents/Git/DataScience/DatabaseWithDate/"
+f_output <- "/home/jacco/Documents/Git/DataScience/DatabaseWithDate (Revision)/"
 
 # --------------------------------------------------
 # Create UniqueSiteReference tables speed ----------
@@ -35,12 +35,13 @@ gc()
 metaSpeed <- data.table::fread(file = paste(f_main, f_speed_meta, sep="", collapse=NULL),
                                         nThread = 24)
 
+# Remove all rows that are not anyVehicle
+metaSpeed = metaSpeed[ metaSpeed$specificVehicleCharacteristics == "anyVehicle", ]
+
 # Unique Sites
 metaSpeed <- metaSpeed %>%
   select(
     "measurementSiteReference",
-    "index",
-    "specificVehicleCharacteristics",
     "startLocatieForDisplayLat",
     "startLocatieForDisplayLong",
     "ROADNUMBER") %>%

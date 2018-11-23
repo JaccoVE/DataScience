@@ -20,8 +20,8 @@ registerDoMC(9)
 sep_symbol <- ","
 
 # Folder Locations
-f_road <- "/home/jacco/Documents/Git/DataScience/DatabaseWithDate/road_data.csv"
-f_output <- "/home/jacco/Documents/Git/DataScience/DatabaseWithDate/"
+f_road <- "/home/jacco/Documents/Git/DataScience/DatabaseWithDate (Revision)/road_data.csv"
+f_output <- "/home/jacco/Documents/Git/DataScience/DatabaseWithDate (Revision)/"
 
 # ----------------------------------------------------
 # Generate metaRoad.csv
