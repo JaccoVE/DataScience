@@ -215,14 +215,14 @@ dataSpeed = dataSpeed %>%
 
 # Add reference column (average for each speedID, day of the week and hour of the day - standard deviation)
 dataSpeed = dataSpeed %>%
-  mutate(ref_speedID_dayWeek         = ave(dataSpeed$avg_speed, dataSpeed$speedID, dataSpeed$week_day, FUN = mean) - std,
-         ref_speedID_dayWeek_hourDay = ave(dataSpeed$avg_speed, dataSpeed$speedID, dataSpeed$week_day, dataSpeed$hour, FUN = mean) - std) %>%
+  mutate(dif_speedID_dayWeek         = ave(dataSpeed$avg_speed, dataSpeed$speedID, dataSpeed$week_day, FUN = mean) - dataSpeed$avg_speed,
+         dif_speedID_dayWeek_hourDay = ave(dataSpeed$avg_speed, dataSpeed$speedID, dataSpeed$week_day, dataSpeed$hour, FUN = mean) - dataSpeed$avg_speed) %>%
   select(-hour)
 
 # Add difference column
 dataSpeed = dataSpeed %>%
-  mutate(dif_speedID_dayWeek         = dataSpeed$avg_speed - dataSpeed$ref_speedID_dayWeek,
-         dif_speedID_dayWeek_hourDay = dataSpeed$avg_speed - dataSpeed$ref_speedID_dayWeek_hourDay)
+  mutate(sig_dif_speedID_dayWeek         = dataSpeed$dif_speedID_dayWeek - dataSpeed$std,
+         sig_dif_speedID_dayWeek_hourDay = dataSpeed$dif_speedID_dayWeek_hourDay - dataSpeed$std)
 
 # Save to file
 data.table::fwrite(

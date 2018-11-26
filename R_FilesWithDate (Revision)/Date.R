@@ -69,6 +69,9 @@ Date <- Date %>%
     hour = format(strptime(Date$date,format="%Y-%m-%d-%H"), "%H")) %>%
   arrange(date, hour)
 
+# Remove all rows that contain NA's for date
+Date = Date[!is.na(Date$date),]
+
 # Collect garbage
 gc()
 
@@ -186,7 +189,7 @@ dataRoad = dataRoad %>%
          date_end = format(strptime(dataRoad$date_end,format="%Y-%m-%d-%H"), "%Y-%m-%d"))
 
 # Delete rows that are not within range
-dataRoadtest = dataRoad[!(dataRoad$date_end < min(Date$date)), ]
+dataRoad = dataRoad[!(dataRoad$date_end < min(Date$date)), ]
 dataRoad = dataRoad[!(dataRoad$date_start > max(Date$date)), ]
 
 # Remove remaining rows with NA's

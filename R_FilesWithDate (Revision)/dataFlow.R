@@ -189,16 +189,16 @@ dataFlow = dataFlow %>%
     hour = format(strptime(dataFlow$date,format="%Y-%m-%d-%H"), "%H"),
     day = format(strptime(dataFlow$date,format="%Y-%m-%d-%H"), "%Y-%m-%d"))
 
-# Add reference column (average for each flowID, day of the week and hour of the day - the standard deviation)
+# Add reference column (average for each flowID, day of the week and hour of the day + the standard deviation)
 dataFlow = dataFlow %>%
-  mutate(ref_flowID_dayWeek         = ave(dataFlow$avg_flow, dataFlow$flowID, dataFlow$week_day, FUN = mean) - std,
-         ref_flowID_dayWeek_hourDay = ave(dataFlow$avg_flow, dataFlow$flowID, dataFlow$week_day, dataFlow$hour, FUN = mean) - std) %>%
+  mutate(dif_flowID_dayWeek         = ave(dataFlow$avg_flow, dataFlow$flowID, dataFlow$week_day, FUN = mean) - dataFlow$avg_flow,
+         dif_flowID_dayWeek_hourDay = ave(dataFlow$avg_flow, dataFlow$flowID, dataFlow$week_day, dataFlow$hour, FUN = mean) - dataFlow$avg_flow) %>%
   select(-hour)
 
 # Add difference column
 dataFlow = dataFlow %>%
-  mutate(dif_flowID_dayWeek         = dataFlow$avg_flow - dataFlow$ref_flowID_dayWeek,
-         dif_flowID_dayWeek_hourDay = dataFlow$avg_flow - dataFlow$ref_flowID_dayWeek_hourDay)
+  mutate(sig_dif_flowID_dayWeek         = dataFlow$dif_flowID_dayWeek - dataFlow$std,
+         sig_dif_flowID_dayWeek_hourDay = dataFlow$dif_flowID_dayWeek_hourDay - dataFlow$std)
 
 # Save to file
 data.table::fwrite(
