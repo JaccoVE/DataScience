@@ -24,7 +24,7 @@ f_database <- "/home/jacco/Documents/Git/DataScience/DatabaseWithDate (Revision)
 f_output <- "/home/jacco/Documents/Git/DataScience/DatabaseWithDate (Revision)/"
 
 # --------------------------------------------------
-# Generate date table --------------------------
+# Generate a first version of the date table -------
 
 # Load dataRoad
 dataRoad = data.table::fread(file = paste(f_database, "dataRoad", ".csv", sep="", collapse=NULL),
@@ -38,12 +38,12 @@ dataFlow = data.table::fread(file = paste(f_database, "dataFlow", ".csv", sep=""
 dataSpeed = data.table::fread(file = paste(f_database, "dataSpeed", ".csv", sep="", collapse=NULL),
                              nThread = 24)
 
-# Select coordinates of metaFlow
+# Select date of metaFlow
 dateFlow = dataFlow %>%
   select("date") %>%
   mutate(dataType = "Flow")
 
-# Select coordinates of metaSpeed
+# Select date of metaSpeed
 dateSpeed = dataSpeed %>%
   select("date") %>%
   mutate(dataType = "Speed")
@@ -74,99 +74,6 @@ Date = Date[!is.na(Date$date),]
 
 # Collect garbage
 gc()
-
-# Add dateID
-Date <- Date %>%
-  mutate(dateID = row_number())
-
-# Save to csv file
-data.table::fwrite(Date,
-                   nThread = 24,
-                   file = paste(f_output, "Date.csv", sep="", collapse=NULL),
-                   sep = sep_symbol)
-
-# --------------------------------------------------
-# Join Date table with dataFlow and dataSpeed files 
-
-# Combine Date with dataFlow
-dataFlow = dataFlow %>%
-  mutate(date = format(strptime(dataFlow$date,format="%Y-%m-%d-%H"), "%Y-%m-%d"),
-         hour = format(strptime(dataFlow$date,format="%Y-%m-%d-%H"), "%H"),
-         dataType = "Flow") %>%
-  rename(
-    dateFlow = "date",
-    hourFlow = "hour",
-    dataTypeFlow = "dataType") %>%
-  inner_join(
-    Date,
-    by = c(
-      "dateFlow" = "date",
-      "hourFlow" = "hour",
-      "dataTypeFlow" = "dataType")) %>%
-  select(
-    -dateFlow,
-    -hourFlow,
-    -dataTypeFlow,
-    -week_day)
-
-# Combine Date with dataSpeed
-dataSpeed = dataSpeed %>%
-  mutate(date = format(strptime(dataSpeed$date,format="%Y-%m-%d-%H"), "%Y-%m-%d"),
-         hour = format(strptime(dataSpeed$date,format="%Y-%m-%d-%H"), "%H"),
-         dataType = "Speed") %>%
-  rename(
-    dateSpeed = "date",
-    hourSpeed = "hour",
-    dataTypeSpeed = "dataType") %>%
-  inner_join(
-    Date,
-    by = c(
-      "dateSpeed" = "date",
-      "hourSpeed" = "hour",
-      "dataTypeSpeed" = "dataType")) %>%
-  select(
-    -dateSpeed,
-    -hourSpeed,
-    -dataTypeSpeed,
-    -week_day)
-
-# Determine unique days
-uniqueDays = unique(dataSpeed$day)
-
-# Iterate over each file in parallel
-foreach(i=1:length(uniqueDays)) %dopar% {
-  
-  dataSpeed_Splitted = dataSpeed[dataSpeed$day == uniqueDays[i], ]
-  
-  dataSpeed_Splitted = dataSpeed_Splitted %>%
-    select(-day)
-  
-  # Save to file
-  data.table::fwrite(
-    dataSpeed_Splitted,
-    nThread = 1,
-    file = paste(f_output, "dataSpeed/dataSpeed_", uniqueDays[i], ".csv", sep="", collapse=NULL),
-    sep = sep_symbol)
-}
-
-# Determine unique days
-uniqueDays = unique(dataFlow$day)
-
-# Iterate over each file in parallel
-foreach(i=1:length(uniqueDays)) %dopar% {
-  
-  dataFlow_Splitted = dataFlow[dataFlow$day == uniqueDays[i], ]
-  
-  dataFlow_Splitted = dataFlow_Splitted %>%
-    select(-day)
-  
-  # Save to file
-  data.table::fwrite(
-    dataFlow_Splitted,
-    nThread = 1,
-    file = paste(f_output, "dataFlow/dataFlow_", uniqueDays[i], ".csv", sep="", collapse=NULL),
-    sep = sep_symbol)
-}
 
 # --------------------------------------------------
 # Remove dates that are not in range and adjust range
@@ -249,7 +156,8 @@ dataRoad_list <- foreach(i=1:nrow(dataRoad)) %dopar% {
   dataRoad_expand = dataRoad_expand[rep(seq_len(nrow(dataRoad_expand)), each=length(sequence)),]
   
   dataRoad_expand = dataRoad_expand %>%
-    mutate(date = sequence)
+    mutate(date = as.character(sequence))
+    
   
   returnValue(dataRoad_expand)
   
@@ -309,16 +217,147 @@ dataRoad = dataRoad %>%
 dataRoad = dataRoad %>%
   mutate(hour = format(strptime(dataRoad$hour,format="%Y-%m-%d %H"), "%H"))
 
-# --------------------------------------------------
-# Save to file -------------------------------------
+# Remove unused data
+remove(dataRoad_list)
+
+# Collect garbage
+gc()
+
+# ------------------------------------------------------
+# Add dataRoad dates to Date table ---------------------
+
+# Select date of dataRoad
+dateRoad = dataRoad %>%
+  select("date",
+         "hour") %>%
+  mutate(dataType = "Road") %>%
+  unique()
+
+# Add dateRoad to Date table
+Date <- rbind(dateRoad, Date)
+
+# Arrange by date and hour and add dateID
+Date <- Date %>%
+  arrange(date, hour) %>%
+  mutate(dateID = row_number())
+
+# Remove unused data
+remove(dateRoad)
+
+# Collect garbage
+gc()
+
+# ------------------------------------------------------
+# Join Date table with dataFlow, dataSpeed and dataRoad 
+
+# Combine Date with dataFlow
+dataFlow = dataFlow %>%
+  mutate(date = format(strptime(dataFlow$date,format="%Y-%m-%d-%H"), "%Y-%m-%d"),
+         hour = format(strptime(dataFlow$date,format="%Y-%m-%d-%H"), "%H"),
+         dataType = "Flow") %>%
+  rename(
+    dateFlow = "date",
+    hourFlow = "hour",
+    dataTypeFlow = "dataType") %>%
+  inner_join(
+    Date,
+    by = c(
+      "dateFlow" = "date",
+      "hourFlow" = "hour",
+      "dataTypeFlow" = "dataType")) %>%
+  select(
+    -hourFlow,
+    -dataTypeFlow,
+    -week_day)
+
+# Combine Date with dataSpeed
+dataSpeed = dataSpeed %>%
+  mutate(date = format(strptime(dataSpeed$date,format="%Y-%m-%d-%H"), "%Y-%m-%d"),
+         hour = format(strptime(dataSpeed$date,format="%Y-%m-%d-%H"), "%H"),
+         dataType = "Speed") %>%
+  rename(
+    dateSpeed = "date",
+    hourSpeed = "hour",
+    dataTypeSpeed = "dataType") %>%
+  inner_join(
+    Date,
+    by = c(
+      "dateSpeed" = "date",
+      "hourSpeed" = "hour",
+      "dataTypeSpeed" = "dataType")) %>%
+  select(
+    -hourSpeed,
+    -dataTypeSpeed,
+    -week_day)
+
+# Combine Date with dataRoad
+dataRoad = dataRoad %>%
+  mutate(dataType = "Road") %>%
+  rename(
+    dateRoad = "date",
+    hourRoad = "hour",
+    dataTypeRoad = "dataType") %>%
+  inner_join(
+    Date,
+    by = c(
+      "dateRoad" = "date",
+      "hourRoad" = "hour",
+      "dataTypeRoad" = "dataType")) %>%
+  select(
+    -hourRoad,
+    -dataTypeRoad)
+
+# ------------------------------------------------------------------
+# Save dataSpeed, dataFlow, dataRoad and Date tables to file -------
 
 # Determine unique days
-uniqueDays = unique(dataRoad$date)
+uniqueDays = unique(dataSpeed$dateSpeed)
 
 # Iterate over each file in parallel
 foreach(i=1:length(uniqueDays)) %dopar% {
   
-  dataRoad_Splitted = dataRoad[dataRoad$date == uniqueDays[i], ]
+  dataSpeed_Splitted = dataSpeed[dataSpeed$dateSpeed == uniqueDays[i], ]
+  
+  dataSpeed_Splitted = dataSpeed_Splitted %>%
+    select(-dateSpeed)
+  
+  # Save to file
+  data.table::fwrite(
+    dataSpeed_Splitted,
+    nThread = 1,
+    file = paste(f_output, "dataSpeed/dataSpeed_", uniqueDays[i], ".csv", sep="", collapse=NULL),
+    sep = sep_symbol)
+}
+
+# Determine unique days
+uniqueDays = unique(dataFlow$dateFlow)
+
+# Iterate over each file in parallel
+foreach(i=1:length(uniqueDays)) %dopar% {
+  
+  dataFlow_Splitted = dataFlow[dataFlow$dateFlow == uniqueDays[i], ]
+  
+  dataFlow_Splitted = dataFlow_Splitted %>%
+    select(-dateFlow)
+  
+  # Save to file
+  data.table::fwrite(
+    dataFlow_Splitted,
+    nThread = 1,
+    file = paste(f_output, "dataFlow/dataFlow_", uniqueDays[i], ".csv", sep="", collapse=NULL),
+    sep = sep_symbol)
+}
+
+# Determine unique days
+uniqueDays = unique(dataRoad$dateRoad)
+
+# Iterate over each file in parallel
+foreach(i=1:length(uniqueDays)) %dopar% {
+  
+  dataRoad_Splitted = dataRoad[dataRoad$dateRoad == uniqueDays[i], ]
+  
+  dataRoad_Splitted = dataRoad_Splitted %>%
+    select(-dateRoad)
   
   # Save to file
   data.table::fwrite(
@@ -328,7 +367,9 @@ foreach(i=1:length(uniqueDays)) %dopar% {
     sep = sep_symbol)
 }
 
-
-
-
+# Save Date to csv file
+data.table::fwrite(Date,
+                   nThread = 24,
+                   file = paste(f_output, "Date.csv", sep="", collapse=NULL),
+                   sep = sep_symbol)
 
