@@ -1,0 +1,191 @@
+\documentclass[sigconf]{acmart}
+%remove acm related stuff
+\settopmatter{printacmref=false} % Removes citation information below abstract
+\renewcommand\footnotetextcopyrightpermission[1]{} % removes footnote with conference information in first column
+\pagestyle{plain} % removes running headers
+\usepackage{subfigure}
+\usepackage{booktabs} % For formal tables
+
+\begin{document}
+
+\title{Influences of Road Works on the Traffic Conditions in the
+Amsterdam Area}
+\subtitle{
+Transport Domain\\
+Primary Topic: DPV, Secondary Topic: SEMI \\
+Course: 2018-1A --  Group: XXX -- Submission Date: 2018-XX-XX \\
+}
+
+\author{Duncan Jansen}
+\affiliation{%
+  \institution{University of Twente}
+}
+\email{d.j.jansen@student.utwente.nl}
+
+\author{Jacco van Ekris}
+\affiliation{%
+  \institution{University of Twente}
+}
+\email{c.j.vanekris@student.utwente.nl}
+
+\begin{abstract}
+
+Visualizations of the traffic conditions in the Amsterdam area were analyzed to asses the impact of road works and to derive correlations, which could be used to derive knowledge for future road work scheduling. 
+
+The data for these visualizations were provided by the Nationale Databank Wegverkeergegevens (NDW). The available data for speed, traffic flow and road works was pre-processed in R for visualizations in Tableau.
+
+Numerous visualizations were made that contributed to the assessment of the impact; location of measurement points, location of road works, geographical heat maps of average traffic flow/speed and geographical heat maps of the significant deviation of traffic flow/speed.
+
+\textbf{Summarize Discussion}
+
+\textbf{Summarize Conclusion}
+
+\end{abstract}
+
+\keywords{Visualizations, Traffic flow, Traffic speed, Road works, Amsterdam
+Area.}
+
+\maketitle
+
+\section{Introduction}
+
+How and when does one schedule road works? It might seem easy and not of great importance, but there are some real advantages of efficient road work scheduling. Efficient road work scheduling will limit the nuisance of traffic jams for commuters and costs for transportation companies \textbf{[SOURCE]}. But an even more important reason is that it will limit the vehicle emissions, which have serious consequences for the climate and health risks, due air pollution, for the population \textbf{[source]}.
+
+One method to increase the efficiency of road work scheduling is to learn from past situations. If specific traffic conditions could be correlated to road works, one could derive knowledge from these correlations and apply this during future road work scheduling. Per example, if it is known how road works impact traffic conditions on certain roads, it is easier to schedule which road works to do at the same time in a certain area.
+
+The aim of this project is to derive such correlations by analyzing visualizations of the traffic conditions in the neighborhood of road works. The project will be limited to the Amsterdam area and make use of the data provided by NDW on speed, flow and road works.
+
+This report continues with the method, which analyses the data, explains the pre-processing- and visualization steps; Results consisting of visualizations and cases; Discussion of the results; Conclusion, reflecting back on the aim of the project.
+
+\section{Method}
+This section describes what data is available and how the data was processed to make the visualizations.
+
+\subsection{NDW data}
+The NDW data set contains flow, speed and time data in CSV format where each part is divided in one meta data file and multiple files containing the measurement data. For each measurement location the meta data file provides the coordinates (latitude and longitude) and other information like road number or lane number.
+
+\subsection{Status data}
+The Status data set provides all kinds of information that may influence the flow, speed and time data like the opening of bridges, cars that broke down and road maintenance. For each situation that occurred, a separate XML file is given.
+
+\subsection{Pre-processing the data}
+In order to answer the research question, flow and speed data is obtained from the NDW data set and roadworks data is obtained from the Status data set. To make the data sets suitable for visualization in Tableau, the following database structure is used:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\linewidth]{Images/Database.png}
+    \caption{Database Structure}
+    \label{fig:database_stucture}
+\end{figure}
+
+\newpage
+
+The database in Figure \ref{fig:database_stucture} is realized in the following manner:
+\begin{itemize}
+    \item \textbf{Creation of metaFlow and metaSpeed tables:}
+    \begin{itemize}
+        \item Load CSV file containing the meta data and select the columns measurementSiteReference, specificVehicleCharacteristics, roadNumber, latitude and longitude.
+        \item Remove all rows that are not anyVehicle and remove the specificVehicleCharacteristics column.
+        \item Arrange, group by measurementSiteReference, make distinct and ungroup.
+        \item Add flowID/speedID using its row number.
+        \item Save the resulting table to a CSV file called "metaFlow.csv" or "metaSpeed.csv"
+    \end{itemize}
+\end{itemize}
+
+\begin{itemize}
+    \item \textbf{Creation of metaRoad table:}
+    \begin{itemize}
+        \item Convert each XML file to one CSV file called "road\_data.csv" which contains all situations by selecting the following items: overallStartTime, overallEndTime, probabilityOfOccurrence, operatorActionStatus, sourceName and carriageway, latitude, longitude. 
+        \item Load the "road\_data.csv" file and select all the data in Amsterdam area using maximum and minimum latitudes and longitudes.
+        \item Select the columns carriageway, latitude and longitude.
+        \item Make sure that each row is unique and add roadID using its row number.
+        \item Save the resulting table to a CSV file called "metaRoad.csv"
+    \end{itemize}
+\end{itemize}
+
+\begin{itemize}
+    \item \textbf{Creation of dataRoad table:}
+    \begin{itemize}
+        \item Load the "metaRoad.csv" and "road\_data.csv" files.
+        \item From the "road\_data.csv" file, select all the data in Amsterdam area using maximum and minimum latitudes and longitudes.
+        \item Make sure that each row of the data is unique and combine the data with the meta data ("metaRoad.csv") using a full join by carrigeway, latitude and longitude.
+        \item Arrange the data by overallStartTime and overallEndTime.
+        \item Save the resulting table to a CSV file called "dataRoad.csv".
+    \end{itemize}
+\end{itemize}
+
+\begin{itemize}
+    \item \textbf{Creation of dataFlow and dataSpeed tables:}
+    \begin{itemize}
+        \item Load the "metaFlow.csv" or "metaSpeed.csv" and the original meta data file of flow or speed.
+        \item Get all indexes where specificVehicleCharacteristics equals anyVehicle.
+        \item Create an empty list and do for each measurement data file the following: \begin{itemize}
+            \item Load the data file and select the columns measurementSiteReference, periodStart, periodEnd, numberOfInputValuesused, numberOfIncompleteInputs, dataError and avgVehicleFlow/avgVehicleSpeed.
+            \item Remove all rows that are not anyVehicle using the saved indexes and remove all the rows that contain an error based on the columns numberOfInputValuesused, numberOfIncompleteInputs and dataError.
+            \item Remove the columns numberOfIncompleteInputs and dataError and arrange the data by periodStart.
+            \item Combine the data with the meta data ("metaFlow.csv"/"metaSpeed.csv") using a full join by measurementSiteReference.
+            \item Replace the columns periodStart and periodEnd by one date with the corresponding hour (this can be done because the time between periodStart and periodEnd is always 1 minute).
+            \item Calculate for each measurement point, per hour, the mean of the flow and the corresponding standard deviation for all the lanes combined OR calculate for each measurement point, per hour, the weighted harmonic mean of the speed and the corresponding standard deviation for all the lanes combined.
+            \item Add the resulting table to the list.
+        \end{itemize}
+        \item Combine all the items in the list to one large table and remove overlapping data that may occur in the large table.
+        \item Add day of the week column based on date column.
+        \item Add difference column that is based on the average for each measurement point (flowID/speedID), day of the week and hour of the day minus the current avg\_speed/avg\_flow.
+        \item Add a significant difference column based on the difference column plus the standard deviation.
+        \item Save the resulting table to a CSV file called "dataFlow.csv" or "dataSpeed.csv".
+    \end{itemize}
+\end{itemize}
+
+\begin{itemize}
+    \item \textbf{Creation of Date table and enhancements to the dataFlow, dataSpeed and dataRoad tables:}
+    \begin{itemize}
+        \item Load the "dataRoad.csv", "dataFlow.csv" and "dataSpeed.csv" files.
+        \item Get the dates + hour column of dataFlow and dataSpeed and create a Date table with the columns date, hour and dataType.
+        \item Remove all rows in dataRoad that are not within the range of the Date table.
+        \item Replace the periodStart and periodEnd columns in dataRoad with a date and a hour column by generating all the dates and hours between the date range periodStart and periodEnd.
+        \item Add the dataRoad dates and hours to the Date table, arrange by date and hour and add a dateID column based on the row number.
+        \item Do an inner join with dataFlow, dataSpeed and dataRoad and the Date table such that the dates are replaced by an dateID.
+        \item Save the resulting dataFlow, dataSpeed and dataRoad tables by overwriting the original "dataFlow.csv", "dataSpeed.csv" and "dataRoad.csv" files.
+        \item Save the Date table to a CSV file called "Date.csv".
+    \end{itemize}
+\end{itemize}
+
+\subsection{Visualization NDW data}
+
+\section{Results}
+
+\begin{figure*}[tb]
+\hfill
+\subfigure[Road works]{\includegraphics[height=3.19cm,width=5.8cm]{DataScienceReport/Images/LOC_RW.png}}
+\hfill
+\subfigure[Speed measurement sites]{\includegraphics[width=5.8cm]{DataScienceReport/Images/LOC_MPS.png}}
+\hfill
+\subfigure[Flow measurement sites]{\includegraphics[width=5.8cm]{DataScienceReport/Images/LOC_MPF.png}}
+\hfill
+\caption{Locations for measurement sites and road works.}
+\end{figure*}
+
+\begin{figure*}[tb]
+\hfill
+\subfigure[Traffic speed]{\includegraphics[width=8cm]{DataScienceReport/Images/SPEED_AVG.png}}
+\hfill
+\subfigure[Traffic flow]{\includegraphics[width=8cm]{DataScienceReport/Images/FLOW_AVG.png}}
+\hfill
+\caption{Traffic conditions in the Amsterdam area at 17:00 - 10/06/16.}
+\end{figure*}
+
+\begin{figure*}[tb]
+\hfill
+\subfigure[Traffic speed]{\includegraphics[width=8cm]{DataScienceReport/Images/SPEED_SIG.png}}
+\hfill
+\subfigure[Traffic flow]{\includegraphics[width=8cm]{DataScienceReport/Images/FLOW_SIG.png}}
+\hfill
+\caption{Traffic conditions in the Amsterdam area at 17:00 - 10/06/16.}
+\end{figure*}
+
+\section{Discussion}
+
+\section{Conclusions}
+
+\section{Appendix}
+
+
+\end{document}
