@@ -219,7 +219,7 @@ dataSpeed = dataSpeed %>%
          dif_speedID_dayWeek_hourDay = ave(dataSpeed$avg_speed, dataSpeed$speedID, dataSpeed$week_day, dataSpeed$hour, FUN = mean) - dataSpeed$avg_speed) %>%
   select(-hour)
 
-# Add reference column (difference + standard deviation)
+# Add significant difference column (difference + standard deviation)
 dataSpeed = dataSpeed %>%
   mutate(sig_dif_speedID_dayWeek         = dataSpeed$dif_speedID_dayWeek + dataSpeed$std,
          sig_dif_speedID_dayWeek_hourDay = dataSpeed$dif_speedID_dayWeek_hourDay + dataSpeed$std)

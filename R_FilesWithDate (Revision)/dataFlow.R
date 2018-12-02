@@ -195,7 +195,7 @@ dataFlow = dataFlow %>%
          dif_flowID_dayWeek_hourDay = ave(dataFlow$avg_flow, dataFlow$flowID, dataFlow$week_day, dataFlow$hour, FUN = mean) - dataFlow$avg_flow) %>%
   select(-hour)
 
-# Add reference column (difference + standard deviation)
+# Add significant difference column (difference + standard deviation)
 dataFlow = dataFlow %>%
   mutate(sig_dif_flowID_dayWeek         = dataFlow$dif_flowID_dayWeek + dataFlow$std,
          sig_dif_flowID_dayWeek_hourDay = dataFlow$dif_flowID_dayWeek_hourDay + dataFlow$std)
