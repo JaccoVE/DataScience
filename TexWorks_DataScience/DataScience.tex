@@ -1,0 +1,253 @@
+\documentclass[sigconf]{acmart}
+%remove acm related stuff
+\settopmatter{printacmref=false} % Removes citation information below abstract
+\renewcommand\footnotetextcopyrightpermission[1]{} % removes footnote with conference information in first column
+\pagestyle{plain} % removes running headers
+\usepackage{subfigure}
+\usepackage{booktabs} % For formal tables
+\usepackage{animate}
+\usepackage{graphics}
+\usepackage[toc,page]{appendix}
+\usepackage{fancyref}
+\newcommand*{\fancyrefapplabelprefix}{app}
+\frefformat{vario}{\fancyrefapplabelprefix}{appendix~#1#3}
+\Frefformat{vario}{\fancyrefapplabelprefix}{Appendix~#1#3}
+
+\begin{document}
+
+\title{Influences of Road Works on the Traffic Conditions in the
+Amsterdam Area}
+\subtitle{
+Transport Domain\\
+Primary Topic: DPV, Secondary Topic: SEMI \\
+Course: 2018-1A --  Group: 30 -- Submission Date: \today \\
+}
+
+\author{Duncan Jansen}
+\affiliation{%
+  \institution{University of Twente}
+}
+\email{d.j.jansen@student.utwente.nl}
+
+\author{Jacco van Ekris}
+\affiliation{%
+  \institution{University of Twente}
+}
+\email{c.j.vanekris@student.utwente.nl}
+
+\begin{abstract}
+
+Visualizations of the traffic conditions in the Amsterdam area were analyzed to asses the impact of road works. The goal was to obtain correlations between roadworks and traffic conditions, which could be used for future road work scheduling. 
+
+The data for these visualizations were provided by the Nationale Databank Wegverkeergegevens (NDW). The available data for speed, traffic flow and road works was pre-processed in R for visualizations in Tableau.
+
+Numerous visualizations were made that contributed to the assessment of the impact; location of measurement points, location of road works, geographical heat maps of average traffic flow/speed and geographical heat maps of the significant deviation of traffic flow/speed.
+
+\textbf{Summarize Discussion}
+
+\textbf{Summarize Conclusion}
+
+\end{abstract}
+
+\keywords{Visualizations, Traffic flow, Traffic speed, Road works, Amsterdam
+Area.}
+\maketitle
+\section{Introduction}
+
+Where and when does one schedule road works? It might seem trivial, but there are some real advantages of efficient road work scheduling. Efficient road work scheduling will limit the nuisance of traffic jams for commuters and costs for transportation companies. But an even more important reason is that it will limit the vehicle emissions. Vehicle emissions cause air pollution which has serious consequences for the climate \cite{chapman2013urban} and health risks for the population \cite{zhang2013air}.
+
+One method to increase the efficiency of road work scheduling is to learn from past situations. If road works could be correlated to traffic conditions, one could derive knowledge from these correlations and apply this during future road work scheduling. Per example, if it is known how road works impact traffic conditions on a certain road, it can be determined whether the bottle neck of the road will be reached (resulting in a traffic jam). In such a case it might be better to schedule roadworks at a different time or even a different day in the week.
+
+The aim of this project is to derive such correlations by analyzing visualizations of the traffic conditions in the neighborhood of road works. The scope of this project is limited to the Amsterdam area and makes use of the data provided by NDW on speed, flow and road works.
+
+This report continues with the method, which analyses the data, explains the pre-processing- and visualization steps; Results consisting of visualizations and cases; Discussion of the results; Conclusion, reflecting back on the aim of the project.
+
+\section{Approach}
+
+As previously mentioned visualizations are analyzed to derive correlations between roadworks and traffic conditions. The following visualizations are made to help derive such correlations:
+\begin{itemize}
+    \item \textbf{Visualization of measurement point locations and roadwork locations per hour.} Location of measurement points will help with the following two visualization. The visualization of roadwork locations is more important, because it indicates where and at which time roadworks occur.
+    \item \textbf{Visualizations of the average speed and flow at each measurement point per hour.} These visualizations indicate the traffic conditions per hour for the various measurement points.
+    \item \textbf{Visualizations of the significant deviation of the speed and flow at each measurement point per hour.} These visualizations indicate whether there is a significant deviation from the "normal" traffic conditions per hour for the various measurement points.
+\end{itemize}
+
+\noindent How to derive correlations from these visualizations? The idea is to look at when and where a roadwork occurs or whether it is already active. Then determine whether this roadwork results in a significant deviation for some measurement points. If this is the case, the traffic conditions can be obtained from the second visualization. The chapter method will elaborate on the process of obtaining these visualizations.
+
+\section{Method}
+This section describes what data is available, how the data was pre-processed and how the visualizations were made.
+
+\subsection{NDW data}
+The NDW data consists of data sets for flow and speed in CSV format where each part is divided in one meta data file and multiple files containing the measurement data. For each measurement location the meta data file provides the coordinates and other information such as road number or lane number.
+
+Furthermore, the NDW data contains a data set with Status data which provides all kinds of information that may influence the flow and speed data like the opening of bridges, cars that broke down and road maintenance. For each situation that occurred, a separate XML file is given.
+
+Exact information of the original NDW data set can be found in the NDW Manual \cite{NDW_Manual}.
+
+\subsection{Pre-processing the data}
+In order to derive correlations, Flow, Speed and Roadworks data is obtained from the NDW data set. To make the data sets suitable for visualization in Tableau, the database structure in \Fref{fig:database_stucture} is used. The construction of the database in \Fref{fig:database_stucture} is explained in the sections below.
+
+%\begin{figure}[b]
+%    \centering
+%    \includegraphics[width=1\linewidth]{Images/Database.png}
+%    \caption{Database structure}
+%    \label{fig:database_stucture}
+%\end{figure}
+
+\subsubsection{Creation of metaFlow and metaSpeed tables}\hspace*{\fill} \\
+These data sets contain the unique information for each measurement point. It is limited to measurement points which are anyVehicle only.
+\begin{itemize}
+    \item Load CSV file containing the meta data and select the columns measurementSiteReference, specificVehicleCharacteristics, latitude and longitude.
+    \item Remove all rows that are not anyVehicle using the specificVehicleCharacteristics column and remove the specificVehicleCharacteristics column.
+    \item Arrange, group by measurementSiteReference, make distinct and ungroup to obtain all the unique measurement points.
+    \item Give each measurement point an ID number, respectively flowID and speedID.
+\end{itemize}
+
+\subsubsection{Creation of metaRoad table}\hspace*{\fill} \\
+This data set contains the unique information of roadworks and is limited to the Amsterdam area.
+\begin{itemize}
+    \item From each XML file, extract the overallStartTime, overallEndTime, latitude, longitude, ProbabilityOfOccurance, OperatorActionStatus, SourceName and carriageway and save as one CSV file called "road\_data.csv".
+    \item Remove all roadworks which are not within the Amsterdam area using maximum and minimum latitudes and longitudes.
+    \item Remove all information except latitude and longitude.
+    \item Give each roadwork an ID number (roadID).
+\end{itemize}
+
+\subsubsection{Creation of dataRoad table}\hspace*{\fill} \\
+This data set contains the data of the roadworks and is limited to the Amsterdam area.
+\begin{itemize}
+    \item Load the "metaRoad.csv" and "road\_data.csv" files.
+    \item From the "road\_data.csv" file, remove all roadworks which are not within the Amsterdam area using maximum and minimum latitudes and longitudes
+    \item Make sure that each row of the data is unique and combine the data with the meta data ("metaRoad.csv") using a full join by carrigeway, latitude and longitude.
+    \item Arrange the data by overallStartTime and overallEndTime.
+\end{itemize}
+
+\subsubsection{Creation of dataFlow and dataSpeed tables}\hspace*{\fill} \\
+These data sets contain the flow/speed data. It is limited to measurement points which are anyVehicle only.
+\begin{itemize}
+    \item Load the "metaFlow.csv" or "metaSpeed.csv" and the original meta data file of flow or speed.
+    \item Get all indexes where specificVehicleCharacteristics equals anyVehicle.
+    \item Create an empty list and do for each measurement data file the following: \begin{itemize}
+        \item Load the data file and select the columns measurementSiteReference, periodStart, periodEnd, numberOfInputValuesused, numberOfIncompleteInputs, dataError and avgVehicleFlow/avgVehicleSpeed.
+        \item Remove all rows that are not anyVehicle using the saved indexes. 
+        \item Remove all the rows that contain an error based on the columns numberOfInputValuesused, numberOfIncompleteInputs and dataError.
+        \item Remove the columns numberOfIncompleteInputs and dataError and arrange the data by periodStart.
+        \item Combine the data with the meta data ("metaFlow.csv" / "metaSpeed.csv") using a full join by measurementSiteReference.
+        \item Replace the columns periodStart and periodEnd by one date with the corresponding hour (this can be done because the time between periodStart and periodEnd is always 1 minute).
+        \item Calculate for each measurement point, per hour, the mean of the flow and the corresponding standard deviation for all the lanes combined OR calculate for each measurement point, per hour, the weighted harmonic mean of the speed and the corresponding standard deviation for all the lanes combined.
+        \item Add the resulting table to the list.
+    \end{itemize}
+    \item Combine all the items in the list to one large table and remove overlapping data that may occur in the large table.
+    \item Add day of the week column based on date column.
+    \item Add a difference column that is based on the average for each measurement point (flowID/speedID), day of the week and hour of the day minus the current avg\_speed/avg\_flow.
+    \item Add a significant difference column based on the difference column plus the standard deviation.
+    \item Save the resulting table to a CSV file called "dataFlow.csv" or "dataSpeed.csv".
+\end{itemize}
+
+\subsubsection{Creation of Date table and enhancements to dataFlow, dataSpeed and dataRoad}\hspace*{\fill} \\
+The Date table contains all the available dates which have information of the flow, speed and roadworks. The dataFlow, dataSpeed and dataRoad tables have to be modified to replace the dates by a dataID.
+\begin{itemize}
+    \item Load the "dataRoad.csv", "dataFlow.csv" and "dataSpeed.csv" files.
+    \item Get the dates + hour column of dataFlow and dataSpeed and create a Date table with the columns date, hour and dataType (flow/speed).
+    \item Remove all rows in dataRoad that are not within the range of the Date table.
+    \item Replace the periodStart and periodEnd columns in dataRoad with a date and a hour column by generating all the dates and hours between the date range periodStart and periodEnd.
+    \item Add the dataRoad dates and hours to the Date table, arrange by date and hour and add a dateID column based on the row number.
+    \item Do an inner join with dataFlow, dataSpeed and dataRoad and the Date table such that the dates are replaced by an dateID.
+    \item Save the resulting dataFlow, dataSpeed and dataRoad tables by overwriting the original "dataFlow.csv", "dataSpeed.csv" and "dataRoad.csv" files.
+    \item Save the Date table to a CSV file called "Date.csv".
+\end{itemize}
+
+\subsection{Visualization NDW data}
+First of all, the data was imported into tableau and the connections between data sets were created. The data sets are linked based on the ID's and make use of an outer join (see \Fref{fig:tableau}). In the following sections creation of the multiple visualizations is explained.
+
+\subsubsection{Visualization of measurement point locations and road-work locations per hour.}\hspace*{\fill}
+\begin{itemize}
+    \item Column: startLocatieForDisplayLong.
+    \item Row: startLocatieForDisplayLat.
+    \item Pages: hour.
+\end{itemize}
+
+\subsubsection{Visualizations of the average speed and flow of traffic at each measurement point per hour.}\hspace*{\fill}
+\begin{itemize}
+    \item Column: startLocatieForDisplayLong.
+    \item Row: startLocatieForDisplayLat.
+    \item Pages: hour.
+    \item Mark: avg\_speed/avg\_flow.
+\end{itemize}
+
+\subsubsection{Visualizations of the significant deviation of the speedand flow at each measurement point per hour.}\hspace*{\fill}
+\begin{itemize}
+    \item Column: startLocatieForDisplayLong.
+    \item Row: startLocatieForDisplayLat.
+    \item Pages: hour.
+    \item Mark: sig\_dif\_speedID\_dayWeek\_hourDay/sig\_dif\_flowID\_ dayWeek\_hourDay.
+\end{itemize}
+
+%\begin{figure}[t]
+%    \centering
+%    \includegraphics[width=1\linewidth]{Images/tableau.png}
+%    \caption{Tableau data set connections.}
+%    \label{fig:tableau}
+%\end{figure}
+
+\section{Results}
+
+Unfortunately, it is not possible to show all of the visualizations in this report. Therefore, it was chosen to present some examples of the visualizations and a case will be presented with more in depth analysis. 
+
+\subsection{Example available results}
+
+In \Fref{fig:traffic_locations} the visualization of measurement point locations and road-work locations for a random hour is shown. In sub-figure \ref{fig:traffic_locations}a the location of roadworks for a single day are shown. The roadworks can change during time and in tableau the visualization is interactive. It is possible to scroll through time and see roadworks appear and disappear. This also applies to the visualizations in sub-figure \ref{fig:traffic_locations}b and \ref{fig:traffic_locations}c.
+
+In \Fref{app:traffic_conditions_avg} visualizations of the average speed and flow at each measurement point at a certain hour are shown. In sub-figure \ref{fig:traffic_conditions_avg}a the average speed for every measurement location is colour indicated; ranging from 50 km per hour (red) to 120 km per hour (light grey). Similar for the average flow in sub-figure \ref{fig:traffic_conditions_avg}b; with the flow ranging from 0 (light grey) to 2000 (dark orange). In tableau it is possible to scroll ,for both applications, through the time interactively; the average speed/flow will change accordingly.
+
+In \Fref{app:traffic_conditions_sig} visualizations of the significant deviation of the speed and flow at each measurement point at a certain hour is shown. In  sub-figure \ref{fig:traffic_conditions_sig}a the significant deviation of speed for each measurement point is shown. The deviation of speed ranges from -30 (red) to 0 (light grey). Similar for the deviation of flow, which ranges from -946 (dark orange) to 1202 (dark blue) in  sub-figure \ref{fig:traffic_conditions_sig}b. In tableau it is possible to scroll, for both applications, through the time interactively; the significant deviation of speed/flow will change accordingly.
+
+\subsection{Results case}
+
+\Fref{app:traffic_conditions}
+
+\begin{figure*}
+     \animategraphics[controls,loop, width=5.8cm, height=4cm]{4}{LOC_ROADWORKS/LOC_RW}{0}{23}
+    \hfill
+    \animategraphics[controls,loop, width=5.8cm, height=4cm]{4}{LOC_MP_SPEED/LOC_MPS}{0}{23}
+    \hfill
+    \animategraphics[controls,loop, width=5.8cm, height=4cm]{4}{LOC_MP_FLOW/LOC_MPF}{0}{23}
+    \caption{Traffic conditions in the Amsterdam area at 17:00 - 10/06/16 using averages.}
+    \label{fig:traffic_locations}
+\end{figure*}
+
+\section{Discussion}
+
+\section{Conclusions}
+
+\newpage
+\onecolumn
+\begin{appendices}
+
+\section{Traffic Conditions Using Averages}
+\label{app:traffic_conditions_avg}
+\begin{figure}[h]
+    \subfigure{\animategraphics[controls,loop, width=8cm, height=5.5cm]{2}{SPEED_AVG/SPEED_AVG}{0}{23}}
+    \hfill
+    \subfigure{\animategraphics[controls,loop, width=8cm, height=5.5cm]{2}{FLOW_AVG/FLOW_AVG}{0}{23}}
+    \hfill
+    \subfigure{\animategraphics[controls,loop, width=8cm, height=5.5cm]{2}{SIG_DEV_SPEED/SIG_DEV_SPEED}{0}{23}}
+    \hfill
+    \subfigure{\animategraphics[controls,loop, width=8cm, height=5.5cm]{2}{SIG_DEV_FLOW/SIG_DEV_FLOW}{0}{23}}
+    \hfill
+    \caption{Traffic conditions in the Amsterdam area at 17:00 - 10/06/16 using averages.}
+    \label{fig:traffic_conditions_avg}
+\end{figure}
+
+%\section{Traffic Conditions Using Significant Deviation}
+%\label{app:traffic_conditions_sig}
+%\begin{figure}[h]
+%    \subfigure{\animategraphics[controls,loop, width=8cm, height=4cm]{2}{SIG_DEV_SPEED/SIG_DEV_SPEED}{0}{23}}
+%    \hfill
+%    \subfigure{\animategraphics[controls,loop, width=8cm, height=4cm]{2}{SIG_DEV_FLOW/SIG_DEV_FLOW}{0}{23}}
+%    \caption{Traffic conditions in the Amsterdam area at 17:00 - 10/06/16 using significant deviation.}
+%    \label{fig:traffic_conditions_sig}
+%\end{figure}
+
+\end{appendices}
+
+
+\end{document}
